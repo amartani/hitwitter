@@ -1,6 +1,6 @@
-package central.gerenciamento;
+package central.gerenciamento.ip;
 
-public class IPConexao {
+public class Conexao {
 
 	public void create() {
 

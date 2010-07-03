@@ -1,8 +1,8 @@
-package central.gerenciamento;
+package central.gerenciamento.rn;
 
-public class RNGerenciadorUsuarios {
+public class GerenciadorUsuarios {
 
-	public RNGerenciadorUsuarios() {
+	public GerenciadorUsuarios() {
 		// TODO Auto-generated constructor stub
 	}
 

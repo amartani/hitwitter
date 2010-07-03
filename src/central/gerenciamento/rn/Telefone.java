@@ -1,6 +1,6 @@
-package central.gerenciamento;
+package central.gerenciamento.rn;
 
-public class RNTelefone {
+public class Telefone {
 
 	private String numero;
 

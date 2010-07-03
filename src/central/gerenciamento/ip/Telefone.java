@@ -1,6 +1,6 @@
-package central.gerenciamento;
+package central.gerenciamento.ip;
 
-public class IPTelefone {
+public class Telefone {
 
 	public void create() {
 

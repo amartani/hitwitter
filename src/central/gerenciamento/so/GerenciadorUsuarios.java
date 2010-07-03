@@ -1,8 +1,8 @@
-package central.gerenciamento;
+package central.gerenciamento.so;
 
-public class SOGerenciadorUsuarios {
+public class GerenciadorUsuarios {
 
-	public SOGerenciadorUsuarios() {
+	public GerenciadorUsuarios() {
 		// TODO Auto-generated constructor stub
 	}
 
