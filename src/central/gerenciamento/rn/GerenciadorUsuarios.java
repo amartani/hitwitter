@@ -1,40 +1,41 @@
 package central.gerenciamento.rn;
 
+import central.gerenciamento.ip.Telefone;
+
 public class GerenciadorUsuarios {
 
 	public GerenciadorUsuarios() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public void conectarTelefone() {
-
+	public void conectarTelefone(Telefone telefone) {
+		
 	}
 
-	public void desconectarTelefone() {
-
-	}
-
-	public void verificarPermissao() {
+	public void desconectarTelefone(Telefone telefone) {
 
 	}
 
-	public void registrarConexao() {
+	public void verificarPermissao(Telefone telefone) {
 
 	}
 
-	public void retirarRegistroDeConexao() {
+	private void registrarConexao() {
 
 	}
 
-	public void verificarConectado() {
+	private void retirarRegistroDeConexao() {
 
 	}
 
-	public void adicionarTelefone() {
+	private void verificarConectado() {
 
 	}
 
-	public void removerTelefone() {
+	private void adicionarTelefone() {
+
+	}
+
+	private void removerTelefone() {
 
 	}
 }
