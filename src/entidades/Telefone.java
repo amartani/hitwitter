@@ -1,6 +1,8 @@
-package central.gerenciamento.rn;
+package entidades;
 
-public class Telefone {
+import java.io.Serializable;
+
+public class Telefone implements Serializable {
 
 	private String numero;
 
@@ -10,10 +12,6 @@ public class Telefone {
 
 	protected void setNumero(String numero) {
 		this.numero = numero;
-	}
-
-	public void verificarPermissao() {
-
 	}
 
 }
