@@ -14,4 +14,6 @@ public class Telefone implements Serializable {
 		this.numero = numero;
 	}
 
+	private static final long serialVersionUID = -8780538450738945360L;
+
 }
