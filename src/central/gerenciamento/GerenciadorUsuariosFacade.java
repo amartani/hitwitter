@@ -1,7 +1,7 @@
 package central.gerenciamento;
 
-import central.gerenciamento.ip.Telefone;
 import central.gerenciamento.rn.GerenciadorUsuarios;
+import entidades.Telefone;
 
 public class GerenciadorUsuariosFacade {
 	
