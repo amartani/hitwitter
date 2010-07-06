@@ -1,6 +1,6 @@
 package central.gerenciamento.ip;
 
-public class Telefone {
+public class IPConexao {
 
 	public void create() {
 
