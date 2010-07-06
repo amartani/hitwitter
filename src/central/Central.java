@@ -1,6 +1,7 @@
 package central;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import central.gerenciamento.GerenciadorUsuariosFacade;
 
@@ -8,11 +9,11 @@ import entidades.Mensagem;
 import entidades.Requisicao;
 import entidades.Telefone;
 
-public class Central implements ICentralRemote {
+public class Central extends UnicastRemoteObject implements ICentralRemote {
 	
 	private GerenciadorUsuariosFacade gerenciadorUsuariosFacade;
 	
-	public Central() {
+	public Central() throws RemoteException {
 		gerenciadorUsuariosFacade = new GerenciadorUsuariosFacade();
 	}
 
@@ -68,4 +69,5 @@ public class Central implements ICentralRemote {
 		
 	}
 
+	private static final long serialVersionUID = -4137275903989772036L;
 }
