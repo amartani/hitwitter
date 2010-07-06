@@ -5,9 +5,9 @@ public class Main {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) throws Exception {
+		AiFone aifone = new AiFone();
+		aifone.testeConectarTelefone();
 	}
 
 }
