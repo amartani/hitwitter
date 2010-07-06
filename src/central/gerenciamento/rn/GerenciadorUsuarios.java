@@ -15,8 +15,8 @@ public class GerenciadorUsuarios {
 
 	}
 
-	public void verificarPermissao(Telefone telefone) {
-
+	public boolean verificarPermissao(Telefone telefone) {
+		return false;
 	}
 
 	private void registrarConexao() {
@@ -27,15 +27,15 @@ public class GerenciadorUsuarios {
 
 	}
 
-	private void verificarConectado() {
+	private boolean verificarConectado() {
+		return false;
+	}
+
+	public void adicionarTelefone(Telefone telefone) {
 
 	}
 
-	private void adicionarTelefone() {
-
-	}
-
-	private void removerTelefone() {
+	public void removerTelefone(Telefone telefone) {
 
 	}
 }
