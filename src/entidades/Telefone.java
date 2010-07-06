@@ -5,6 +5,11 @@ import java.io.Serializable;
 public class Telefone implements Serializable {
 
 	private String numero;
+	
+	public Telefone(String numero) {
+		super();
+		this.numero = numero;
+	}
 
 	protected String getNumero() {
 		return numero;
