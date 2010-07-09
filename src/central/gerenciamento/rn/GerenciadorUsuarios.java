@@ -53,8 +53,7 @@ public class GerenciadorUsuarios {
 	/**
 	 * Obtem o endereço RMI do cliente
 	 * 
-	 * Pré-condição: verificarConectado(telefone)
-	 * 
+	 * @precondition verificarConectado(telefone)
 	 * @param telefone Telefone do cliente
 	 * @return Endereco RMI correspondente ao cliente
 	 */
