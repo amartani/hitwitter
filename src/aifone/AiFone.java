@@ -1,5 +1,6 @@
 package aifone;
 
+import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -20,7 +21,22 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 
 	public void testeConectarTelefone() throws RemoteException {
 		propriedades = new PropriedadesArquivo();
-		getInstanciaServidor().conectarTelefone(null, null);
+		getInstanciaServidor().conectarTelefone(getTelefone(), getEnderecoRMI());
+	}
+	
+	private String getEnderecoRMI() {
+		try {
+			return "rmi://"+java.net.InetAddress.getLocalHost().getHostAddress()+"/aifone";
+		} catch (UnknownHostException e) {
+			System.err.println("Nao foi possivel obter endereco local");
+			e.printStackTrace();
+			System.exit(1);
+		}
+		return null;
+	}
+	
+	private Telefone getTelefone() {
+		return new Telefone(propriedades.getNumeroTelefone());
 	}
 
 	/**
