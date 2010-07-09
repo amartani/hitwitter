@@ -20,6 +20,7 @@ public class IU_Discar extends javax.swing.JPanel {
     /** Creates new form IU_Discar */
     public IU_Discar() {
         initComponents();
+
     }
 
     /** This method is called from within the constructor to
@@ -31,6 +32,7 @@ public class IU_Discar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         botao0 = new javax.swing.JButton();
         botaoDiscar = new javax.swing.JButton();
@@ -44,6 +46,9 @@ public class IU_Discar extends javax.swing.JPanel {
         botao8 = new javax.swing.JButton();
         botao9 = new javax.swing.JButton();
         botaoLimpar = new javax.swing.JButton();
+        botaoSair = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setPreferredSize(new java.awt.Dimension(320, 480));
 
@@ -51,11 +56,6 @@ public class IU_Discar extends javax.swing.JPanel {
         botao0.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botao0MouseClicked(evt);
-            }
-        });
-        botao0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botao0ActionPerformed(evt);
             }
         });
 
@@ -69,6 +69,11 @@ public class IU_Discar extends javax.swing.JPanel {
         });
 
         botao2.setText("2");
+        botao2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botao2MouseClicked(evt);
+            }
+        });
 
         botao3.setText("3");
 
@@ -84,49 +89,62 @@ public class IU_Discar extends javax.swing.JPanel {
 
         botao9.setText("9");
 
-        botaoLimpar.setText("Limpar");
+        botaoLimpar.setText("<");
+
+        botaoSair.setText("X");
+        botaoSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoSairMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(57, 57, 57)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoLimpar)
+                .addGap(41, 41, 41))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(botaoLimpar)
+                        .addComponent(botaoDiscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoDiscar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(botao1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botao2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botao3))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(botao4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botao5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botao6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(botao7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botao0)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(botao8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botao9)))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                        .addComponent(botaoSair))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(botao7)
+                            .addGap(6, 6, 6)
+                            .addComponent(botao8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botao9))
+                        .addComponent(botao0)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(botao1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botao2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botao3))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(botao4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botao5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botao6))))
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoLimpar))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botao1)
                     .addComponent(botao2)
@@ -139,30 +157,42 @@ public class IU_Discar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botao7)
-                    .addComponent(botao8)
-                    .addComponent(botao9))
+                    .addComponent(botao9)
+                    .addComponent(botao8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botao0)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoDiscar)
-                    .addComponent(botaoLimpar))
-                .addGap(29, 29, 29))
+                    .addComponent(botaoSair))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void botao0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao0MouseClicked
-        // TODO add your handling code here:
-        jTextField1.setText(jTextField1.getText().concat("0"));
+        adicionarNumero("0");
     }//GEN-LAST:event_botao0MouseClicked
 
-    private void botao0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao0ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao0ActionPerformed
-
     private void botao1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao1MouseClicked
-        jTextField1.setText(jTextField1.getText().concat("1"));
+        adicionarNumero("1");
     }//GEN-LAST:event_botao1MouseClicked
+
+    private void botao2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao2MouseClicked
+        adicionarNumero("2");
+    }//GEN-LAST:event_botao2MouseClicked
+
+    private void botaoSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseClicked
+        this.setVisible(false);
+        this.getParent().getComponent(0).setVisible(true);
+    }//GEN-LAST:event_botaoSairMouseClicked
+
+
+    private void adicionarNumero(String numero){
+        jTextField1.setText(jTextField1.getText().concat(numero));
+    }
+
+
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -178,6 +208,8 @@ public class IU_Discar extends javax.swing.JPanel {
     private javax.swing.JButton botao9;
     private javax.swing.JButton botaoDiscar;
     private javax.swing.JButton botaoLimpar;
+    private javax.swing.JButton botaoSair;
+    private javax.swing.JButton jButton1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
