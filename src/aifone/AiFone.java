@@ -2,10 +2,19 @@ package aifone;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import central.ICentralRemote;
+import entidades.Mensagem;
+import entidades.Telefone;
 
-public class AiFone {
+@SuppressWarnings("serial")
+public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
+
+	protected AiFone() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	private ICentralRemote servidor;
 	private IPropriedades propriedades;
@@ -39,5 +48,23 @@ public class AiFone {
 			e.printStackTrace();
 			System.exit(1);
 		}
+	}
+
+	@Override
+	public void receberChamada(Telefone origem) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void encerrarChamada() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void receberMensagem(Mensagem mensagem) {
+		// TODO Auto-generated method stub
+		
 	}
 }
