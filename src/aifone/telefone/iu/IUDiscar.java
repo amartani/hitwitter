@@ -36,7 +36,7 @@ public class IUDiscar extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        campoDoNumero = new javax.swing.JTextField();
         botao0 = new javax.swing.JButton();
         botaoDiscar = new javax.swing.JButton();
         botao1 = new javax.swing.JButton();
@@ -152,7 +152,7 @@ public class IUDiscar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoDoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botaoApagar)
                 .addGap(41, 41, 41))
@@ -190,7 +190,7 @@ public class IUDiscar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoDoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoApagar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -258,16 +258,16 @@ public class IUDiscar extends javax.swing.JPanel {
     }//GEN-LAST:event_botao0ActionPerformed
 
     private void botaoApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApagarActionPerformed
-        String numeroDeTelefone = jTextField1.getText();
+        String numeroDeTelefone = campoDoNumero.getText();
         if (numeroDeTelefone.length() >0){
             String numero2 = numeroDeTelefone.substring(0, numeroDeTelefone.length()-1);
-            jTextField1.setText(numero2);
+            campoDoNumero.setText(numero2);
         }
     }//GEN-LAST:event_botaoApagarActionPerformed
 
     private void botaoDiscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDiscarActionPerformed
-        if(jTextField1.getText().length()>0)
-            IUContainer.getInstance().setPanel(new IUEfetuandoChamada(jTextField1.getText()));
+        if(campoDoNumero.getText().length()>0)
+            IUContainer.getInstance().setPanel(new IUEfetuandoChamada(campoDoNumero.getText()));
     }//GEN-LAST:event_botaoDiscarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
@@ -277,7 +277,7 @@ public class IUDiscar extends javax.swing.JPanel {
     
 
     private void adicionarNumero(String numero){
-        jTextField1.setText(jTextField1.getText().concat(numero));
+        campoDoNumero.setText(campoDoNumero.getText().concat(numero));
     }
 
     private void changePanel(javax.swing.JPanel tela){
@@ -300,8 +300,8 @@ public class IUDiscar extends javax.swing.JPanel {
     private javax.swing.JButton botaoApagar;
     private javax.swing.JButton botaoDiscar;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JTextField campoDoNumero;
     private javax.swing.JButton jButton1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
 }
