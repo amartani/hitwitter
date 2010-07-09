@@ -11,7 +11,7 @@
 
 package aifone.iu;
 
-import aifone.telefone.iu.IU_Discar;
+import aifone.telefone.iu.IUDiscar;
 
 /**
  *
@@ -35,8 +35,8 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        iU_TelaInicial1 = new aifone.iu.IU_TelaInicial();
-        iU_Discar1 = new aifone.telefone.iu.IU_Discar();
+        iU_TelaInicial1 = new aifone.iu.IUTelaInicial();
+        iU_Discar1 = new aifone.telefone.iu.IUDiscar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(320, 480));
@@ -82,8 +82,8 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private aifone.telefone.iu.IU_Discar iU_Discar1;
-    private aifone.iu.IU_TelaInicial iU_TelaInicial1;
+    private aifone.telefone.iu.IUDiscar iU_Discar1;
+    private aifone.iu.IUTelaInicial iU_TelaInicial1;
     // End of variables declaration//GEN-END:variables
 
 }

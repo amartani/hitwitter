@@ -4,7 +4,7 @@
  */
 
 /*
- * IU_Discar.java
+ * IUDiscar.java
  *
  * Created on 08/07/2010, 23:46:49
  */
@@ -12,16 +12,16 @@
 package aifone.telefone.iu;
 
 import aifone.iu.IUContainer;
-import aifone.iu.IU_TelaInicial;
+import aifone.iu.IUTelaInicial;
 
 /**
  *
  * @author William
  */
-public class IU_Discar extends javax.swing.JPanel {
+public class IUDiscar extends javax.swing.JPanel {
 
-    /** Creates new form IU_Discar */
-    public IU_Discar() {
+    /** Creates new form IUDiscar */
+    public IUDiscar() {
         initComponents();
 
     }
@@ -259,17 +259,19 @@ public class IU_Discar extends javax.swing.JPanel {
 
     private void botaoApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoApagarActionPerformed
         String numeroDeTelefone = jTextField1.getText();
-        
-        String numero2 = numeroDeTelefone.substring(0, numeroDeTelefone.length()-1);
-        jTextField1.setText(numero2);
+        if (numeroDeTelefone.length() >0){
+            String numero2 = numeroDeTelefone.substring(0, numeroDeTelefone.length()-1);
+            jTextField1.setText(numero2);
+        }
     }//GEN-LAST:event_botaoApagarActionPerformed
 
     private void botaoDiscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDiscarActionPerformed
-        //IUContainer.getInstance().setPanel(new IUEfetuandoChamada());
+        if(jTextField1.getText().length()>0)
+            IUContainer.getInstance().setPanel(new IUEfetuandoChamada(jTextField1.getText()));
     }//GEN-LAST:event_botaoDiscarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        IUContainer.getInstance().setPanel(new IU_TelaInicial());
+        IUContainer.getInstance().setPanel(new IUTelaInicial());
     }//GEN-LAST:event_botaoSairActionPerformed
 
     

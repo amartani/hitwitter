@@ -4,23 +4,23 @@
  */
 
 /*
- * IU_TelaInicial.java
+ * IUTelaInicial.java
  *
  * Created on 09/07/2010, 10:36:20
  */
 
 package aifone.iu;
 
-import aifone.telefone.iu.IU_Discar;
+import aifone.telefone.iu.IUDiscar;
 
 /**
  *
  * @author William
  */
-public class IU_TelaInicial extends javax.swing.JPanel {
+public class IUTelaInicial extends javax.swing.JPanel {
 
-    /** Creates new form IU_TelaInicial */
-    public IU_TelaInicial() {
+    /** Creates new form IUTelaInicial */
+    public IUTelaInicial() {
         initComponents();
     }
 
@@ -51,12 +51,12 @@ public class IU_TelaInicial extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addComponent(botaoIniciarTelefone)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(170, Short.MAX_VALUE)
+                .addContainerGap(350, Short.MAX_VALUE)
                 .addComponent(botaoIniciarTelefone)
                 .addGap(107, 107, 107))
         );
@@ -64,7 +64,7 @@ public class IU_TelaInicial extends javax.swing.JPanel {
 
     private void botaoIniciarTelefoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoIniciarTelefoneMouseClicked
 
-           IUContainer.getInstance().setPanel(new IU_Discar());
+           IUContainer.getInstance().setPanel(new IUDiscar());
      
 
            
