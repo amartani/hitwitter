@@ -1,10 +1,15 @@
 package central.gerenciamento.rn;
 
+import central.gerenciamento.ip.IIPConexao;
+import central.gerenciamento.ip.IPConexaoMemoria;
 import entidades.Telefone;
 
 public class GerenciadorUsuarios {
 
+	private IIPConexao ipconexao;
+	
 	public GerenciadorUsuarios() {
+		ipconexao = new IPConexaoMemoria();
 	}
 	
 	/**
@@ -14,7 +19,7 @@ public class GerenciadorUsuarios {
 	 * @param enderecoRMI Endereço RMI do cliente
 	 */
 	public void conectarTelefone(Telefone telefone, String enderecoRMI) {
-		
+		ipconexao.inserir(telefone, enderecoRMI);
 	}
 
 	/**
@@ -23,7 +28,7 @@ public class GerenciadorUsuarios {
 	 * @param telefone Telefone a ser desconectado
 	 */
 	public void desconectarTelefone(Telefone telefone) {
-		
+		ipconexao.apagar(telefone);
 	}
 	
 	/**
