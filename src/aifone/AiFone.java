@@ -7,11 +7,11 @@ import central.ICentralRemote;
 
 public class AiFone {
 
-	public static final String ENDERECO_CENTRAL = "rmi://alexandre11.redecasd.ita.br/centralaifone";
-
 	private ICentralRemote servidor;
+	private IPropriedades propriedades;
 
 	public void testeConectarTelefone() throws RemoteException {
+		propriedades = new PropriedadesArquivo();
 		getInstanciaServidor().conectarTelefone(null, null);
 	}
 
@@ -32,7 +32,7 @@ public class AiFone {
 	 */
 	private void criarInstanciaServidor() {
 		try {
-			servidor = (ICentralRemote) Naming.lookup(ENDERECO_CENTRAL);
+			servidor = (ICentralRemote) Naming.lookup(propriedades.getEnderecoServidor());
 		} catch (Exception e) {
 			System.out
 					.println("Nao foi possivel conectar ao servidor. Excecao: ");
