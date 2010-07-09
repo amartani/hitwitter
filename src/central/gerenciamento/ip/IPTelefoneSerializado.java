@@ -47,7 +47,9 @@ public class IPTelefoneSerializado implements IIPTelefone {
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see central.gerenciamento.ip.IIPTelefone#inserir(entidades.Telefone)
 	 */
 	@Override
@@ -56,7 +58,9 @@ public class IPTelefoneSerializado implements IIPTelefone {
 		gravarTelefonesNoArquivo();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see central.gerenciamento.ip.IIPTelefone#procurar(entidades.Telefone)
 	 */
 	@Override
@@ -64,7 +68,9 @@ public class IPTelefoneSerializado implements IIPTelefone {
 		return banco.contains(telefone);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see central.gerenciamento.ip.IIPTelefone#apagar(entidades.Telefone)
 	 */
 	@Override
@@ -73,5 +79,10 @@ public class IPTelefoneSerializado implements IIPTelefone {
 		gravarTelefonesNoArquivo();
 	}
 
+	public static void main(String args[]) {
+		IPTelefoneSerializado iptelefone = new IPTelefoneSerializado();
+		Telefone telefone = new Telefone("1234-5678");
+		iptelefone.inserir(telefone);
+	}
 
 }

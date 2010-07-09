@@ -12,7 +12,7 @@ public class Telefone implements Serializable {
 		this.numero = numero;
 	}
 
-	protected String getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
