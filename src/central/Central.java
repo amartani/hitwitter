@@ -11,16 +11,16 @@ import entidades.Telefone;
 
 public class Central extends UnicastRemoteObject implements ICentralRemote {
 	
-	private Gerenciamento gerenciadorUsuariosFacade;
+	private Gerenciamento gerenciamento;
 	
 	public Central() throws RemoteException {
-		gerenciadorUsuariosFacade = new Gerenciamento();
+		gerenciamento = new Gerenciamento();
 	}
 
 	@Override
 	public void conectarTelefone(Telefone telefone, String enderecoRMI) throws RemoteException {
 		System.out.println("desconectaTelefone");
-		gerenciadorUsuariosFacade.conectarTelefone(telefone, enderecoRMI);
+		gerenciamento.conectarTelefone(telefone, enderecoRMI);
 	}
 
 	@Override
