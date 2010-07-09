@@ -36,18 +36,21 @@ public class IUEfetuandoChamada extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         labelNumero = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botaoCancelar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        jLabel1.setText("Efetuando Chamada!");
+        jLabel1.setText("Chamando...");
 
         labelNumero.setText("0000");
 
-        jButton1.setText("X");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoCancelar.setText("X");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoCancelarActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,8 +61,9 @@ public class IUEfetuandoChamada extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(labelNumero)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addContainerGap(193, Short.MAX_VALUE))
+                    .addComponent(botaoCancelar)
+                    .addComponent(jLabel2))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,19 +73,22 @@ public class IUEfetuandoChamada extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addComponent(labelNumero)
                 .addGap(58, 58, 58)
-                .addComponent(jButton1)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addComponent(botaoCancelar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
         IUContainer.getInstance().setPanel(new IUDiscar());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botaoCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botaoCancelar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelNumero;
     // End of variables declaration//GEN-END:variables
 
