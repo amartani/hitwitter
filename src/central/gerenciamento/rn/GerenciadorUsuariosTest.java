@@ -91,6 +91,7 @@ public class GerenciadorUsuariosTest {
 	@Test
 	public void verificarConectadoAposConectar() {
 		Telefone telefone = new Telefone("1234-5678");
+		gerenciadorUsuario.adicionarTelefone(telefone);
 		String enderecoRMI = "rmi://test/instance";
 		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
 		assertTrue(gerenciadorUsuario.verificarConectado(telefone));

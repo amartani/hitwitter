@@ -1,15 +1,19 @@
 package central.gerenciamento.rn;
 
 import central.gerenciamento.ip.IIPConexao;
+import central.gerenciamento.ip.IIPTelefone;
 import central.gerenciamento.ip.IPConexaoMemoria;
+import central.gerenciamento.ip.IPTelefoneMemoria;
 import entidades.Telefone;
 
 public class GerenciadorUsuarios {
 
 	private IIPConexao ipconexao;
+	private IIPTelefone iptelefone;
 	
 	public GerenciadorUsuarios() {
 		ipconexao = new IPConexaoMemoria();
+		iptelefone = new IPTelefoneMemoria();
 	}
 	
 	/**
@@ -19,7 +23,12 @@ public class GerenciadorUsuarios {
 	 * @param enderecoRMI Endereço RMI do cliente
 	 */
 	public void conectarTelefone(Telefone telefone, String enderecoRMI) {
-		ipconexao.inserir(telefone, enderecoRMI);
+		if (verificarPermissao(telefone)) {
+			ipconexao.inserir(telefone, enderecoRMI);
+		} else {
+			// TODO: criar exception
+			throw new RuntimeException("Telefone nao cadastrado");
+		}
 	}
 
 	/**
@@ -38,7 +47,7 @@ public class GerenciadorUsuarios {
 	 * @return True se o telefone está ativo
 	 */
 	public boolean verificarPermissao(Telefone telefone) {
-		return false;
+		return iptelefone.procurar(telefone);
 	}
 	
 	/**
@@ -50,7 +59,7 @@ public class GerenciadorUsuarios {
 	 * @return Endereco RMI correspondente ao cliente
 	 */
 	public String enderecoRMIDoCliente(Telefone telefone) {
-		return null;
+		return ipconexao.procurar(telefone);
 	}
 	
 	/**
@@ -60,6 +69,9 @@ public class GerenciadorUsuarios {
 	 * @return True se estiver conectado
 	 */
 	public boolean verificarConectado(Telefone telefone) {
+		if (ipconexao.procurar(telefone) != null) {
+			return true;
+		}
 		return false;
 	}
 
@@ -69,7 +81,7 @@ public class GerenciadorUsuarios {
 	 * @param telefone Telefone a ser adicionado
 	 */
 	public void adicionarTelefone(Telefone telefone) {
-		
+		iptelefone.inserir(telefone);
 	}
 
 	/**
@@ -78,6 +90,6 @@ public class GerenciadorUsuarios {
 	 * @param telefone Telefone a ser removido
 	 */
 	public void removerTelefone(Telefone telefone) {
-		
+		iptelefone.apagar(telefone);
 	}
 }
