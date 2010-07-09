@@ -22,6 +22,9 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 	public void testeConectarTelefone() throws RemoteException {
 		propriedades = new PropriedadesArquivo();
 		getInstanciaServidor().conectarTelefone(getTelefone(), getEnderecoRMI());
+		getInstanciaServidor().efetuarChamada(getTelefone());
+		getInstanciaServidor().desconectarTelefone(getTelefone());
+		getInstanciaServidor().efetuarChamada(getTelefone());
 	}
 	
 	private String getEnderecoRMI() {
@@ -67,8 +70,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 
 	@Override
 	public void receberChamada(Telefone origem) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Recebendo chamada de " + origem.getNumero());
 	}
 
 	@Override
