@@ -9,6 +9,8 @@ import aifone.IAiFoneRemote;
 
 import central.gerenciamento.Gerenciamento;
 import central.gerenciamento.IGerenciamento;
+import central.tunel.ITunel;
+import central.tunel.Tunel;
 
 import entidades.Mensagem;
 import entidades.Requisicao;
@@ -18,10 +20,19 @@ import entidades.Telefone;
 public class Central extends UnicastRemoteObject implements ICentralRemote {
 
 	private IGerenciamento gerenciamento;
+	private ITunel tunel;
 
 	public Central() throws RemoteException {
 		super();
 		gerenciamento = new Gerenciamento();
+		tunel = new Tunel();
+	}
+
+	public Central(IGerenciamento gerenciamento, ITunel tunel)
+			throws RemoteException {
+		super();
+		this.gerenciamento = gerenciamento;
+		this.tunel = tunel;
 	}
 
 	@Override
