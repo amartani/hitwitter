@@ -11,6 +11,9 @@
 
 package aifone.telefone.iu;
 
+import aifone.iu.IUContainer;
+import aifone.iu.IU_TelaInicial;
+
 /**
  *
  * @author William
@@ -182,8 +185,7 @@ public class IU_Discar extends javax.swing.JPanel {
     }//GEN-LAST:event_botao2MouseClicked
 
     private void botaoSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseClicked
-        this.setVisible(false);
-        this.getParent().getComponent(0).setVisible(true);
+        IUContainer.getInstance().setPanel(new IU_TelaInicial());
     }//GEN-LAST:event_botaoSairMouseClicked
 
 
