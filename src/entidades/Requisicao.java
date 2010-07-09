@@ -1,7 +1,8 @@
 package entidades;
 
-import java.rmi.Remote;
+import java.io.Serializable;
 
-public class Requisicao implements Remote {
+@SuppressWarnings("serial")
+public class Requisicao implements Serializable {
 
 }
