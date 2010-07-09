@@ -8,7 +8,7 @@ import entidades.Requisicao;
 import entidades.Telefone;
 
 public interface ICentralRemote extends Remote {
-	public void conectarTelefone(Telefone telefone) throws RemoteException;
+	public void conectarTelefone(Telefone telefone, String enderecoRMI) throws RemoteException;
 	public void desconectarTelefone(Telefone telefone) throws RemoteException;
 	public void efetuarChamada(Telefone telefone) throws RemoteException;
 	public void informarChamadaEncerrada(Telefone telefone) throws RemoteException;

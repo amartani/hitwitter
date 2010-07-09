@@ -12,7 +12,7 @@ public class AiFone {
 	private ICentralRemote servidor;
 
 	public void testeConectarTelefone() throws RemoteException {
-		getInstanciaServidor().conectarTelefone(null);
+		getInstanciaServidor().conectarTelefone(null, null);
 	}
 
 	/**

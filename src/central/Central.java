@@ -18,9 +18,9 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 	}
 
 	@Override
-	public void conectarTelefone(Telefone telefone) throws RemoteException {
+	public void conectarTelefone(Telefone telefone, String enderecoRMI) throws RemoteException {
 		System.out.println("desconectaTelefone");
-		gerenciadorUsuariosFacade.conectarTelefone(telefone);
+		gerenciadorUsuariosFacade.conectarTelefone(telefone, enderecoRMI);
 	}
 
 	@Override
