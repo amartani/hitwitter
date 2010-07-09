@@ -50,14 +50,14 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="aifone.iu.IU_TelaInicial" name="iU_TelaInicial1">
+    <Component class="aifone.iu.IUTelaInicial" name="iU_TelaInicial1">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[320, 480]"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="aifone.telefone.iu.IU_Discar" name="iU_Discar1">
+    <Component class="aifone.telefone.iu.IUDiscar" name="iU_Discar1">
     </Component>
   </SubComponents>
 </Form>
