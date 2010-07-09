@@ -63,9 +63,12 @@ public class IU_TelaInicial extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoIniciarTelefoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoIniciarTelefoneMouseClicked
+
            IUContainer.getInstance().setPanel(new IU_Discar());
      
+
            
+
     }//GEN-LAST:event_botaoIniciarTelefoneMouseClicked
 
 
