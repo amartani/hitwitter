@@ -2,6 +2,7 @@ package entidades;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Telefone implements Serializable {
 
 	private final String numero;
@@ -39,7 +40,5 @@ public class Telefone implements Serializable {
 			return false;
 		return true;
 	}
-
-	private static final long serialVersionUID = -8780538450738945360L;
 
 }
