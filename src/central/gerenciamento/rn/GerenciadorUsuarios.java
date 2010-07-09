@@ -7,7 +7,7 @@ public class GerenciadorUsuarios {
 	public GerenciadorUsuarios() {
 	}
 
-	public void conectarTelefone(Telefone telefone) {
+	public void conectarTelefone(Telefone telefone, String enderecoRMI) {
 		
 	}
 

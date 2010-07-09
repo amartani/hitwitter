@@ -11,8 +11,8 @@ public class GerenciadorUsuariosFacade {
 		gerenciadorUsuarios = new GerenciadorUsuarios();
 	}
 
-	public void conectarTelefone(Telefone telefone) {
-		gerenciadorUsuarios.conectarTelefone(telefone);
+	public void conectarTelefone(Telefone telefone, String enderecoRMI) {
+		gerenciadorUsuarios.conectarTelefone(telefone, enderecoRMI);
 	}
 
 	public void desconectarTelefone(Telefone telefone) {

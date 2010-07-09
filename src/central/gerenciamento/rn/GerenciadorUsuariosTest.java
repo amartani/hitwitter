@@ -26,21 +26,24 @@ public class GerenciadorUsuariosTest {
 	@Test(expected = Exception.class)
 	public void conectarSemCadastro() {
 		Telefone telefone = new Telefone("1234-5678");
-		gerenciadorUsuario.conectarTelefone(telefone);
+		String enderecoRMI = "rmi://test/instance";
+		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
 	}
 
 	@Test
 	public void conectarAposCadastro() {
 		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
-		gerenciadorUsuario.conectarTelefone(telefone);
+		String enderecoRMI = "rmi://test/instance";
+		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
 	}
 	
 	@Test
 	public void desconectarAposConectar() {
 		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
-		gerenciadorUsuario.conectarTelefone(telefone);
+		String enderecoRMI = "rmi://test/instance";
+		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
 		gerenciadorUsuario.desconectarTelefone(telefone);
 	}
 	
