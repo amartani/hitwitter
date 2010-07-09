@@ -9,11 +9,14 @@ import aifone.IAiFoneRemote;
 
 import central.gerenciamento.Gerenciamento;
 import central.gerenciamento.IGerenciamento;
+import central.telefone.CentralTelefonica;
+import central.telefone.ICentralTelefonica;
 import central.tunel.ITunel;
 import central.tunel.Tunel;
 
 import entidades.Mensagem;
 import entidades.Requisicao;
+import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
 @SuppressWarnings("serial")
@@ -21,23 +24,25 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 
 	private IGerenciamento gerenciamento;
 	private ITunel tunel;
+	private ICentralTelefonica centraltelefonica;
 
 	public Central() throws RemoteException {
 		super();
+		centraltelefonica = new CentralTelefonica();
 		gerenciamento = new Gerenciamento();
 		tunel = new Tunel();
 	}
 
-	public Central(IGerenciamento gerenciamento, ITunel tunel)
-			throws RemoteException {
+	public Central(ICentralTelefonica centraltelefonica,
+			IGerenciamento gerenciamento, ITunel tunel) throws RemoteException {
 		super();
+		this.centraltelefonica = centraltelefonica;
 		this.gerenciamento = gerenciamento;
 		this.tunel = tunel;
 	}
 
 	@Override
-	public void conectarTelefone(Telefone telefone, String enderecoRMI)
-			throws RemoteException {
+	public void conectarTelefone(Telefone telefone, String enderecoRMI) {
 		System.out.println("conectaTelefone");
 		try {
 			System.out.println("Client host: " + getClientHost());
@@ -49,49 +54,41 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 	}
 
 	@Override
-	public void desconectarTelefone(Telefone telefone) throws RemoteException {
-		System.out.println("desconectaTelefone");
+	public void desconectarTelefone(Telefone telefone) {
+		System.out.println("desconectarTelefone");
 		gerenciamento.desconectarTelefone(telefone);
 	}
 
 	@Override
-	public void efetuarChamada(Telefone origem, Telefone destino)
-			throws RemoteException {
-		System.out.println("efetuaChamada");
-		getInstanciaCliente(destino).receberChamada(origem);
+	public void efetuarChamada(Telefone origem, Telefone destino) {
+		System.out.println("efetuarChamada");
+		centraltelefonica.efetuarChamada(origem, destino);
 	}
 
 	@Override
-	public void informarChamadaEncerrada(Telefone telefone)
-			throws RemoteException {
-		// TODO Auto-generated method stub
-
+	public void informarChamadaEncerrada(Telefone telefone) {
+		centraltelefonica.informarChamadaEncerrada(telefone);
 	}
 
 	@Override
-	public void informarChamadaRejeitada(Telefone telefone)
-			throws RemoteException {
-		// TODO Auto-generated method stub
-
+	public void informarChamadaRejeitada(Telefone telefone) {
+		centraltelefonica.informarChamadaRejeitada(telefone);
 	}
 
 	@Override
-	public void confirmarAtendimento(Telefone telefone) throws RemoteException {
-		// TODO Auto-generated method stub
-
+	public void confirmarAtendimento(Telefone telefone) {
+		centraltelefonica.confirmarAtendimento(telefone);
 	}
 
 	@Override
-	public void enviarMensagem(Telefone origem, Mensagem mensagem)
-			throws RemoteException {
-		// TODO Auto-generated method stub
-
+	public void enviarMensagem(Telefone origem, Mensagem mensagem) {
+		centraltelefonica.enviarMensagem(origem, mensagem);
 	}
 
 	@Override
-	public void enviarRequisicaoViaTunel(Telefone origem, Requisicao requisicao)
-			throws RemoteException {
-		// TODO Auto-generated method stub
+	public RespostaDeRequisicao enviarRequisicaoViaTunel(Telefone origem,
+			Requisicao requisicao) {
+		return tunel.enviarRequisicao(origem, requisicao);
 	}
 
 	/**

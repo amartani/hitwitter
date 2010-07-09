@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 
 import entidades.Mensagem;
 import entidades.Requisicao;
+import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
 public interface ICentralRemote extends Remote {
@@ -94,6 +95,6 @@ public interface ICentralRemote extends Remote {
 	 *            Requisicao a ser efetuada
 	 * @throws RemoteException
 	 */
-	public void enviarRequisicaoViaTunel(Telefone origem, Requisicao requisicao)
+	public RespostaDeRequisicao enviarRequisicaoViaTunel(Telefone origem, Requisicao requisicao)
 			throws RemoteException;
 }
