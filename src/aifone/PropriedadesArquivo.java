@@ -23,4 +23,9 @@ public class PropriedadesArquivo implements IPropriedades {
 		return configFile.getProperty("EnderecoServidor");
 	}
 
+	@Override
+	public String getNumeroTelefone() {
+		return configFile.getProperty("NumeroTelefone");
+	}
+
 }
