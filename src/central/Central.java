@@ -2,6 +2,7 @@ package central;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
 import java.rmi.server.UnicastRemoteObject;
 
 import aifone.IAiFoneRemote;
@@ -13,6 +14,7 @@ import entidades.Mensagem;
 import entidades.Requisicao;
 import entidades.Telefone;
 
+@SuppressWarnings("serial")
 public class Central extends UnicastRemoteObject implements ICentralRemote {
 
 	private IGerenciamento gerenciamento;
@@ -26,6 +28,12 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 	public void conectarTelefone(Telefone telefone, String enderecoRMI)
 			throws RemoteException {
 		System.out.println("conectaTelefone");
+		try {
+			System.out.println("Client host: " + getClientHost());
+		} catch (ServerNotActiveException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		gerenciamento.conectarTelefone(telefone, enderecoRMI);
 	}
 
@@ -36,9 +44,10 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 	}
 
 	@Override
-	public void efetuarChamada(Telefone telefone) throws RemoteException {
+	public void efetuarChamada(Telefone origem, Telefone destino)
+			throws RemoteException {
 		System.out.println("efetuaChamada");
-		getInstanciaCliente(telefone).receberChamada(telefone);
+		getInstanciaCliente(destino).receberChamada(origem);
 	}
 
 	@Override
@@ -62,24 +71,26 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 	}
 
 	@Override
-	public void enviarMensagem(Mensagem mensagem) throws RemoteException {
+	public void enviarMensagem(Telefone origem, Mensagem mensagem)
+			throws RemoteException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void enviarRequisicaoViaTunel(Requisicao requisicao)
+	public void enviarRequisicaoViaTunel(Telefone origem, Requisicao requisicao)
 			throws RemoteException {
 		// TODO Auto-generated method stub
 	}
-	
+
 	/**
 	 * Instância do objeto RMI do cliente
 	 */
 	private IAiFoneRemote getInstanciaCliente(Telefone telefone) {
 		IAiFoneRemote cliente = null;
 		try {
-			cliente = (IAiFoneRemote) Naming.lookup(gerenciamento.enderecoRMIDoCliente(telefone));
+			cliente = (IAiFoneRemote) Naming.lookup(gerenciamento
+					.enderecoRMIDoCliente(telefone));
 		} catch (Exception e) {
 			System.out
 					.println("Nao foi possivel conectar ao servidor. Excecao: ");
@@ -89,5 +100,4 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 		return cliente;
 	}
 
-	private static final long serialVersionUID = -4137275903989772036L;
 }
