@@ -22,9 +22,9 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 	public void testeConectarTelefone() throws RemoteException {
 		propriedades = new PropriedadesArquivo();
 		getInstanciaServidor().conectarTelefone(getTelefone(), getEnderecoRMI());
-		getInstanciaServidor().efetuarChamada(getTelefone());
+		getInstanciaServidor().efetuarChamada(getTelefone(), getTelefone());
 		getInstanciaServidor().desconectarTelefone(getTelefone());
-		getInstanciaServidor().efetuarChamada(getTelefone());
+		getInstanciaServidor().efetuarChamada(getTelefone(), getTelefone());
 	}
 	
 	private String getEnderecoRMI() {
