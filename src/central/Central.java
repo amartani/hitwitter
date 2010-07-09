@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 import central.gerenciamento.Gerenciamento;
+import central.gerenciamento.IGerenciamento;
 
 import entidades.Mensagem;
 import entidades.Requisicao;
@@ -11,7 +12,7 @@ import entidades.Telefone;
 
 public class Central extends UnicastRemoteObject implements ICentralRemote {
 
-	private Gerenciamento gerenciamento;
+	private IGerenciamento gerenciamento;
 
 	public Central() throws RemoteException {
 		gerenciamento = new Gerenciamento();
