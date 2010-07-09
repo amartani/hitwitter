@@ -5,15 +5,25 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import aifone.hitwitter.HiTwitter;
+import aifone.hitwitter.IHiTwitter;
+import aifone.telefone.AppTelefone;
+import aifone.telefone.IAppTelefone;
+
 import central.ICentralRemote;
 import entidades.Mensagem;
 import entidades.Telefone;
 
 @SuppressWarnings("serial")
 public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
+	
+	IAppTelefone apptelefone;
+	IHiTwitter hitwitter;
 
 	protected AiFone() throws RemoteException {
 		super();
+		apptelefone = new AppTelefone();
+		hitwitter = new HiTwitter();
 	}
 
 	private ICentralRemote servidor;
@@ -70,18 +80,16 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 
 	@Override
 	public void receberChamada(Telefone origem) {
-		System.out.println("Recebendo chamada de " + origem.getNumero());
+		apptelefone.receberChamada(origem);
 	}
 
 	@Override
 	public void encerrarChamada() {
-		// TODO Auto-generated method stub
-		
+		apptelefone.encerrarChamada();
 	}
 
 	@Override
 	public void receberMensagem(Mensagem mensagem) {
-		// TODO Auto-generated method stub
-		
+		apptelefone.receberMensagem(mensagem);
 	}
 }
