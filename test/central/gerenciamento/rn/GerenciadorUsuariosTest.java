@@ -1,5 +1,9 @@
 package central.gerenciamento.rn;
 
+import central.gerenciamento.ip.IIPConexao;
+import central.gerenciamento.ip.IIPTelefone;
+import central.gerenciamento.ip.IPConexaoMemoria;
+import central.gerenciamento.ip.IPTelefoneMemoria;
 import central.gerenciamento.rn.GerenciadorUsuarios;
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +19,9 @@ public class GerenciadorUsuariosTest {
 
 	@Before
 	public void setUp() throws Exception {
-		gerenciadorUsuario = new GerenciadorUsuarios();
+		IIPTelefone iptelefone = new IPTelefoneMemoria();
+		IIPConexao ipconexao = new IPConexaoMemoria();
+		gerenciadorUsuario = new GerenciadorUsuarios(iptelefone, ipconexao);
 	}
 
 	@After
