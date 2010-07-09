@@ -3,11 +3,11 @@ package central.gerenciamento;
 import central.gerenciamento.rn.GerenciadorUsuarios;
 import entidades.Telefone;
 
-public class GerenciadorUsuariosFacade {
+public class Gerenciamento {
 	
 	private GerenciadorUsuarios gerenciadorUsuarios;
 
-	public GerenciadorUsuariosFacade() {
+	public Gerenciamento() {
 		gerenciadorUsuarios = new GerenciadorUsuarios();
 	}
 
