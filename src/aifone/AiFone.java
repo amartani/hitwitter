@@ -13,7 +13,6 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 
 	protected AiFone() throws RemoteException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	private ICentralRemote servidor;

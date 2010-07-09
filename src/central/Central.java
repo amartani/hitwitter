@@ -15,6 +15,7 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 	private IGerenciamento gerenciamento;
 
 	public Central() throws RemoteException {
+		super();
 		gerenciamento = new Gerenciamento();
 	}
 
