@@ -1,6 +1,7 @@
 package central.telefone.rn;
 
 import central.Central;
+import central.gerenciamento.Gerenciamento;
 import central.telefone.ip.IIPChamada;
 import central.telefone.ip.IIPPedidoChamada;
 import central.telefone.ip.IPChamadaMemoria;
@@ -13,11 +14,13 @@ public class GerenciadorChamadas {
 	private Central central;
 	private IIPChamada ipchamada;
 	private IIPPedidoChamada ippedido;
+	private Gerenciamento gerenciamento;
 	
 	public GerenciadorChamadas(Central central) {
 		this.central = central;
 		this.ipchamada = new IPChamadaMemoria();
 		this.ippedido = new IPPedidoMemoria();
+		this.gerenciamento = new Gerenciamento();
 	}
 
 	public void confirmarAtendimento(Telefone telefone) {
@@ -52,8 +55,9 @@ public class GerenciadorChamadas {
 
 	public void efetuarChamada(Telefone origem, Telefone destino) {
 		System.out.println("Gerenciador de Chamadas: pedido de chamada recebido");
-		if(ippedido.procurar(destino) == null &&
-				ipchamada.procurar(destino) == null){
+		if(ippedido.procurar(destino) == null
+				&& ipchamada.procurar(destino) == null
+				&& verificarConectado(destino)){
 			
 			ippedido.inserir(origem, destino);
 			ippedido.inserir(destino, origem);
@@ -109,5 +113,9 @@ public class GerenciadorChamadas {
 			ippedido.apagar(origem);
 		}
 		
+	}
+	
+	private boolean verificarConectado(Telefone telefone){
+		return gerenciamento.verificarConectado(telefone);
 	}
 }
