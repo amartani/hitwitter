@@ -166,6 +166,11 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		return getInstanciaServidor().enviarRequisicaoViaTunel(origem,
 				requisicao);
 	}
+	
+	@Override
+	public void rejeitarChamada() throws RemoteException {
+		apptelefone.rejeitarChamada();
+	}	
 
 	@Override
 	public IUDiscar getIUDiscarInstance(JPanel telaRetorno) {
