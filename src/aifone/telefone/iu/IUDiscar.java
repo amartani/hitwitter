@@ -11,8 +11,10 @@
 
 package aifone.telefone.iu;
 
+import javax.swing.JPanel;
+
 import aifone.iu.IUContainer;
-import aifone.iu.IUTelaInicial;
+import aifone.telefone.rn.RNAppTelefone;
 
 /**
  *
@@ -20,10 +22,14 @@ import aifone.iu.IUTelaInicial;
  */
 public class IUDiscar extends javax.swing.JPanel {
 
+	private RNAppTelefone rnAppTelefone;
+	private JPanel telaRetorno;
+	
     /** Creates new form IUDiscar */
-    public IUDiscar() {
+    public IUDiscar(RNAppTelefone rnAppTelefone, JPanel telaRetorno) {
         initComponents();
-
+        this.rnAppTelefone = rnAppTelefone;
+        this.telaRetorno = telaRetorno;
     }
 
     /** This method is called from within the constructor to
@@ -266,12 +272,15 @@ public class IUDiscar extends javax.swing.JPanel {
     }//GEN-LAST:event_botaoApagarActionPerformed
 
     private void botaoDiscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDiscarActionPerformed
-        if(campoDoNumero.getText().length()>0)
-            IUContainer.getInstance().setPanel(new IUEfetuandoChamada(campoDoNumero.getText()));
+        if(campoDoNumero.getText().length()>0){
+        	rnAppTelefone.setInterlocutor(campoDoNumero.getText());
+        	rnAppTelefone.efetuarChamada();
+            IUContainer.getInstance().setPanel(new IUEfetuandoChamada(rnAppTelefone, telaRetorno));
+        }
     }//GEN-LAST:event_botaoDiscarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        IUContainer.getInstance().setPanel(new IUTelaInicial());
+        IUContainer.getInstance().setPanel(telaRetorno);
     }//GEN-LAST:event_botaoSairActionPerformed
 
     
