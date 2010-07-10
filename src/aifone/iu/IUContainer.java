@@ -14,7 +14,6 @@ public class IUContainer extends JFrame {
 	private IUContainer() {
 		super();
 		setSize(320, 480);
-		setPanel(new IUTelaInicial());
 	}
 	
 	static public IUContainer getInstance() {
