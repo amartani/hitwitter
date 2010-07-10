@@ -1,5 +1,7 @@
 package aifone.telefone;
 
+import java.rmi.RemoteException;
+
 import entidades.Mensagem;
 import entidades.Telefone;
 
@@ -16,6 +18,11 @@ public interface IAppTelefoneEntrada {
 	 * Encerra uma chamada em andamento
 	 */
 	public void encerrarChamada();
+
+	/**
+	 * Rejeita uma chamada que está para ser feita
+	 */
+	public void rejeitarChamada() throws RemoteException;
 
 	/**
 	 * Recebe uma mensagem

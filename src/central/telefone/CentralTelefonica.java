@@ -81,4 +81,9 @@ public class CentralTelefonica implements ICentralTelefonica {
 		return gerenciamento.verificarConectado(telefone);
 	}
 
+	@Override
+	public void rejeitarChamada(Telefone telefone) throws RemoteException {
+		central.rejeitarChamada(telefone);
+	}
+
 }
