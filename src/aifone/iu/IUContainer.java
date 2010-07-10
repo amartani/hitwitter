@@ -14,12 +14,17 @@ public class IUContainer extends JFrame {
 	private IUContainer() {
 		super();
 		setSize(320, 480);
+		setTitle("AiFone");
 	}
 	
+	/**
+	 * Get singleton instance
+	 * 
+	 * @return IUContainer instance
+	 */
 	static public IUContainer getInstance() {
 		if (instance == null) {
 			instance = new IUContainer();
-			instance.setTitle("AiFone");
 		}
 		return instance;
 	}
@@ -29,14 +34,15 @@ public class IUContainer extends JFrame {
 			remove(mainPanel);
 		}
 		mainPanel = panel;
-		this.add(panel, BorderLayout.CENTER);
-		this.validate();
+		add(panel, BorderLayout.CENTER);
+		validate();
 	}
 	
 	private JPanel mainPanel;
 	
 	public static void main(String args[]) {
 		IUContainer container = IUContainer.getInstance();
+		container.setPanel(new IUTelaInicial());
 		container.setVisible(true);
 	}
 }
