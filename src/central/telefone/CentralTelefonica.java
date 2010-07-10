@@ -1,6 +1,7 @@
 package central.telefone;
 
 import central.Central;
+import central.gerenciamento.IGerenciamento;
 import central.telefone.rn.GerenciadorChamadas;
 import entidades.Mensagem;
 import entidades.Telefone;
@@ -9,8 +10,8 @@ public class CentralTelefonica implements ICentralTelefonica {
 	
 	private GerenciadorChamadas gerenciadorChamadas;	
 
-	public CentralTelefonica(Central central) {
-		this.gerenciadorChamadas = new GerenciadorChamadas(central);
+	public CentralTelefonica(Central central, IGerenciamento gerenciamento) {
+		this.gerenciadorChamadas = new GerenciadorChamadas(central, gerenciamento);
 	}
 
 	@Override

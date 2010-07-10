@@ -6,14 +6,12 @@ import java.rmi.server.ServerNotActiveException;
 import java.rmi.server.UnicastRemoteObject;
 
 import aifone.IAiFoneRemote;
-
 import central.gerenciamento.Gerenciamento;
 import central.gerenciamento.IGerenciamento;
 import central.telefone.CentralTelefonica;
 import central.telefone.ICentralTelefonica;
 import central.tunel.ITunel;
 import central.tunel.Tunel;
-
 import entidades.Mensagem;
 import entidades.Requisicao;
 import entidades.RespostaDeRequisicao;
@@ -28,8 +26,8 @@ public class Central extends UnicastRemoteObject implements ICentralRemote, ICen
 
 	public Central() throws RemoteException {
 		super();
-		centraltelefonica = new CentralTelefonica(this);
 		gerenciamento = new Gerenciamento();
+		centraltelefonica = new CentralTelefonica(this, gerenciamento);		
 		tunel = new Tunel();
 	}
 
