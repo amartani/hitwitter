@@ -51,6 +51,7 @@ public class GerenciadorChamadas {
 	}
 
 	public void efetuarChamada(Telefone origem, Telefone destino) {
+		System.out.println("Gerenciador de Chamadas: pedido de chamada recebido");
 		if(ippedido.procurar(destino) == null &&
 				ipchamada.procurar(destino) == null){
 			
