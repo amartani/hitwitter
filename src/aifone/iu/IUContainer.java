@@ -39,6 +39,7 @@ public class IUContainer extends JFrame {
 		mainPanel = panel;
 		add(panel, BorderLayout.CENTER);
 		validate();
+		repaint();
 	}
 	
 	private JPanel mainPanel;

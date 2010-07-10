@@ -20,7 +20,7 @@ public class Main {
 			IAiFoneRemote servidor = new AiFone();
 			Naming.rebind("aifone", servidor);
 			System.out.println("Servidor ativo");
-			((AiFone) servidor).testeConectarTelefone();
+			//((AiFone) servidor).testeConectarTelefone();
 		} catch (Exception e2) {
 			System.out.println("Impossivel ativar servidor. Excecao: ");
 			e2.printStackTrace();

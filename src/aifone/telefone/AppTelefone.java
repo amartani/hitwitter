@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import javax.swing.JPanel;
 
 import aifone.IAiFoneSaida;
+import aifone.iu.IUContainer;
 import aifone.telefone.iu.IUDiscar;
 import aifone.telefone.rn.RNAppTelefone;
 import entidades.Mensagem;
@@ -46,13 +47,13 @@ public class AppTelefone implements IAppTelefone {
 
 	@Override
 	public void confirmarAtendimento() throws RemoteException {
-		// TODO Auto-generated method stub
+		aifone.confirmarAtendimento();
 
 	}
 
 	@Override
 	public void efetuarChamada(Telefone destino) throws RemoteException {
-		// TODO Auto-generated method stub
+		aifone.efetuarChamada(destino);
 
 	}
 
@@ -63,9 +64,8 @@ public class AppTelefone implements IAppTelefone {
 	}
 
 	@Override
-	public void informarChamadaEncerrada(Telefone telefone)
-			throws RemoteException {
-		aifone.informarChamadaEncerrada(telefone);
+	public void informarChamadaEncerrada() throws RemoteException {
+		aifone.informarChamadaEncerrada();
 
 	}
 
@@ -78,6 +78,11 @@ public class AppTelefone implements IAppTelefone {
 	@Override
 	public IUDiscar getIUDiscarInstance(JPanel telaRetorno) {
 		return new IUDiscar(rnAppTelefone, telaRetorno);
+	}
+	
+	@Override
+	public IUContainer getIUContainerInstance(){
+		return IUContainer.getInstance();
 	}
 
 }

@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import aifone.hitwitter.HiTwitter;
 import aifone.hitwitter.IHiTwitter;
+import aifone.iu.IUContainer;
 import aifone.telefone.AppTelefone;
 import aifone.telefone.IAppTelefone;
 import aifone.telefone.iu.IUDiscar;
@@ -140,9 +141,8 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void informarChamadaEncerrada(Telefone telefone)
-			throws RemoteException {
-		getInstanciaServidor().informarChamadaEncerrada(telefone);
+	public void informarChamadaEncerrada() throws RemoteException {
+		getInstanciaServidor().informarChamadaEncerrada(getTelefone());
 	}
 
 	@Override
@@ -170,6 +170,11 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	@Override
 	public IUDiscar getIUDiscarInstance(JPanel telaRetorno) {
 		return apptelefone.getIUDiscarInstance(telaRetorno);
+	}
+
+	@Override
+	public IUContainer getIUContainerInstance() {
+		return IUContainer.getInstance();
 	}
 
 }

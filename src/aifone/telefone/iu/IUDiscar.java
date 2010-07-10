@@ -281,19 +281,12 @@ public class IUDiscar extends javax.swing.JPanel {
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
     	IUContainer.getInstance().setPanel(telaRetorno);
-    	IUContainer.getInstance().repaint();
     }//GEN-LAST:event_botaoSairActionPerformed
 
-    
 
     private void adicionarNumero(String numero){
         campoDoNumero.setText(campoDoNumero.getText().concat(numero));
     }
-
-    private void changePanel(javax.swing.JPanel tela){
-        IUContainer.getInstance().setPanel(tela);
-    }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
