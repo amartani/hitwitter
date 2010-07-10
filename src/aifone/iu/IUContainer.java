@@ -6,6 +6,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import aifone.AiFone;
+
 @SuppressWarnings("serial")
 public class IUContainer extends JFrame {
 	
@@ -21,6 +23,7 @@ public class IUContainer extends JFrame {
 			instance = new IUContainer();
 			instance.setTitle("AiFone");
 		}
+		
 		return instance;
 	}
 	
