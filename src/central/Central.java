@@ -33,8 +33,8 @@ public class Central extends UnicastRemoteObject implements ICentral {
 		tunel = new Tunel();
 	}
 
-	public Central(ICentralTelefonica centraltelefonica,
-			IGerenciamento gerenciamento, ITunel tunel) throws RemoteException {
+	public Central(ICentralTelefonicaEntrada centraltelefonica,
+			IGerenciamentoEntrada gerenciamento, ITunel tunel) throws RemoteException {
 		super();
 		this.centraltelefonica = centraltelefonica;
 		this.gerenciamento = gerenciamento;
