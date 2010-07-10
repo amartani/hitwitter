@@ -6,12 +6,12 @@ public interface IIPChamada {
 	/**
 	 * Armazena uma chamada em andamento
 	 * 
-	 * @param origem
-	 *            Telefone que ligou
-	 * @param destino
-	 *            Telefone que atendeu a chamada
+	 * @param chave
+	 *            Telefone chave (origem ou destino)
+	 * @param interlocutor
+	 *            Telefone interlocutor (destino ou origem)
 	 */
-	public abstract void inserir(Telefone origem, Telefone destino);
+	public abstract void inserir(Telefone chave, Telefone interlocutor);
 	
 	/**
 	 * Procura um telefone no banco
