@@ -28,9 +28,9 @@ public class Main {
 		}
 	}
 
-	private void iniciarIU() {
+	private void iniciarIU(AiFone aiFone) {
 		IUContainer container = IUContainer.getInstance();
-		container.setPanel(new IUTelaInicial());
+		container.setPanel(new IUTelaInicial(aiFone));
 		container.setVisible(true);
 	}
 
@@ -39,8 +39,9 @@ public class Main {
 	 */
 	public static void main(String[] args) throws Exception {
 		Main main = new Main();
+		AiFone aiFone = new AiFone();
 		main.iniciarServidorRMI();
-		main.iniciarIU();
+		main.iniciarIU(aiFone);
 	}
 
 }

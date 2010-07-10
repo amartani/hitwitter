@@ -5,10 +5,13 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import javax.swing.JPanel;
+
 import aifone.hitwitter.HiTwitter;
 import aifone.hitwitter.IHiTwitter;
 import aifone.telefone.AppTelefone;
 import aifone.telefone.IAppTelefone;
+import aifone.telefone.iu.IUDiscar;
 import central.ICentralRemote;
 import entidades.Mensagem;
 import entidades.Requisicao;
@@ -17,7 +20,7 @@ import entidades.Telefone;
 
 @SuppressWarnings("serial")
 public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
-		IAiFoneSaida {
+		IAiFoneSaida, IAiFoneIU {
 
 	IAppTelefone apptelefone;
 	IHiTwitter hitwitter;
@@ -26,15 +29,15 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		super();
 		apptelefone = new AppTelefone(this);
 		hitwitter = new HiTwitter(this);
+		propriedades = new PropriedadesArquivo();
+
+		conectarTelefone();
 	}
 
 	private ICentralRemote servidor;
 	private IPropriedades propriedades;
 
 	public void testeConectarTelefone() throws RemoteException {
-		propriedades = new PropriedadesArquivo();
-		getInstanciaServidor()
-				.conectarTelefone(getTelefone(), getEnderecoRMI());
 		getInstanciaServidor().efetuarChamada(getTelefone(), getTelefone());
 		Mensagem mensagem = new Mensagem("Hi there!");
 		getInstanciaServidor().enviarMensagem(getTelefone(), mensagem);
@@ -120,9 +123,9 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void conectarTelefone(Telefone telefone, String enderecoRMI)
-			throws RemoteException {
-		getInstanciaServidor().conectarTelefone(telefone, enderecoRMI);
+	public void conectarTelefone() throws RemoteException {
+		getInstanciaServidor()
+				.conectarTelefone(getTelefone(), getEnderecoRMI());
 	}
 
 	@Override
@@ -131,9 +134,8 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void efetuarChamada(Telefone origem, Telefone destino)
-			throws RemoteException {
-		getInstanciaServidor().efetuarChamada(origem, destino);
+	public void efetuarChamada(Telefone destino) throws RemoteException {
+		getInstanciaServidor().efetuarChamada(getTelefone(), destino);
 
 	}
 
@@ -144,20 +146,18 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void informarChamadaRejeitada(Telefone telefone)
-			throws RemoteException {
-		getInstanciaServidor().informarChamadaRejeitada(telefone);
+	public void informarChamadaRejeitada() throws RemoteException {
+		getInstanciaServidor().informarChamadaRejeitada(getTelefone());
 	}
 
 	@Override
-	public void confirmarAtendimento(Telefone telefone) throws RemoteException {
-		getInstanciaServidor().confirmarAtendimento(telefone);
+	public void confirmarAtendimento() throws RemoteException {
+		getInstanciaServidor().confirmarAtendimento(getTelefone());
 	}
 
 	@Override
-	public void enviarMensagem(Telefone origem, Mensagem mensagem)
-			throws RemoteException {
-		getInstanciaServidor().enviarMensagem(origem, mensagem);
+	public void enviarMensagem(Mensagem mensagem) throws RemoteException {
+		getInstanciaServidor().enviarMensagem(getTelefone(), mensagem);
 	}
 
 	@Override
@@ -166,4 +166,10 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		return getInstanciaServidor().enviarRequisicaoViaTunel(origem,
 				requisicao);
 	}
+
+	@Override
+	public IUDiscar getIUDiscarInstance(JPanel telaRetorno) {
+		return apptelefone.getIUDiscarInstance(telaRetorno);
+	}
+
 }
