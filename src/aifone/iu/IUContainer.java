@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class IUContainer extends JFrame {
 	
-	private static IUContainer instance;  //  @jve:decl-index=0:visual-constraint="17,56"
+	private static IUContainer instance;
 
 	private IUContainer() {
 		super();
