@@ -7,9 +7,9 @@ import java.rmi.server.UnicastRemoteObject;
 
 import aifone.hitwitter.HiTwitter;
 import aifone.hitwitter.IHiTwitter;
+import aifone.iu.IUContainer;
 import aifone.telefone.AppTelefone;
 import aifone.telefone.IAppTelefone;
-
 import central.ICentralRemote;
 import entidades.Mensagem;
 import entidades.Telefone;
@@ -24,17 +24,24 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 		super();
 		apptelefone = new AppTelefone();
 		hitwitter = new HiTwitter();
+		mostraIU();
 	}
 
 	private ICentralRemote servidor;
 	private IPropriedades propriedades;
 
+	private void mostraIU(){
+		IUContainer container = IUContainer.getInstance();
+		container.setVisible(true);
+	}
+	
 	public void testeConectarTelefone() throws RemoteException {
 		propriedades = new PropriedadesArquivo();
 		getInstanciaServidor().conectarTelefone(getTelefone(), getEnderecoRMI());
 		getInstanciaServidor().efetuarChamada(getTelefone(), getTelefone());
+		Mensagem mensagem = new Mensagem("Hi there!");
+		getInstanciaServidor().enviarMensagem(getTelefone(), mensagem);
 		getInstanciaServidor().desconectarTelefone(getTelefone());
-		getInstanciaServidor().efetuarChamada(getTelefone(), getTelefone());
 	}
 	
 	private String getEnderecoRMI() {
@@ -81,6 +88,14 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 	@Override
 	public void receberChamada(Telefone origem) {
 		apptelefone.receberChamada(origem);
+		
+		//Teste: aceitação automática da chamada
+		System.out.println("AiFone: pedido de chamada recebido");
+		try{
+			((ICentralRemote)getInstanciaServidor()).confirmarAtendimento(getTelefone());
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -91,6 +106,9 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 	@Override
 	public void receberMensagem(Mensagem mensagem) {
 		apptelefone.receberMensagem(mensagem);
+		
+		//Teste:
+		System.out.println("AiFone - Mensagem recebida: " + mensagem.getConteudo());
 	}
 
 	@Override
