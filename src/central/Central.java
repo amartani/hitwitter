@@ -8,8 +8,10 @@ import java.rmi.server.UnicastRemoteObject;
 import aifone.IAiFoneRemote;
 import central.gerenciamento.Gerenciamento;
 import central.gerenciamento.IGerenciamento;
+import central.gerenciamento.IGerenciamentoEntrada;
 import central.telefone.CentralTelefonica;
 import central.telefone.ICentralTelefonica;
+import central.telefone.ICentralTelefonicaEntrada;
 import central.tunel.ITunel;
 import central.tunel.Tunel;
 import entidades.Mensagem;
@@ -20,9 +22,9 @@ import entidades.Telefone;
 @SuppressWarnings("serial")
 public class Central extends UnicastRemoteObject implements ICentral {
 
-	private IGerenciamento gerenciamento;
+	private IGerenciamentoEntrada gerenciamento;
 	private ITunel tunel;
-	private ICentralTelefonica centraltelefonica;
+	private ICentralTelefonicaEntrada centraltelefonica;
 
 	public Central() throws RemoteException {
 		super();
