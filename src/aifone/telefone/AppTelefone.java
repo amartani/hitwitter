@@ -25,4 +25,10 @@ public class AppTelefone implements IAppTelefone {
 
 	}
 
+	@Override
+	public void confirmarChamada(Telefone telefone) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

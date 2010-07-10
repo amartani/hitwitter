@@ -26,4 +26,12 @@ public interface IAppTelefone {
 	 *            Mensagem enviada
 	 */
 	public void receberMensagem(Mensagem mensagem);
+	
+	/**
+	 * Confirma início da chamada
+	 * 
+	 * @param telefone
+	 *            Telefone interlocutor
+	 */
+	public void confirmarChamada(Telefone telefone);	
 }
