@@ -4,6 +4,7 @@ import entidades.Mensagem;
 import entidades.Telefone;
 
 public interface ICentralTelefonicaEntrada {
+
 	/**
 	 * Inicia uma chamada
 	 * 
