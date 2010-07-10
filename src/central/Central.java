@@ -13,6 +13,7 @@ import central.telefone.CentralTelefonica;
 import central.telefone.ICentralTelefonica;
 import central.telefone.ICentralTelefonicaEntrada;
 import central.tunel.ITunel;
+import central.tunel.ITunelEntrada;
 import central.tunel.Tunel;
 import entidades.Mensagem;
 import entidades.Requisicao;
@@ -23,7 +24,7 @@ import entidades.Telefone;
 public class Central extends UnicastRemoteObject implements ICentral {
 
 	private IGerenciamentoEntrada gerenciamento;
-	private ITunel tunel;
+	private ITunelEntrada tunel;
 	private ICentralTelefonicaEntrada centraltelefonica;
 
 	public Central() throws RemoteException {
@@ -34,7 +35,7 @@ public class Central extends UnicastRemoteObject implements ICentral {
 	}
 
 	public Central(ICentralTelefonicaEntrada centraltelefonica,
-			IGerenciamentoEntrada gerenciamento, ITunel tunel) throws RemoteException {
+			IGerenciamentoEntrada gerenciamento, ITunelEntrada tunel) throws RemoteException {
 		super();
 		this.centraltelefonica = centraltelefonica;
 		this.gerenciamento = gerenciamento;
