@@ -7,12 +7,9 @@ import java.rmi.server.UnicastRemoteObject;
 
 import aifone.IAiFoneRemote;
 import central.gerenciamento.Gerenciamento;
-import central.gerenciamento.IGerenciamento;
 import central.gerenciamento.IGerenciamentoEntrada;
 import central.telefone.CentralTelefonica;
-import central.telefone.ICentralTelefonica;
 import central.telefone.ICentralTelefonicaEntrada;
-import central.tunel.ITunel;
 import central.tunel.ITunelEntrada;
 import central.tunel.Tunel;
 import entidades.Mensagem;
