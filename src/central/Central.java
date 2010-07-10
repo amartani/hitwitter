@@ -20,7 +20,7 @@ import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
 @SuppressWarnings("serial")
-public class Central extends UnicastRemoteObject implements ICentralRemote {
+public class Central extends UnicastRemoteObject implements ICentralRemote, ICentralSaida {
 
 	private IGerenciamento gerenciamento;
 	private ITunel tunel;
@@ -28,7 +28,7 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 
 	public Central() throws RemoteException {
 		super();
-		centraltelefonica = new CentralTelefonica();
+		centraltelefonica = new CentralTelefonica(this);
 		gerenciamento = new Gerenciamento();
 		tunel = new Tunel();
 	}
@@ -106,6 +106,30 @@ public class Central extends UnicastRemoteObject implements ICentralRemote {
 			System.exit(1);
 		}
 		return cliente;
+	}
+
+	/*
+	 * Métodos da interface de saída ICentralSaida
+	 */
+	
+	@Override
+	public void encerrarChamada(Telefone telefone) throws RemoteException {
+		((IAiFoneRemote) getInstanciaCliente(telefone)).encerrarChamada();
+		
+	}
+
+	@Override
+	public void enviarChamada(Telefone origem, Telefone destino)
+			throws RemoteException {
+		((IAiFoneRemote)getInstanciaCliente(destino)).receberChamada(origem);
+		
+	}
+
+	@Override
+	public void enviarMensagemSaida(Telefone telefone, Mensagem mensagem)
+			throws RemoteException {
+		((IAiFoneRemote)getInstanciaCliente(telefone)).receberMensagem(mensagem);
+		
 	}
 
 }

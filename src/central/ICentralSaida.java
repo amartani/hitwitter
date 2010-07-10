@@ -1,0 +1,35 @@
+package central;
+
+import java.rmi.RemoteException;
+
+import entidades.Mensagem;
+import entidades.Telefone;
+
+public interface ICentralSaida {
+
+	/**
+	 * Envia um pedido de chamada telefonica
+	 * 
+	 * @param origem Telefone de origem da chamada
+	 * 
+	 * @param destino Telefone de destino da chamada
+	 */
+	public void enviarChamada(Telefone origem, Telefone destino) throws RemoteException;
+	
+	/**
+	 * Encerra uma chamada em andamento
+	 * 
+	 * @param telefone Telefone que está em uma chamada ou tentando chamar
+	 */
+	public void encerrarChamada(Telefone telefone) throws RemoteException;
+	
+	/**
+	 * Envia uma mensagem do servidor para o telefone de destino
+	 * 
+	 * @param telefone Telefone de destino
+	 * 
+	 * @param mensagem Mensagem enviada
+	 */
+	public void enviarMensagemSaida(Telefone telefone, Mensagem mensagem) throws RemoteException;
+	
+}
