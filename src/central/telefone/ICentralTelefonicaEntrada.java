@@ -3,7 +3,7 @@ package central.telefone;
 import entidades.Mensagem;
 import entidades.Telefone;
 
-public interface ICentralTelefonica {
+public interface ICentralTelefonicaEntrada {
 	/**
 	 * Inicia uma chamada
 	 * 
@@ -48,7 +48,7 @@ public interface ICentralTelefonica {
 	 * @param origem
 	 *            Telefone de origem da mensagem
 	 * @param mensagem
-	 *            Mensagem à ser enviada
+	 *            Mensagem a ser enviada
 	 */
 	public void enviarMensagem(Telefone origem, Mensagem mensagem);
 }

@@ -18,8 +18,7 @@ import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
 @SuppressWarnings("serial")
-public class Central extends UnicastRemoteObject implements ICentralRemote,
-		ICentralSaida {
+public class Central extends UnicastRemoteObject implements ICentral {
 
 	private IGerenciamento gerenciamento;
 	private ITunel tunel;
@@ -125,7 +124,7 @@ public class Central extends UnicastRemoteObject implements ICentralRemote,
 	}
 
 	@Override
-	public void enviarMensagemSaida(Telefone telefone, Mensagem mensagem)
+	public void enviarMensagemParaCliente(Telefone telefone, Mensagem mensagem)
 			throws RemoteException {
 		getInstanciaCliente(telefone).receberMensagem(mensagem);
 
