@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class IUContainer extends JFrame {
 	
-	private static IUContainer instance;
+	private static IUContainer instance;  //  @jve:decl-index=0:visual-constraint="17,56"
 
 	private IUContainer() {
 		super();
@@ -20,6 +20,7 @@ public class IUContainer extends JFrame {
 	static public IUContainer getInstance() {
 		if (instance == null) {
 			instance = new IUContainer();
+			instance.setTitle("AiFone");
 		}
 		return instance;
 	}
