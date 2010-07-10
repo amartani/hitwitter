@@ -108,35 +108,32 @@ public class Central extends UnicastRemoteObject implements ICentralRemote,
 	}
 
 	/*
-	 * Métodos da interface de saída ICentralSaida
+	 * Metodos da interface de saida ICentralSaida
 	 */
 
 	@Override
 	public void encerrarChamada(Telefone telefone) throws RemoteException {
-		((IAiFoneRemote) getInstanciaCliente(telefone)).encerrarChamada();
+		getInstanciaCliente(telefone).encerrarChamada();
 
 	}
 
 	@Override
 	public void enviarPedidoChamada(Telefone origem, Telefone destino)
 			throws RemoteException {
-		((IAiFoneRemote) getInstanciaCliente(destino)).receberChamada(origem);
+		getInstanciaCliente(destino).receberChamada(origem);
 
 	}
 
 	@Override
 	public void enviarMensagemSaida(Telefone telefone, Mensagem mensagem)
 			throws RemoteException {
-		((IAiFoneRemote) getInstanciaCliente(telefone))
-				.receberMensagem(mensagem);
+		getInstanciaCliente(telefone).receberMensagem(mensagem);
 
 	}
 
 	@Override
 	public void confirmarChamada(Telefone telefone) throws RemoteException {
-		((IAiFoneRemote) getInstanciaCliente(telefone))
-				.confirmarChamada(telefone);
-
+		getInstanciaCliente(telefone).confirmarChamada(telefone);
 	}
 
 }
