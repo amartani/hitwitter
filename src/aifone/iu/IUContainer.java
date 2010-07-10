@@ -43,9 +43,4 @@ public class IUContainer extends JFrame {
 	
 	private JPanel mainPanel;
 	
-	public static void main(String args[]) {
-		IUContainer container = IUContainer.getInstance();
-		container.setPanel(new IUTelaInicial());
-		container.setVisible(true);
-	}
 }
