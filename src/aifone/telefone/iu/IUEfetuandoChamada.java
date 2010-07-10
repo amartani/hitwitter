@@ -94,6 +94,7 @@ public class IUEfetuandoChamada extends javax.swing.JPanel {
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarActionPerformed
 		IUContainer.getInstance().setPanel(telaRetorno);
+		IUContainer.getInstance().repaint();
 	}// GEN-LAST:event_botaoCancelarActionPerformed
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

@@ -280,7 +280,8 @@ public class IUDiscar extends javax.swing.JPanel {
     }//GEN-LAST:event_botaoDiscarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        IUContainer.getInstance().setPanel(telaRetorno);
+    	IUContainer.getInstance().setPanel(telaRetorno);
+    	IUContainer.getInstance().repaint();
     }//GEN-LAST:event_botaoSairActionPerformed
 
     
