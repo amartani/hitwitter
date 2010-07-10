@@ -27,16 +27,10 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		super();
 		apptelefone = new AppTelefone(this);
 		hitwitter = new HiTwitter(this);
-		mostraIU();
 	}
 
 	private ICentralRemote servidor;
 	private IPropriedades propriedades;
-
-	private void mostraIU() {
-		IUContainer container = IUContainer.getInstance();
-		container.setVisible(true);
-	}
 
 	public void testeConectarTelefone() throws RemoteException {
 		propriedades = new PropriedadesArquivo();
@@ -170,6 +164,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	@Override
 	public RespostaDeRequisicao enviarRequisicaoViaTunel(Telefone origem,
 			Requisicao requisicao) throws RemoteException {
-		return getInstanciaServidor().enviarRequisicaoViaTunel(origem, requisicao);
+		return getInstanciaServidor().enviarRequisicaoViaTunel(origem,
+				requisicao);
 	}
 }
