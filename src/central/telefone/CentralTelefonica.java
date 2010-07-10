@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import central.ICentralSaida;
 import central.gerenciamento.IGerenciamento;
+import central.gerenciamento.IGerenciamentoEntrada;
 import central.telefone.rn.GerenciadorChamadas;
 import entidades.Mensagem;
 import entidades.Telefone;
@@ -14,7 +15,7 @@ public class CentralTelefonica implements ICentralTelefonica {
 	private IGerenciamento gerenciamento;
 	private ICentralSaida central;
 
-	public CentralTelefonica(ICentralSaida central, IGerenciamento gerenciamento) {
+	public CentralTelefonica(ICentralSaida central, IGerenciamentoEntrada gerenciamento) {
 		this.gerenciadorChamadas = new GerenciadorChamadas(this);
 		this.central = central;
 	}
