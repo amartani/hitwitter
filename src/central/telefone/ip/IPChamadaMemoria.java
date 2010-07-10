@@ -15,16 +15,13 @@ public class IPChamadaMemoria implements IIPChamada {
 
 	@Override
 	public void apagar(Telefone telefone) {
-		//remove entrada com a key do interlocutor
-		banco.remove(procurar(telefone));
 		banco.remove(telefone);
 		
 	}
 
 	@Override
-	public void inserir(Telefone origem, Telefone destino) {
-		banco.put(origem, destino);
-		banco.put(destino, origem);
+	public void inserir(Telefone chave, Telefone interlocutor) {
+		banco.put(chave, interlocutor);
 		
 	}
 
