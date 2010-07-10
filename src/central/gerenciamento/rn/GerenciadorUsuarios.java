@@ -3,7 +3,6 @@ package central.gerenciamento.rn;
 import central.gerenciamento.ip.IIPConexao;
 import central.gerenciamento.ip.IIPTelefone;
 import central.gerenciamento.ip.IPConexaoMemoria;
-import central.gerenciamento.ip.IPTelefoneMemoria;
 import central.gerenciamento.ip.IPTelefoneSerializado;
 import entidades.Telefone;
 
