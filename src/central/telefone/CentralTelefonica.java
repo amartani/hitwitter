@@ -2,7 +2,7 @@ package central.telefone;
 
 import java.rmi.RemoteException;
 
-import central.ICentral;
+import central.ICentralSaida;
 import central.gerenciamento.IGerenciamento;
 import central.telefone.rn.GerenciadorChamadas;
 import entidades.Mensagem;
@@ -11,10 +11,11 @@ import entidades.Telefone;
 public class CentralTelefonica implements ICentralTelefonica {
 	
 	private GerenciadorChamadas gerenciadorChamadas;
-	private ICentral central;
+	private IGerenciamento gerenciamento;
+	private ICentralSaida central;
 
-	public CentralTelefonica(ICentral central, IGerenciamento gerenciamento) {
-		this.gerenciadorChamadas = new GerenciadorChamadas(this, gerenciamento);
+	public CentralTelefonica(ICentralSaida central, IGerenciamento gerenciamento) {
+		this.gerenciadorChamadas = new GerenciadorChamadas(this);
 		this.central = central;
 	}
 
@@ -72,6 +73,11 @@ public class CentralTelefonica implements ICentralTelefonica {
 			throws RemoteException {
 		central.enviarPedidoChamada(origem, destino);
 		
+	}
+
+	@Override
+	public boolean verificarConectado(Telefone telefone) {
+		return gerenciamento.verificarConectado(telefone);
 	}
 
 }

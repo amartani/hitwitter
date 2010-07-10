@@ -1,6 +1,5 @@
 package central.telefone.rn;
 
-import central.gerenciamento.IGerenciamento;
 import central.telefone.ICentralTelefonica;
 import central.telefone.ip.IIPChamada;
 import central.telefone.ip.IIPPedidoChamada;
@@ -14,13 +13,11 @@ public class GerenciadorChamadas {
 	private ICentralTelefonica centralTelefonica;
 	private IIPChamada ipchamada;
 	private IIPPedidoChamada ippedido;
-	private IGerenciamento gerenciamento;
 	
-	public GerenciadorChamadas(ICentralTelefonica centralTelefonica, IGerenciamento gerenciamento) {
+	public GerenciadorChamadas(ICentralTelefonica centralTelefonica) {
 		this.centralTelefonica = centralTelefonica;
 		this.ipchamada = new IPChamadaMemoria();
 		this.ippedido = new IPPedidoMemoria();
-		this.gerenciamento = gerenciamento;
 	}
 
 	public void confirmarAtendimento(Telefone telefone) {
@@ -118,6 +115,6 @@ public class GerenciadorChamadas {
 	}
 	
 	private boolean verificarConectado(Telefone telefone){
-		return gerenciamento.verificarConectado(telefone);
+		return centralTelefonica.verificarConectado(telefone);
 	}
 }

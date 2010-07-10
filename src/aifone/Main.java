@@ -6,9 +6,6 @@ import java.rmi.registry.LocateRegistry;
 import aifone.iu.IUContainer;
 import aifone.iu.IUTelaInicial;
 
-import central.Central;
-import central.ICentralRemote;
-
 public class Main {
 
 	private void iniciarServidorRMI() {
