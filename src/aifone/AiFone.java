@@ -92,4 +92,10 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote {
 	public void receberMensagem(Mensagem mensagem) {
 		apptelefone.receberMensagem(mensagem);
 	}
+
+	@Override
+	public void confirmarChamada(Telefone telefone) throws RemoteException {
+		apptelefone.confirmarChamada(telefone);
+		
+	}
 }
