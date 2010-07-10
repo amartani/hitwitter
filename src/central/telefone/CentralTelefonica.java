@@ -1,6 +1,8 @@
 package central.telefone;
 
-import central.Central;
+import java.rmi.RemoteException;
+
+import central.ICentral;
 import central.gerenciamento.IGerenciamento;
 import central.telefone.rn.GerenciadorChamadas;
 import entidades.Mensagem;
@@ -8,10 +10,12 @@ import entidades.Telefone;
 
 public class CentralTelefonica implements ICentralTelefonica {
 	
-	private GerenciadorChamadas gerenciadorChamadas;	
+	private GerenciadorChamadas gerenciadorChamadas;
+	private ICentral central;
 
-	public CentralTelefonica(Central central, IGerenciamento gerenciamento) {
-		this.gerenciadorChamadas = new GerenciadorChamadas(central, gerenciamento);
+	public CentralTelefonica(ICentral central, IGerenciamento gerenciamento) {
+		this.gerenciadorChamadas = new GerenciadorChamadas(this, gerenciamento);
+		this.central = central;
 	}
 
 	@Override
@@ -41,6 +45,32 @@ public class CentralTelefonica implements ICentralTelefonica {
 	@Override
 	public void enviarMensagem(Telefone origem, Mensagem mensagem) {
 		gerenciadorChamadas.enviarMensagem(origem, mensagem);
+		
+	}
+
+	@Override
+	public void confirmarChamada(Telefone telefone) throws RemoteException {
+		central.confirmarChamada(telefone);
+		
+	}
+
+	@Override
+	public void encerrarChamada(Telefone telefone) throws RemoteException {
+		central.encerrarChamada(telefone);
+		
+	}
+
+	@Override
+	public void enviarMensagemParaCliente(Telefone telefone, Mensagem mensagem)
+			throws RemoteException {
+		central.enviarMensagemParaCliente(telefone, mensagem);
+		
+	}
+
+	@Override
+	public void enviarPedidoChamada(Telefone origem, Telefone destino)
+			throws RemoteException {
+		central.enviarPedidoChamada(origem, destino);
 		
 	}
 
