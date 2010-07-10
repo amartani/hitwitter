@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import entidades.Mensagem;
 import entidades.Telefone;
 
-public interface ICentralTelefonicaSaida {
+public interface ICentralTelefonicaSaidaRemote {
 	/**
 	 * Envia um pedido de chamada telefonica
 	 * 
@@ -19,12 +19,21 @@ public interface ICentralTelefonicaSaida {
 			throws RemoteException;
 
 	/**
-	 * Encerra uma chamada em andamento
+	 * Informa o cliente que a chamada foi encerrada
 	 * 
 	 * @param telefone
-	 *            Telefone que está em uma chamada ou tentando chamar
+	 *            Telefone do cliente que deve ser avisado
 	 */
 	public void encerrarChamada(Telefone telefone) throws RemoteException;
+
+	/**
+	 * Informa o cliente que a chamada foi rejeitada
+	 * 
+	 * @param telefone
+	 *            Telefone do cliente que deve ser avisado
+	 * @throws RemoteException
+	 */
+	public void rejeitarChamada(Telefone telefone) throws RemoteException;
 
 	/**
 	 * Envia uma mensagem do servidor para o telefone de destino

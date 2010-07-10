@@ -80,4 +80,10 @@ public class AppTelefone implements IAppTelefone {
 		return new IUDiscar(rnAppTelefone, telaRetorno);
 	}
 
+	@Override
+	public void rejeitarChamada() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

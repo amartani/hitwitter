@@ -172,4 +172,9 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		return apptelefone.getIUDiscarInstance(telaRetorno);
 	}
 
+	@Override
+	public void rejeitarChamada() throws RemoteException {
+		apptelefone.rejeitarChamada();
+	}
+
 }

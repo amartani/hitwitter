@@ -1,6 +1,8 @@
 package central.telefone.rn;
 
-import central.telefone.ICentralTelefonica;
+import java.rmi.RemoteException;
+
+import central.telefone.ICentralTelefonicaSaida;
 import central.telefone.ip.IIPChamada;
 import central.telefone.ip.IIPPedidoChamada;
 import central.telefone.ip.IPChamadaMemoria;
@@ -10,11 +12,11 @@ import entidades.Telefone;
 
 public class GerenciadorChamadas {
 	
-	private ICentralTelefonica centralTelefonica;
+	private ICentralTelefonicaSaida centralTelefonica;
 	private IIPChamada ipchamada;
 	private IIPPedidoChamada ippedido;
 	
-	public GerenciadorChamadas(ICentralTelefonica centralTelefonica) {
+	public GerenciadorChamadas(ICentralTelefonicaSaida centralTelefonica) {
 		this.centralTelefonica = centralTelefonica;
 		this.ipchamada = new IPChamadaMemoria();
 		this.ippedido = new IPPedidoMemoria();
@@ -97,7 +99,12 @@ public class GerenciadorChamadas {
 	public void informarChamadaEncerrada(Telefone telefone) {
 		Telefone destino = ipchamada.procurar(telefone);
 		if(destino != null){
-			centralTelefonica.informarChamadaEncerrada(destino);
+			try {
+				centralTelefonica.encerrarChamada(destino);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			ipchamada.apagar(telefone);
 			ipchamada.apagar(destino);
 		}
@@ -107,7 +114,12 @@ public class GerenciadorChamadas {
 	public void informarChamadaRejeitada(Telefone telefone) {
 		Telefone origem = ippedido.procurar(telefone);
 		if(origem != null){
-			centralTelefonica.informarChamadaRejeitada(origem);
+			try {
+				centralTelefonica.rejeitarChamada(origem);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			ippedido.apagar(telefone);
 			ippedido.apagar(origem);
 		}

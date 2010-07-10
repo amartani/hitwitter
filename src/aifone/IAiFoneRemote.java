@@ -21,6 +21,11 @@ public interface IAiFoneRemote extends Remote {
 	public void encerrarChamada() throws RemoteException;
 	
 	/**
+	 * Rejeita uma chamada que está para ser feita
+	 */
+	public void rejeitarChamada() throws RemoteException;
+	
+	/**
 	 * Recebe uma mensagem
 	 * 
 	 * @param mensagem Mensagem enviada

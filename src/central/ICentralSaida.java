@@ -1,7 +1,7 @@
 package central;
 
-import central.telefone.ICentralTelefonicaSaida;
+import central.telefone.ICentralTelefonicaSaidaRemote;
 
-public interface ICentralSaida extends ICentralTelefonicaSaida {
+public interface ICentralSaida extends ICentralTelefonicaSaidaRemote {
 
 }

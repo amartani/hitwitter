@@ -135,4 +135,9 @@ public class Central extends UnicastRemoteObject implements ICentral {
 		getInstanciaCliente(telefone).confirmarChamada(telefone);
 	}
 
+	@Override
+	public void rejeitarChamada(Telefone telefone) throws RemoteException {
+		getInstanciaCliente(telefone).rejeitarChamada();
+	}
+
 }
