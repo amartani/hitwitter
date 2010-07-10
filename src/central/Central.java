@@ -119,7 +119,7 @@ public class Central extends UnicastRemoteObject implements ICentralRemote, ICen
 	}
 
 	@Override
-	public void enviarChamada(Telefone origem, Telefone destino)
+	public void enviarPedidoChamada(Telefone origem, Telefone destino)
 			throws RemoteException {
 		((IAiFoneRemote)getInstanciaCliente(destino)).receberChamada(origem);
 		
@@ -129,6 +129,12 @@ public class Central extends UnicastRemoteObject implements ICentralRemote, ICen
 	public void enviarMensagemSaida(Telefone telefone, Mensagem mensagem)
 			throws RemoteException {
 		((IAiFoneRemote)getInstanciaCliente(telefone)).receberMensagem(mensagem);
+		
+	}
+
+	@Override
+	public void confirmarChamada(Telefone telefone) throws RemoteException {
+		((IAiFoneRemote)getInstanciaCliente(telefone)).confirmarChamada(telefone);
 		
 	}
 

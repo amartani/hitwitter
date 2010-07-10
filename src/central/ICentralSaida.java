@@ -14,7 +14,7 @@ public interface ICentralSaida {
 	 * 
 	 * @param destino Telefone de destino da chamada
 	 */
-	public void enviarChamada(Telefone origem, Telefone destino) throws RemoteException;
+	public void enviarPedidoChamada(Telefone origem, Telefone destino) throws RemoteException;
 	
 	/**
 	 * Encerra uma chamada em andamento
@@ -31,5 +31,13 @@ public interface ICentralSaida {
 	 * @param mensagem Mensagem enviada
 	 */
 	public void enviarMensagemSaida(Telefone telefone, Mensagem mensagem) throws RemoteException;
+	
+	/**
+	 * Confirma início da chamada
+	 * 
+	 * @param telefone
+	 *            Telefone interlocutor
+	 */
+	public void confirmarChamada(Telefone telefone) throws RemoteException;		
 	
 }
