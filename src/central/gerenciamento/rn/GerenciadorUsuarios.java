@@ -35,7 +35,8 @@ public class GerenciadorUsuarios {
 			ipconexao.inserir(telefone, enderecoRMI);
 		} else {
 			// TODO: criar exception
-			throw new RuntimeException("Telefone nao cadastrado: " + telefone.getNumero());
+			throw new RuntimeException("Telefone nao cadastrado: "
+					+ telefone.getNumero());
 		}
 	}
 
