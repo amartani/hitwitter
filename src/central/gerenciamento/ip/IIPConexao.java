@@ -15,10 +15,10 @@ public interface IIPConexao {
 	public abstract void inserir(Telefone telefone, String enderecoRMI);
 
 	/**
-	 * Procura um telefone no bando
+	 * Procura um telefone no banco
 	 * 
 	 * @param telefone
-	 *            Telefone à procurar
+	 *            Telefone a procurar
 	 * @return Endereço RMI referente ao telefone, ou null se não encontrado
 	 */
 	public abstract String procurar(Telefone telefone);
