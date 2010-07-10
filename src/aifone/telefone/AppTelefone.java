@@ -1,11 +1,17 @@
 package aifone.telefone;
 
-import java.rmi.RemoteException;
+import aifone.IAiFoneSaida;
 
 import entidades.Mensagem;
 import entidades.Telefone;
 
 public class AppTelefone implements IAppTelefone {
+
+	private IAiFoneSaida aifone;
+
+	public AppTelefone(IAiFoneSaida aifone) {
+		this.aifone = aifone;
+	}
 
 	@Override
 	public void receberChamada(Telefone origem) {
@@ -28,7 +34,7 @@ public class AppTelefone implements IAppTelefone {
 	@Override
 	public void confirmarChamada(Telefone telefone) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
