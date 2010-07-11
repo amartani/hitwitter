@@ -63,6 +63,18 @@ public class RNAppTelefone {
 	 * Saida
 	 */
 
+	public void rejeitarChamada() {
+		if (interlocutor != null) {
+			try {
+				appTelefone.rejeitarChamada();
+			} catch (Exception e) {
+				System.out
+						.println("Nao foi possivel rejeitar chamada. Excecao: ");
+				e.printStackTrace();
+			}
+		}
+	}
+
 	public void efetuarChamada() {
 		if (interlocutor != null) {
 			try {

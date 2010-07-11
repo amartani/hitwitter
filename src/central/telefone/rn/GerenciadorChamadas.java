@@ -32,6 +32,8 @@ public class GerenciadorChamadas {
 	public void confirmarAtendimento(Telefone telefone) {
 		System.out.println("Gerenciador de Chamadas: atendimento confirmado");
 		Telefone origem = ippedido.procurar(telefone);
+		System.out.println(telefone.getNumero() + " aceitou chamada de "
+				+ origem.getNumero());
 		if (origem != null) {
 			ipchamada.inserir(origem, telefone);
 			ipchamada.inserir(telefone, origem);
@@ -76,7 +78,8 @@ public class GerenciadorChamadas {
 			ippedido.inserir(destino, origem);
 
 			try {
-				System.out.println("Gerenciador de Chamadas: ok, chamando destino...");
+				System.out
+						.println("Gerenciador de Chamadas: ok, chamando destino...");
 				centralTelefonica.receberChamada(origem, destino);
 			} catch (RemoteException e) {
 				ippedido.apagar(origem);

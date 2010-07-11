@@ -2,13 +2,12 @@ package aifone;
 
 import java.rmi.RemoteException;
 
-import entidades.Telefone;
-
 import aifone.hitwitter.HiTwitter;
 import aifone.telefone.AppTelefone;
 import aifone.telefone.IAppTelefone;
 import aifone.telefone.IAppTelefoneEntrada;
 import aifone.telefone.IAppTelefoneIU;
+import entidades.Telefone;
 
 public class AiFone {
 	private AiFoneEntrada entrada;
@@ -24,7 +23,7 @@ public class AiFone {
 		saida = new AiFoneSaida(this);
 		iu = new AiFoneIU(this);
 	}
-	
+
 	protected IAiFoneEntrada getEntrada() {
 		return entrada;
 	}
@@ -37,13 +36,17 @@ public class AiFone {
 		return iu;
 	}
 
+	protected Telefone getTelefone() {
+		return new Telefone(propriedades.getNumeroTelefone());
+	}
+
 	protected IAppTelefone getAppTelefone() {
 		if (apptelefone == null) {
 			apptelefone = new AppTelefone(getSaida(), getIU(), getTelefone());
 		}
 		return apptelefone;
 	}
-	
+
 	protected IAppTelefoneIU getAppTelefoneIU() {
 		return getAppTelefone();
 	}
@@ -51,20 +54,16 @@ public class AiFone {
 	protected IAppTelefoneEntrada getAppTelefoneEntrada() {
 		return getAppTelefone();
 	}
-	
+
 	protected HiTwitter getHitwitter() {
 		if (hitwitter == null) {
 			hitwitter = new HiTwitter(getSaida());
 		}
 		return hitwitter;
 	}
-	
+
 	protected IPropriedades getPropriedades() {
 		return propriedades;
-	}
-	
-	protected Telefone getTelefone() {
-		return new Telefone(getPropriedades().getNumeroTelefone());
 	}
 
 }

@@ -19,7 +19,8 @@ import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
 @SuppressWarnings("serial")
-public class AiFoneEntrada extends UnicastRemoteObject implements IAiFoneEntrada {
+public class AiFoneEntrada extends UnicastRemoteObject implements
+		IAiFoneEntrada {
 
 	private AiFone aifone;
 
@@ -28,18 +29,14 @@ public class AiFoneEntrada extends UnicastRemoteObject implements IAiFoneEntrada
 		this.aifone = aifone;
 	}
 
+	/*
+	 * Entrada
+	 */
+
 	@Override
 	public void receberChamada(Telefone origem) {
 		getApptelefone().receberChamada(origem);
 
-		// Teste: aceitação automática da chamada
-		// System.out.println("AiFone: pedido de chamada recebido");
-		// try {
-		// ((ICentralRemote) getInstanciaServidor())
-		// .confirmarAtendimento(getTelefone());
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
 	}
 
 	@Override
@@ -58,12 +55,15 @@ public class AiFoneEntrada extends UnicastRemoteObject implements IAiFoneEntrada
 
 	@Override
 	public void informarChamadaConfirmada(Telefone telefone) {
+		System.out.println("AiFoneEntrada " + aifone.getTelefone().getNumero()
+				+ ": minha chamada foi confirmada");
 		getApptelefone().informarAtendimentoConfirmado(telefone);
 
 	}
 
 	@Override
 	public void informarChamadaRejeitada() throws RemoteException {
+
 		getApptelefone().informarChamadaRejeitada();
 	}
 

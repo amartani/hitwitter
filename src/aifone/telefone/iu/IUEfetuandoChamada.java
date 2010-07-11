@@ -94,6 +94,7 @@ public class IUEfetuandoChamada extends javax.swing.JPanel {
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarActionPerformed
 		rnAppTelefone.setInterlocutor(null);
+		rnAppTelefone.encerrarChamada();
 		appTelefone.abrirTelaInicial();
 	}// GEN-LAST:event_botaoCancelarActionPerformed
 
