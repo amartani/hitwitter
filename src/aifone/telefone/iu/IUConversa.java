@@ -59,9 +59,20 @@ public class IUConversa extends javax.swing.JPanel {
 
         areaConversa.setColumns(20);
         areaConversa.setRows(5);
+        areaConversa.setWrapStyleWord(true);
         jScrollPane1.setViewportView(areaConversa);
 
         campoMensagem.setText(" ");
+        campoMensagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoMensagemActionPerformed(evt);
+            }
+        });
+        campoMensagem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoMensagemKeyTyped(evt);
+            }
+        });
 
         botaoEnviar.setText("Enviar!");
         botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +127,14 @@ public class IUConversa extends javax.swing.JPanel {
             appTelefone.abrirTelaInicial();
             rnAppTelefone.encerrarChamada();
         }//GEN-LAST:event_botaoSairActionPerformed
+
+        private void campoMensagemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoMensagemKeyTyped
+            // TODO add your handling code here:
+        }//GEN-LAST:event_campoMensagemKeyTyped
+
+        private void campoMensagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMensagemActionPerformed
+            enviarMensagem();
+        }//GEN-LAST:event_campoMensagemActionPerformed
 
 	private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoEnviarActionPerformed
             enviarMensagem();
