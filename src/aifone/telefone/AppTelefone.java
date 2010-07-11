@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 import aifone.IAiFoneSaida;
 import aifone.iu.IUContainer;
+import aifone.iu.IUTelaInicial;
 import aifone.telefone.iu.IUDiscar;
 import aifone.telefone.rn.RNAppTelefone;
 import entidades.Mensagem;
@@ -79,16 +80,15 @@ public class AppTelefone implements IAppTelefone {
 	public IUDiscar getIUDiscarInstance(JPanel telaRetorno) {
 		return new IUDiscar(rnAppTelefone, telaRetorno);
 	}
-	
+
 	@Override
-	public IUContainer getIUContainerInstance(){
+	public IUContainer getIUContainerInstance() {
 		return IUContainer.getInstance();
 	}
 
 	@Override
 	public void rejeitarChamada() throws RemoteException {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 }

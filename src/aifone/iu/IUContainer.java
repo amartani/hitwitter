@@ -30,6 +30,10 @@ public class IUContainer extends JFrame {
 		return instance;
 	}
 	
+	public JPanel getPanel(){
+		return mainPanel;
+	}
+	
 	public void setPanel(JPanel panel) {
 		if (mainPanel != null) {
 			remove(mainPanel);

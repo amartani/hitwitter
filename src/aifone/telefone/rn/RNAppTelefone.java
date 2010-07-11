@@ -3,8 +3,9 @@ package aifone.telefone.rn;
 import javax.swing.JPanel;
 
 import aifone.iu.IUContainer;
+import aifone.iu.IUTelaInicial;
 import aifone.telefone.IAppTelefone;
-import aifone.telefone.iu.IUDiscar;
+import aifone.telefone.iu.IURecebimentoDeChamada;
 import entidades.Mensagem;
 import entidades.Telefone;
 
@@ -44,9 +45,8 @@ public class RNAppTelefone {
 		System.out.println("RNApp: chamada recebida");
 		interlocutor = origem.getNumero();
 		IUContainer iuContainer = appTelefone.getIUContainerInstance();
-		System.out.println("RNApp: chamada recebida");
-		JPanel panelAtual = (JPanel)iuContainer.getContentPane();
-		iuContainer.setPanel(new IUDiscar(this,panelAtual));
+		JPanel panelAtual = iuContainer.getPanel();
+		iuContainer.setPanel(new IURecebimentoDeChamada(this,panelAtual));
 	}
 
 	public void receberMensagem(Mensagem mensagem) {
@@ -71,6 +71,7 @@ public class RNAppTelefone {
 	}
 
 	public void informarChamadaRejeitada() {
+		setInterlocutor(null);
 		try {
 			appTelefone.informarChamadaRejeitada();
 		} catch (Exception e) {
