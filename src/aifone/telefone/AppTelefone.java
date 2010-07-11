@@ -3,7 +3,6 @@ package aifone.telefone;
 import java.rmi.RemoteException;
 
 import aifone.IAiFoneIU;
-import aifone.IAiFoneSaida;
 import aifone.iu.IUContainer;
 import aifone.telefone.iu.IUConversa;
 import aifone.telefone.iu.IUDiscar;
