@@ -11,7 +11,7 @@
 
 package aifone.iu;
 
-import aifone.AiFone;
+import aifone.IAiFoneIU;
 
 /**
  * 
@@ -19,10 +19,10 @@ import aifone.AiFone;
  */
 public class IUTelaInicial extends javax.swing.JPanel {
 
-	private AiFone aiFone;
+	private IAiFoneIU aiFone;
 
 	/** Creates new form IUTelaInicial */
-	public IUTelaInicial(AiFone aiFone) {
+	public IUTelaInicial(IAiFoneIU aiFone) {
 		initComponents();
 		this.aiFone = aiFone;
 	}
