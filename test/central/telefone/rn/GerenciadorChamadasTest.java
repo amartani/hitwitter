@@ -36,7 +36,7 @@ public class GerenciadorChamadasTest {
 	@Test
 	public void efetuarChamada() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
+		central.receberChamada(origem, destino);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -46,9 +46,9 @@ public class GerenciadorChamadasTest {
 	@Test
 	public void confirmarAtendimento() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
-		central.confirmarChamada(origem);
-		central.confirmarChamada(destino);
+		central.receberChamada(origem, destino);
+		central.informarChamadaConfirmada(origem);
+		central.informarChamadaConfirmada(destino);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -59,8 +59,8 @@ public class GerenciadorChamadasTest {
 	@Test
 	public void informarChamadaRejeitada() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
-		central.rejeitarChamada(origem);
+		central.receberChamada(origem, destino);
+		central.informarChamadaRejeitada(origem);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -71,13 +71,13 @@ public class GerenciadorChamadasTest {
 	@Test
 	public void enviarMensagem() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
-		central.confirmarChamada(origem);
-		central.confirmarChamada(destino);
-		central.enviarMensagemParaCliente(destino, mensagem);
-		central.enviarMensagemParaCliente(destino, mensagem);
-		central.enviarMensagemParaCliente(origem, mensagem);
-		central.enviarMensagemParaCliente(destino, mensagem);
+		central.receberChamada(origem, destino);
+		central.informarChamadaConfirmada(origem);
+		central.informarChamadaConfirmada(destino);
+		central.receberMensagem(destino, mensagem);
+		central.receberMensagem(destino, mensagem);
+		central.receberMensagem(origem, mensagem);
+		central.receberMensagem(destino, mensagem);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -92,10 +92,10 @@ public class GerenciadorChamadasTest {
 	@Test
 	public void informarChamadaEncerrada() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
-		central.confirmarChamada(origem);
-		central.confirmarChamada(destino);
-		central.encerrarChamada(origem);
+		central.receberChamada(origem, destino);
+		central.informarChamadaConfirmada(origem);
+		central.informarChamadaConfirmada(destino);
+		central.informarChamadaEncerrada(origem);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -107,10 +107,10 @@ public class GerenciadorChamadasTest {
 	@Test
 	public void informarChamadaEncerradaPelaOrigem() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
-		central.confirmarChamada(origem);
-		central.confirmarChamada(destino);
-		central.encerrarChamada(destino);
+		central.receberChamada(origem, destino);
+		central.informarChamadaConfirmada(origem);
+		central.informarChamadaConfirmada(destino);
+		central.informarChamadaEncerrada(destino);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -120,12 +120,12 @@ public class GerenciadorChamadasTest {
 	}
 
 	@Test
-	public void destinoDesconectado() throws Exception {
+	public void efetuarChamadaComDestinoDesconectado() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(false);
 		// TODO: Provavelmente deveria ter outro método de resposta para quando
 		// o cara nao atende,
 		// mas entre os que tem acho q o melhor eh esse.
-		central.rejeitarChamada(origem);
+		central.informarChamadaRejeitada(origem);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -133,12 +133,12 @@ public class GerenciadorChamadasTest {
 	}
 
 	@Test
-	public void destinoComFalhaDeConexao() throws Exception {
+	public void efetuarChamadaComDestinoComFalhaDeConexao() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
+		central.receberChamada(origem, destino);
 		expectLastCall().andThrow(new RemoteException());
 		// Deve informar a origem que a chamada nao pode ser completada
-		central.rejeitarChamada(origem);
+		central.informarChamadaRejeitada(origem);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -148,13 +148,13 @@ public class GerenciadorChamadasTest {
 	@Test
 	public void enviarMensagemComFalhaDeConexao() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
-		central.confirmarChamada(origem);
-		central.confirmarChamada(destino);
-		central.enviarMensagemParaCliente(destino, mensagem);
+		central.receberChamada(origem, destino);
+		central.informarChamadaConfirmada(origem);
+		central.informarChamadaConfirmada(destino);
+		central.receberMensagem(destino, mensagem);
 		expectLastCall().andThrow(new RemoteException());
 		// Deve encerrar a chamada imediatamente com o que ainda esta on
-		central.encerrarChamada(origem);
+		central.informarChamadaEncerrada(origem);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);
@@ -166,13 +166,13 @@ public class GerenciadorChamadasTest {
 	@Test
 	public void enviarMensagemComFalhaDeConexaoNaOrigem() throws Exception {
 		expect(central.verificarConectado(destino)).andReturn(true);
-		central.enviarPedidoChamada(origem, destino);
-		central.confirmarChamada(origem);
-		central.confirmarChamada(destino);
-		central.enviarMensagemParaCliente(origem, mensagem);
+		central.receberChamada(origem, destino);
+		central.informarChamadaConfirmada(origem);
+		central.informarChamadaConfirmada(destino);
+		central.receberMensagem(origem, mensagem);
 		expectLastCall().andThrow(new RemoteException());
 		// Deve encerrar a chamada imediatamente com o que ainda esta on
-		central.encerrarChamada(destino);
+		central.informarChamadaEncerrada(destino);
 
 		replay(central);
 		gerenciadorchamadas.efetuarChamada(origem, destino);

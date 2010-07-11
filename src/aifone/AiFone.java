@@ -103,8 +103,8 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void encerrarChamada() {
-		apptelefone.encerrarChamada();
+	public void informarChamadaEncerrada() {
+		apptelefone.informarChamadaEncerrada();
 	}
 
 	@Override
@@ -117,8 +117,8 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void confirmarChamada(Telefone telefone) throws RemoteException {
-		apptelefone.confirmarChamada(telefone);
+	public void informarChamadaConfirmada(Telefone telefone) throws RemoteException {
+		apptelefone.informarAtendimentoConfirmado(telefone);
 
 	}
 
@@ -140,13 +140,13 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void informarChamadaEncerrada() throws RemoteException {
-		getInstanciaServidor().informarChamadaEncerrada(getTelefone());
+	public void encerrarChamada() throws RemoteException {
+		getInstanciaServidor().encerrarChamada(getTelefone());
 	}
 
 	@Override
-	public void informarChamadaRejeitada() throws RemoteException {
-		getInstanciaServidor().informarChamadaRejeitada(getTelefone());
+	public void rejeitarChamada() throws RemoteException {
+		getInstanciaServidor().rejeitarChamada(getTelefone());
 	}
 
 	@Override
@@ -167,8 +167,8 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void rejeitarChamada() throws RemoteException {
-		apptelefone.rejeitarChamada();
+	public void informarChamadaRejeitada() throws RemoteException {
+		apptelefone.informarChamadaRejeitada();
 	}
 
 	@Override

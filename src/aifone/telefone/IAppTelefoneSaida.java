@@ -21,7 +21,7 @@ public interface IAppTelefoneSaida {
 	 * 
 	 * @throws RemoteException
 	 */
-	public void informarChamadaEncerrada()
+	public void encerrarChamada()
 			throws RemoteException;
 
 	/**
@@ -32,7 +32,7 @@ public interface IAppTelefoneSaida {
 	 *            Telefone do cliente
 	 * @throws RemoteException
 	 */
-	public void informarChamadaRejeitada()
+	public void rejeitarChamada()
 			throws RemoteException;
 
 	/**
