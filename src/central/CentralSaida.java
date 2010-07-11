@@ -3,12 +3,8 @@ package central;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 
-import central.gerenciamento.IGerenciamentoEntrada;
-import central.telefone.ICentralTelefonicaEntrada;
-import central.tunel.ITunelEntrada;
-
 import aifone.IAiFoneEntrada;
-
+import central.gerenciamento.IGerenciamentoEntrada;
 import entidades.Mensagem;
 import entidades.Telefone;
 

@@ -1,16 +1,11 @@
 package central;
 
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import aifone.IAiFoneEntrada;
-import central.gerenciamento.Gerenciamento;
 import central.gerenciamento.IGerenciamentoEntrada;
-import central.telefone.CentralTelefonica;
 import central.telefone.ICentralTelefonicaEntrada;
 import central.tunel.ITunelEntrada;
-import central.tunel.Tunel;
 import entidades.Mensagem;
 import entidades.Requisicao;
 import entidades.RespostaDeRequisicao;
