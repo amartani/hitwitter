@@ -1,7 +1,9 @@
 package aifone;
 
-import aifone.telefone.IAppTelefoneIU;
+import java.rmi.RemoteException;
 
-public interface IAiFoneIU extends IAppTelefoneIU {
+public interface IAiFoneIU {
 
+	public void abrirTelaInicial() throws RemoteException;
+	public void abrirTelaTelefone() throws RemoteException;
 }

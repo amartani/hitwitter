@@ -7,19 +7,9 @@ import aifone.iu.IUTelaInicial;
 import aifone.telefone.iu.IUDiscar;
 
 public interface IAppTelefoneIU {
-	/**
-	 * Retorna uma tela de discagem com seu RN
-	 * 
-	 * @param telaRetorno
-	 *            Jpanel para onde se deve retornar
-	 * 
-	 */
-	public IUDiscar getIUDiscarInstance(JPanel telaRetorno);
-
-	/**
-	 * Retorna um container de telas
-	 * 
-	 * 
-	 */
-	public IUContainer getIUContainerInstance();
+	public void abrirTelaDiscar();
+	public void abrirTelaEfetuandoChamada();
+	public void abrirTelaRecebimentoDeChamada();
+	public void abrirTelaConversa();
+	public void abrirTelaInicial();
 }
