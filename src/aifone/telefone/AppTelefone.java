@@ -16,12 +16,20 @@ public class AppTelefone implements IAppTelefone {
 
 	private IAiFone aifone;
 	private RNAppTelefone rnAppTelefone;
+        private Telefone telefone;
 
-	public AppTelefone(IAiFone aifone) {
+	public AppTelefone(IAiFone aifone, Telefone telefone) {
 		this.aifone = aifone;
 		this.rnAppTelefone = new RNAppTelefone(this);
+                this.telefone = telefone;
 	}
+
+    public Telefone getTelefone() {
+        return telefone;
+    }
 	
+
+
 	protected RNAppTelefone getRnAppTelefone(){
 		return rnAppTelefone;
 	}

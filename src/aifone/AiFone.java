@@ -27,7 +27,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFone {
 
 	protected AiFone() throws RemoteException {
 		super();
-		apptelefone = new AppTelefone(this);
+		apptelefone = new AppTelefone(this, this.getTelefone());
 		hitwitter = new HiTwitter(this);
 		propriedades = new PropriedadesArquivo();
 
@@ -55,7 +55,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFone {
 		return null;
 	}
 
-	private Telefone getTelefone() {
+	public Telefone getTelefone() {
 		return new Telefone(propriedades.getNumeroTelefone());
 	}
 
