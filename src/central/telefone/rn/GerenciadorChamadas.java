@@ -63,6 +63,12 @@ public class GerenciadorChamadas {
 			throw new RuntimeException("Telefone nao esta sendo chamado.");
 
 	}
+	
+	private void waitALittle(){
+		long now = System.currentTimeMillis();
+		now +=2000;
+		while(System.currentTimeMillis() < now);
+	}
 
 	public void efetuarChamada(Telefone origem, Telefone destino) {
 		System.out.println("Gerenciador de Chamadas: "
