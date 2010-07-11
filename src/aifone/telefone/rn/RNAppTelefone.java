@@ -1,11 +1,6 @@
 package aifone.telefone.rn;
 
-import javax.swing.JPanel;
-
-import aifone.iu.IUContainer;
-import aifone.iu.IUTelaInicial;
 import aifone.telefone.IAppTelefone;
-import aifone.telefone.iu.IURecebimentoDeChamada;
 import entidades.Mensagem;
 import entidades.Telefone;
 
