@@ -5,7 +5,6 @@ import java.rmi.registry.LocateRegistry;
 
 import central.gerenciamento.Gerenciamento;
 import central.gerenciamento.ip.IPConexaoMemoria;
-import central.gerenciamento.ip.IPTelefoneMemoria;
 import central.gerenciamento.ip.IPTelefoneStub;
 import central.gerenciamento.rn.GerenciadorUsuarios;
 import central.telefone.CentralTelefonica;
