@@ -117,7 +117,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void informarChamadaConfirmada(Telefone telefone) throws RemoteException {
+	public void informarChamadaConfirmada(Telefone telefone) {
 		apptelefone.informarAtendimentoConfirmado(telefone);
 
 	}
@@ -167,7 +167,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void informarChamadaRejeitada() throws RemoteException {
+	public void informarChamadaRejeitada() {
 		apptelefone.informarChamadaRejeitada();
 	}
 
