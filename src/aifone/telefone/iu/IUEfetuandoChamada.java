@@ -93,6 +93,7 @@ public class IUEfetuandoChamada extends javax.swing.JPanel {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarActionPerformed
+		rnAppTelefone.setInterlocutor(null);
 		IUContainer.getInstance().setPanel(telaRetorno);
 	}// GEN-LAST:event_botaoCancelarActionPerformed
 
