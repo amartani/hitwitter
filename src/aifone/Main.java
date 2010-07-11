@@ -28,12 +28,6 @@ public class Main {
 		}
 	}
 
-	private void iniciarIU(AiFone aiFone) {
-		IUContainer container = IUContainer.getInstance();
-		container.setPanel(new IUTelaInicial(aiFone));
-		container.setVisible(true);
-	}
-
 	/**
 	 * @param args
 	 */
@@ -41,7 +35,6 @@ public class Main {
 		Main main = new Main();
 		AiFone aiFone = new AiFone();
 		main.iniciarServidorRMI(aiFone, 1101);
-		main.iniciarIU(aiFone);
 	}
 
 }

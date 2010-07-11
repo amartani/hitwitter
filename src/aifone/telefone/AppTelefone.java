@@ -2,36 +2,28 @@ package aifone.telefone;
 
 import java.rmi.RemoteException;
 
-import javax.swing.JPanel;
-
-import aifone.IAiFoneSaida;
+import aifone.IAiFone;
 import aifone.iu.IUContainer;
-import aifone.iu.IUTelaInicial;
+import aifone.telefone.iu.IUConversa;
 import aifone.telefone.iu.IUDiscar;
+import aifone.telefone.iu.IUEfetuandoChamada;
+import aifone.telefone.iu.IURecebimentoDeChamada;
 import aifone.telefone.rn.RNAppTelefone;
 import entidades.Mensagem;
 import entidades.Telefone;
 
 public class AppTelefone implements IAppTelefone {
 
-	private IAiFoneSaida aifone;
+	private IAiFone aifone;
 	private RNAppTelefone rnAppTelefone;
 
-	public AppTelefone(IAiFoneSaida aifone) {
+	public AppTelefone(IAiFone aifone) {
 		this.aifone = aifone;
 		this.rnAppTelefone = new RNAppTelefone(this);
 	}
-
-	@Override
-	public void informarAtendimentoConfirmado(Telefone telefone) {
-		rnAppTelefone.confirmarChamada(telefone);
-
-	}
-
-	@Override
-	public void informarChamadaEncerrada() {
-		rnAppTelefone.encerrarChamada();
-
+	
+	protected RNAppTelefone getRnAppTelefone(){
+		return rnAppTelefone;
 	}
 
 	@Override
@@ -65,30 +57,68 @@ public class AppTelefone implements IAppTelefone {
 	}
 
 	@Override
-	public void encerrarChamada() throws RemoteException {
-		aifone.encerrarChamada();
-
-	}
-
-	@Override
 	public void rejeitarChamada() throws RemoteException {
-		aifone.rejeitarChamada();
+		// TODO Auto-generated method stub
+	}
 
+	
+	/*
+	 * Telas
+	 */
+	@Override
+	public void abrirTelaConversa() {
+		IUContainer.getInstance().setPanel(new IUConversa(this, rnAppTelefone));
+		
 	}
 
 	@Override
-	public IUDiscar getIUDiscarInstance(JPanel telaRetorno) {
-		return new IUDiscar(rnAppTelefone, telaRetorno);
+	public void abrirTelaDiscar() {
+		IUContainer.getInstance().setPanel(new IUDiscar(this, rnAppTelefone));
+		
 	}
 
 	@Override
-	public IUContainer getIUContainerInstance() {
-		return IUContainer.getInstance();
+	public void abrirTelaEfetuandoChamada() {
+		IUContainer.getInstance().setPanel(new IUEfetuandoChamada(this, rnAppTelefone));
+		
+	}
+
+	@Override
+	public void abrirTelaInicial() {
+		try {
+			aifone.abrirTelaInicial();		
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void abrirTelaRecebimentoDeChamada() {
+		IUContainer.getInstance().setPanel(new IURecebimentoDeChamada(this, rnAppTelefone));
+		
+	}
+
+	@Override
+	public void informarAtendimentoConfirmado(Telefone telefone) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void informarChamadaEncerrada() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void informarChamadaRejeitada() {
 		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void encerrarChamada() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }

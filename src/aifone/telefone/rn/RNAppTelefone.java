@@ -44,9 +44,7 @@ public class RNAppTelefone {
 	public void receberChamada(Telefone origem) {
 		System.out.println("RNApp: chamada recebida");
 		interlocutor = origem.getNumero();
-		IUContainer iuContainer = appTelefone.getIUContainerInstance();
-		JPanel panelAtual = iuContainer.getPanel();
-		iuContainer.setPanel(new IURecebimentoDeChamada(this,panelAtual));
+		appTelefone.abrirTelaRecebimentoDeChamada();
 	}
 
 	public void receberMensagem(Mensagem mensagem) {

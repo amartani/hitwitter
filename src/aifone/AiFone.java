@@ -5,14 +5,12 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import javax.swing.JPanel;
-
 import aifone.hitwitter.HiTwitter;
 import aifone.hitwitter.IHiTwitter;
 import aifone.iu.IUContainer;
+import aifone.iu.IUTelaInicial;
 import aifone.telefone.AppTelefone;
 import aifone.telefone.IAppTelefone;
-import aifone.telefone.iu.IUDiscar;
 import central.ICentralRemote;
 import entidades.Mensagem;
 import entidades.Requisicao;
@@ -20,8 +18,7 @@ import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
 @SuppressWarnings("serial")
-public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
-		IAiFoneSaida, IAiFoneIU {
+public class AiFone extends UnicastRemoteObject implements IAiFone {
 
 	private IAppTelefone apptelefone;
 	private IHiTwitter hitwitter;
@@ -35,6 +32,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		propriedades = new PropriedadesArquivo();
 
 		conectarTelefone();
+		abrirTelaInicial();
 	}
 
 	public void testeConectarTelefone() throws RemoteException {
@@ -117,7 +115,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void informarChamadaConfirmada(Telefone telefone) {
+	public void informarChamadaConfirmada(Telefone telefone){
 		apptelefone.informarAtendimentoConfirmado(telefone);
 
 	}
@@ -167,18 +165,21 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	}
 
 	@Override
-	public void informarChamadaRejeitada() {
+	public void informarChamadaRejeitada() throws RemoteException {
 		apptelefone.informarChamadaRejeitada();
 	}
 
 	@Override
-	public IUDiscar getIUDiscarInstance(JPanel telaRetorno) {
-		return apptelefone.getIUDiscarInstance(telaRetorno);
+	public void abrirTelaInicial() {
+		IUContainer container = IUContainer.getInstance();
+		container.setPanel(new IUTelaInicial(this));
+		container.setVisible(true);
 	}
 
 	@Override
-	public IUContainer getIUContainerInstance() {
-		return IUContainer.getInstance();
+	public void abrirTelaTelefone() {
+		apptelefone.abrirTelaDiscar();
+
 	}
 
 }
