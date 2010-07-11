@@ -25,6 +25,7 @@ public class IUTelaInicial extends javax.swing.JPanel {
 	public IUTelaInicial(IAiFoneIU aiFone) {
 		initComponents();
 		this.aiFone = aiFone;
+                labelNumero.setText(this.aiFone.getTelefone().getNumero());
 	}
 
 	/**
@@ -34,35 +35,63 @@ public class IUTelaInicial extends javax.swing.JPanel {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		botaoIniciarTelefone = new javax.swing.JButton();
+        botaoIniciarTelefone = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        labelNumero = new javax.swing.JLabel();
 
-		setPreferredSize(new java.awt.Dimension(320, 480));
+        setPreferredSize(new java.awt.Dimension(320, 480));
 
-		botaoIniciarTelefone.setText("Telefone");
-		botaoIniciarTelefone
-				.addMouseListener(new java.awt.event.MouseAdapter() {
-					public void mouseClicked(java.awt.event.MouseEvent evt) {
-						botaoIniciarTelefoneMouseClicked(evt);
-					}
-				});
+        botaoIniciarTelefone.setText("Telefone");
+        botaoIniciarTelefone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoIniciarTelefoneMouseClicked(evt);
+            }
+        });
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-		this.setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addGap(94, 94, 94).addComponent(
-						botaoIniciarTelefone).addContainerGap(151,
-						Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				javax.swing.GroupLayout.Alignment.TRAILING,
-				layout.createSequentialGroup().addContainerGap(350,
-						Short.MAX_VALUE).addComponent(botaoIniciarTelefone)
-						.addGap(107, 107, 107)));
-	}// </editor-fold>//GEN-END:initComponents
+        jButton1.setText("HiTwitter");
+
+        jLabel1.setText("AiFone");
+
+        labelNumero.setText("meuNumero");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botaoIniciarTelefone)
+                            .addComponent(jButton1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(labelNumero)))
+                .addContainerGap(125, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(140, 140, 140))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelNumero)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(botaoIniciarTelefone)
+                .addGap(42, 42, 42)
+                .addComponent(jButton1)
+                .addGap(186, 186, 186))
+        );
+    }// </editor-fold>//GEN-END:initComponents
 
 	private void botaoIniciarTelefoneMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botaoIniciarTelefoneMouseClicked
 
@@ -70,8 +99,11 @@ public class IUTelaInicial extends javax.swing.JPanel {
 
 	}// GEN-LAST:event_botaoIniciarTelefoneMouseClicked
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton botaoIniciarTelefone;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoIniciarTelefone;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelNumero;
+    // End of variables declaration//GEN-END:variables
 
 }

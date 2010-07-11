@@ -3,6 +3,7 @@ package aifone;
 import aifone.iu.IUContainer;
 import aifone.iu.IUTelaInicial;
 import aifone.telefone.IAppTelefoneIU;
+import entidades.Telefone;
 
 public class AiFoneIU implements IAiFoneIU {
 	private AiFone aifone;
@@ -27,5 +28,11 @@ public class AiFoneIU implements IAiFoneIU {
 	private IAppTelefoneIU getAppTelefoneIU() {
 		return aifone.getAppTelefoneIU();
 	}
+
+    @Override
+    public Telefone getTelefone() {
+        return aifone.getTelefone();
+    }
+
 
 }
