@@ -2,7 +2,8 @@ package aifone.telefone;
 
 import java.rmi.RemoteException;
 
-import aifone.IAiFone;
+import aifone.IAiFoneIU;
+import aifone.IAiFoneSaida;
 import aifone.iu.IUContainer;
 import aifone.telefone.iu.IUConversa;
 import aifone.telefone.iu.IUDiscar;
@@ -14,11 +15,13 @@ import entidades.Telefone;
 
 public class AppTelefone implements IAppTelefone {
 
-	private IAiFone aifone;
+	private IAiFoneSaida aifonesaida;
+	private IAiFoneIU aifoneiu;
 	private RNAppTelefone rnAppTelefone;
 
-	public AppTelefone(IAiFone aifone) {
-		this.aifone = aifone;
+	public AppTelefone(IAiFoneSaida aifone, IAiFoneIU aifoneiu) {
+		this.aifonesaida = aifone;
+		this.aifoneiu = aifoneiu;
 		this.rnAppTelefone = new RNAppTelefone(this);
 	}
 	
@@ -40,19 +43,19 @@ public class AppTelefone implements IAppTelefone {
 
 	@Override
 	public void confirmarAtendimento() throws RemoteException {
-		aifone.confirmarAtendimento();
+		aifonesaida.confirmarAtendimento();
 
 	}
 
 	@Override
 	public void efetuarChamada(Telefone destino) throws RemoteException {
-		aifone.efetuarChamada(destino);
+		aifonesaida.efetuarChamada(destino);
 
 	}
 
 	@Override
 	public void enviarMensagem(Mensagem mensagem) throws RemoteException {
-		aifone.enviarMensagem(mensagem);
+		aifonesaida.enviarMensagem(mensagem);
 
 	}
 
@@ -86,7 +89,7 @@ public class AppTelefone implements IAppTelefone {
 	@Override
 	public void abrirTelaInicial() {
 		try {
-			aifone.abrirTelaInicial();		
+			aifoneiu.abrirTelaInicial();		
 		} catch(Exception e){
 			e.printStackTrace();
 		}

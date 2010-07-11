@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import entidades.Mensagem;
 import entidades.Telefone;
 
-public interface IAiFoneRemote extends Remote {
+public interface IAiFoneEntrada extends Remote {
 
 	/**
 	 * Recebe uma chamada telefonica
