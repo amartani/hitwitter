@@ -14,17 +14,19 @@ import entidades.Telefone;
 public class AiFoneSaida implements IAiFoneSaida {
 	
 	private AiFone aifone;
+	private String nomeListener;
 
-	public AiFoneSaida(AiFone aifone) {
+	public AiFoneSaida(AiFone aifone, String nomeListener) {
 		super();
 		this.aifone = aifone;
+		this.nomeListener = nomeListener;
 	}
 	
 	private String getEnderecoRMI() {
 		try {
 			return "rmi://"
 					+ java.net.InetAddress.getLocalHost().getHostAddress()
-					+ "/aifone2";
+					+ "/aifone" + nomeListener;
 		} catch (UnknownHostException e) {
 			System.err.println("Nao foi possivel obter endereco local");
 			e.printStackTrace();
