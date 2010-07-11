@@ -3,12 +3,13 @@ package aifone;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
-import aifone.iu.IUContainer;
-import aifone.iu.IUTelaInicial;
-
 public class Main {
+	
+	IAiFoneEntrada entrada;
+	IAiFoneSaida saida;
+	IAiFoneIU iu;
 
-	private void iniciarServidorRMI(AiFone aifone, int porta) {
+	private void iniciarServidorRMI(IAiFoneEntrada aifone, int porta) {
 		System.setSecurityManager(null);
 		System.out.println("Ativando aifone");
 		try {
@@ -17,7 +18,7 @@ public class Main {
 			System.out.println("Registro RMI ja estava ativo");
 		}
 		try {
-			IAiFoneRemote servidor = aifone;
+			IAiFoneEntrada servidor = aifone;
 			Naming.rebind("aifone", servidor);
 			System.out.println("Servidor ativo");
 			//((AiFone) servidor).testeConectarTelefone();
@@ -33,8 +34,11 @@ public class Main {
 	 */
 	public static void main(String[] args) throws Exception {
 		Main main = new Main();
-		AiFone aiFone = new AiFone();
-		main.iniciarServidorRMI(aiFone, 1101);
+		IPropriedades propriedades = new PropriedadesArquivo();
+		AiFone aifone = new AiFone(propriedades);
+		main.iniciarServidorRMI(aifone.getEntrada(), 1101);
+		aifone.getIU().abrirTelaInicial();
+		aifone.getSaida().conectarTelefone();
 	}
 
 }

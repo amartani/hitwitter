@@ -112,6 +112,13 @@ public class GerenciadorChamadas {
 				System.out
 						.println("Nao foi possivel enviar mensagem. Excecao: ");
 				e.printStackTrace();
+				try {
+					centralTelefonica.informarChamadaEncerrada(origem);
+				} catch (RemoteException e1) {
+					System.out
+							.println("Nao foi possivel informar chamada encerrada. Excecao: ");
+					e1.printStackTrace();
+				}
 			}
 		}
 

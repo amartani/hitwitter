@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.ServerNotActiveException;
 import java.rmi.server.UnicastRemoteObject;
 
-import aifone.IAiFoneRemote;
+import aifone.IAiFoneEntrada;
 import central.gerenciamento.Gerenciamento;
 import central.gerenciamento.IGerenciamentoEntrada;
 import central.telefone.CentralTelefonica;
@@ -87,10 +87,10 @@ public class Central extends UnicastRemoteObject implements ICentral {
 	/**
 	 * Instância do objeto RMI do cliente
 	 */
-	private IAiFoneRemote getInstanciaCliente(Telefone telefone) {
-		IAiFoneRemote cliente = null;
+	private IAiFoneEntrada getInstanciaCliente(Telefone telefone) {
+		IAiFoneEntrada cliente = null;
 		try {
-			cliente = (IAiFoneRemote) Naming.lookup(gerenciamento
+			cliente = (IAiFoneEntrada) Naming.lookup(gerenciamento
 					.enderecoRMIDoCliente(telefone));
 		} catch (Exception e) {
 			System.out
