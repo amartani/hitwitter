@@ -40,7 +40,7 @@ public class GerenciadorChamadas {
 			ippedido.apagar(telefone);
 			ippedido.apagar(origem);
 			try {
-				centralTelefonica.informarChamadaConfirmada(telefone);
+				centralTelefonica.informarChamadaConfirmada(origem);
 			} catch (RemoteException e) {
 				System.out
 						.println("Nao foi possivel confirmar chamada. Excecao: ");
@@ -49,7 +49,7 @@ public class GerenciadorChamadas {
 				ipchamada.apagar(origem);
 			}
 			try {
-				centralTelefonica.informarChamadaConfirmada(origem);
+				centralTelefonica.informarChamadaConfirmada(telefone);
 			} catch (RemoteException e) {
 				System.out
 						.println("Nao foi possivel confirmar chamada. Excecao: ");
