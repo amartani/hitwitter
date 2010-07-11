@@ -134,13 +134,13 @@ public class IURecebimentoDeChamada extends javax.swing.JPanel {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void botaoAceitarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAceitarActionPerformed
-		rnAppTelefone.confirmarAtendimento();
 		appTelefone.abrirTelaConversa();
+		rnAppTelefone.confirmarAtendimento();
 	}// GEN-LAST:event_botaoAceitarActionPerformed
 
 	private void botaoRejeitarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoRejeitarActionPerformed
-		rnAppTelefone.rejeitarChamada();
 		appTelefone.abrirTelaInicial();
+		rnAppTelefone.rejeitarChamada();
 	}// GEN-LAST:event_botaoRejeitarActionPerformed
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
