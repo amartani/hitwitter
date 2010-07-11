@@ -1,7 +1,5 @@
 package aifone.telefone;
 
-import java.rmi.RemoteException;
-
 import entidades.Mensagem;
 import entidades.Telefone;
 

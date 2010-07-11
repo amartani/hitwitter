@@ -41,96 +41,75 @@ public class IUConversa extends javax.swing.JPanel {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		iUTeclado1 = new aifone.iu.IUTeclado();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		areaConversa = new javax.swing.JTextArea();
-		campoMensagem = new javax.swing.JTextField();
-		botaoEnviar = new javax.swing.JButton();
-		componenteTeclado = new aifone.iu.IUTeclado();
+        iUTeclado1 = new aifone.iu.IUTeclado();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        areaConversa = new javax.swing.JTextArea();
+        campoMensagem = new javax.swing.JTextField();
+        botaoEnviar = new javax.swing.JButton();
+        componenteTeclado = new aifone.iu.IUTeclado();
+        botaoSair = new javax.swing.JButton();
 
-		areaConversa.setColumns(20);
-		areaConversa.setRows(5);
-		jScrollPane1.setViewportView(areaConversa);
+        areaConversa.setColumns(20);
+        areaConversa.setRows(5);
+        jScrollPane1.setViewportView(areaConversa);
 
-		campoMensagem.setText(" ");
+        campoMensagem.setText(" ");
 
-		botaoEnviar.setText("Enviar!");
-		botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				botaoEnviarActionPerformed(evt);
-			}
-		});
+        botaoEnviar.setText("Enviar!");
+        botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEnviarActionPerformed(evt);
+            }
+        });
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-		this.setLayout(layout);
-		layout
-				.setHorizontalGroup(layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								layout
-										.createSequentialGroup()
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addGap(
-																				21,
-																				21,
-																				21)
-																		.addGroup(
-																				layout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.TRAILING,
-																								false)
-																						.addComponent(
-																								jScrollPane1,
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING,
-																								layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												campoMensagem,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												171,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												botaoEnviar))))
-														.addComponent(
-																componenteTeclado,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addContainerGap(25, Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup().addContainerGap().addComponent(
-						jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
-						136, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(18,
-						18, 18).addGroup(
-						layout.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(campoMensagem,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(botaoEnviar)).addPreferredGap(
-						javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(componenteTeclado,
-								javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(23, Short.MAX_VALUE)));
-	}// </editor-fold>//GEN-END:initComponents
+        botaoSair.setText("X");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(componenteTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(campoMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botaoEnviar))
+                            .addComponent(botaoSair))))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(botaoSair)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoEnviar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(componenteTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+        private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+            appTelefone.abrirTelaInicial();
+        }//GEN-LAST:event_botaoSairActionPerformed
 
 	private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoEnviarActionPerformed
             enviarMensagem();
@@ -152,13 +131,14 @@ public class IUConversa extends javax.swing.JPanel {
             
         }
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JTextArea areaConversa;
-	private javax.swing.JButton botaoEnviar;
-	private javax.swing.JTextField campoMensagem;
-	private aifone.iu.IUTeclado componenteTeclado;
-	private aifone.iu.IUTeclado iUTeclado1;
-	private javax.swing.JScrollPane jScrollPane1;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea areaConversa;
+    private javax.swing.JButton botaoEnviar;
+    private javax.swing.JButton botaoSair;
+    private javax.swing.JTextField campoMensagem;
+    private aifone.iu.IUTeclado componenteTeclado;
+    private aifone.iu.IUTeclado iUTeclado1;
+    private javax.swing.JScrollPane jScrollPane1;
+    // End of variables declaration//GEN-END:variables
 
 }

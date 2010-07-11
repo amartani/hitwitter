@@ -4,8 +4,6 @@ import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 
-import aifone.telefone.IAppTelefoneEntrada;
-
 import central.ICentralRemote;
 
 import entidades.Mensagem;
