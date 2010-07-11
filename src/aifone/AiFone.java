@@ -23,8 +23,10 @@ import entidades.Telefone;
 public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		IAiFoneSaida, IAiFoneIU {
 
-	IAppTelefone apptelefone;
-	IHiTwitter hitwitter;
+	private IAppTelefone apptelefone;
+	private IHiTwitter hitwitter;
+	private ICentralRemote servidor;
+	private IPropriedades propriedades;	
 
 	protected AiFone() throws RemoteException {
 		super();
@@ -34,9 +36,6 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 
 		conectarTelefone();
 	}
-
-	private ICentralRemote servidor;
-	private IPropriedades propriedades;
 
 	public void testeConectarTelefone() throws RemoteException {
 		getInstanciaServidor().efetuarChamada(getTelefone(), getTelefone());

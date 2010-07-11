@@ -8,16 +8,16 @@ import aifone.iu.IUTelaInicial;
 
 public class Main {
 
-	private void iniciarServidorRMI() {
+	private void iniciarServidorRMI(AiFone aifone, int porta) {
 		System.setSecurityManager(null);
 		System.out.println("Ativando aifone");
 		try {
-			LocateRegistry.createRegistry(1100);
+			LocateRegistry.createRegistry(porta);
 		} catch (Exception e) {
 			System.out.println("Registro RMI ja estava ativo");
 		}
 		try {
-			IAiFoneRemote servidor = new AiFone();
+			IAiFoneRemote servidor = aifone;
 			Naming.rebind("aifone", servidor);
 			System.out.println("Servidor ativo");
 			//((AiFone) servidor).testeConectarTelefone();
@@ -40,7 +40,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		Main main = new Main();
 		AiFone aiFone = new AiFone();
-		main.iniciarServidorRMI();
+		main.iniciarServidorRMI(aiFone, 1100);
 		main.iniciarIU(aiFone);
 	}
 
