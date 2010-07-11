@@ -11,6 +11,9 @@
 
 package aifone.telefone.iu;
 
+import javax.swing.JScrollBar;
+import javax.swing.JTextArea;
+
 import aifone.telefone.AppTelefone;
 import aifone.telefone.IAppTelefone;
 import aifone.telefone.rn.RNAppTelefone;
@@ -32,6 +35,8 @@ public class IUConversa extends javax.swing.JPanel {
 		this.rnAppTelefone = rnAppTelefone;
 		this.appTelefone = appTelefone;
 		componenteTeclado.setCampoAlvo(campoMensagem);
+		areaConversa.setWrapStyleWord(true);
+		areaConversa.setLineWrap(true);
 	}
 
 	/**
@@ -117,9 +122,10 @@ public class IUConversa extends javax.swing.JPanel {
 	}
 
         public void exibirMensagem(String numero, Mensagem mensagem){
-            	String frase = mensagem.getConteudo();
-		String conversa = areaConversa.getText();
-		areaConversa.setText(conversa.concat("<"+numero+"> "+frase + "\n"));
+            String frase = mensagem.getConteudo();
+            String conversa = areaConversa.getText();
+			areaConversa.setText(conversa.concat("<"+numero+"> "+frase + "\n"));
+			areaConversa.setCaretPosition(areaConversa.getDocument().getLength());
         }
 
         private void enviarMensagem(){
