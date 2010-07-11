@@ -21,11 +21,9 @@ public class MainRandom {
 			IAiFoneEntrada servidor = aifone;
 			Naming.rebind("aifone" + nomeListener, servidor);
 			System.out.println("Servidor ativo");
-			//((AiFone) servidor).testeConectarTelefone();
 		} catch (Exception e2) {
 			System.out.println("Impossivel ativar servidor. Excecao: ");
 			e2.printStackTrace();
-			System.exit(1);
 		}
 	}
 
