@@ -64,7 +64,7 @@ public interface ICentralRemote extends Remote {
 			throws RemoteException;
 
 	/**
-	 * O cliente deve chamar este método quando a chamada for atendida
+	 * O cliente deve chamar este método atender a chamada
 	 * 
 	 * @param telefone
 	 *            Telefone do cliente

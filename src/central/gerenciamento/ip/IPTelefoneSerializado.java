@@ -81,8 +81,10 @@ public class IPTelefoneSerializado implements IIPTelefone {
 
 	public static void main(String args[]) {
 		IPTelefoneSerializado iptelefone = new IPTelefoneSerializado();
-		Telefone telefone = new Telefone("1234-5678");
+		Telefone telefone = new Telefone("12345678");
+		Telefone telefone2 = new Telefone("12341234");
 		iptelefone.inserir(telefone);
+		iptelefone.inserir(telefone2);
 	}
 
 }

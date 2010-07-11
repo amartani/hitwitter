@@ -32,7 +32,8 @@ public class Central extends UnicastRemoteObject implements ICentral {
 	}
 
 	public Central(ICentralTelefonicaEntrada centraltelefonica,
-			IGerenciamentoEntrada gerenciamento, ITunelEntrada tunel) throws RemoteException {
+			IGerenciamentoEntrada gerenciamento, ITunelEntrada tunel)
+			throws RemoteException {
 		super();
 		this.centraltelefonica = centraltelefonica;
 		this.gerenciamento = gerenciamento;
@@ -41,7 +42,7 @@ public class Central extends UnicastRemoteObject implements ICentral {
 
 	@Override
 	public void conectarTelefone(Telefone telefone, String enderecoRMI) {
-		System.out.println("conectaTelefone");
+		System.out.println("conectaTelefone: " + telefone.getNumero());
 		try {
 			System.out.println("Client host: " + getClientHost());
 		} catch (ServerNotActiveException e) {
