@@ -18,12 +18,12 @@ public interface IAiFoneRemote extends Remote {
 	/**
 	 * Encerra uma chamada em andamento
 	 */
-	public void encerrarChamada() throws RemoteException;
+	public void informarChamadaEncerrada() throws RemoteException;
 	
 	/**
 	 * Rejeita uma chamada que está para ser feita
 	 */
-	public void rejeitarChamada() throws RemoteException;
+	public void informarChamadaRejeitada() throws RemoteException;
 	
 	/**
 	 * Recebe uma mensagem
@@ -38,6 +38,6 @@ public interface IAiFoneRemote extends Remote {
 	 * @param telefone
 	 *            Telefone interlocutor
 	 */
-	public void confirmarChamada(Telefone telefone) throws RemoteException;		
+	public void informarChamadaConfirmada(Telefone telefone) throws RemoteException;		
 	
 }

@@ -49,7 +49,7 @@ public interface ICentralRemote extends Remote {
 	 *            Telefone do cliente que encerrou a chamada
 	 * @throws RemoteException
 	 */
-	public void informarChamadaEncerrada(Telefone telefone)
+	public void encerrarChamada(Telefone telefone)
 			throws RemoteException;
 
 	/**
@@ -60,7 +60,7 @@ public interface ICentralRemote extends Remote {
 	 *            Telefone do cliente
 	 * @throws RemoteException
 	 */
-	public void informarChamadaRejeitada(Telefone telefone)
+	public void rejeitarChamada(Telefone telefone)
 			throws RemoteException;
 
 	/**

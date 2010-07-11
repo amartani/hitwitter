@@ -23,13 +23,13 @@ public class AppTelefone implements IAppTelefone {
 	}
 
 	@Override
-	public void confirmarChamada(Telefone telefone) {
+	public void informarAtendimentoConfirmado(Telefone telefone) {
 		rnAppTelefone.confirmarChamada(telefone);
 
 	}
 
 	@Override
-	public void encerrarChamada() {
+	public void informarChamadaEncerrada() {
 		rnAppTelefone.encerrarChamada();
 
 	}
@@ -65,14 +65,14 @@ public class AppTelefone implements IAppTelefone {
 	}
 
 	@Override
-	public void informarChamadaEncerrada() throws RemoteException {
-		aifone.informarChamadaEncerrada();
+	public void encerrarChamada() throws RemoteException {
+		aifone.encerrarChamada();
 
 	}
 
 	@Override
-	public void informarChamadaRejeitada() throws RemoteException {
-		aifone.informarChamadaRejeitada();
+	public void rejeitarChamada() throws RemoteException {
+		aifone.rejeitarChamada();
 
 	}
 
@@ -87,7 +87,7 @@ public class AppTelefone implements IAppTelefone {
 	}
 
 	@Override
-	public void rejeitarChamada() throws RemoteException {
+	public void informarChamadaRejeitada() {
 		// TODO Auto-generated method stub
 
 	}

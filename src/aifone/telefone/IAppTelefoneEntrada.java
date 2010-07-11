@@ -17,12 +17,12 @@ public interface IAppTelefoneEntrada {
 	/**
 	 * Encerra uma chamada em andamento
 	 */
-	public void encerrarChamada();
+	public void informarChamadaEncerrada();
 
 	/**
 	 * Rejeita uma chamada que está para ser feita
 	 */
-	public void rejeitarChamada() throws RemoteException;
+	public void informarChamadaRejeitada();
 
 	/**
 	 * Recebe uma mensagem
@@ -38,5 +38,5 @@ public interface IAppTelefoneEntrada {
 	 * @param telefone
 	 *            Telefone interlocutor
 	 */
-	public void confirmarChamada(Telefone telefone);
+	public void informarAtendimentoConfirmado(Telefone telefone);
 }
