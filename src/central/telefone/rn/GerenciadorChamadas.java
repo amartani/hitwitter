@@ -21,6 +21,12 @@ public class GerenciadorChamadas {
 		this.ipchamada = new IPChamadaMemoria();
 		this.ippedido = new IPPedidoMemoria();
 	}
+	
+	public GerenciadorChamadas(ICentralTelefonicaSaida centralTelefonica, IIPChamada ipchamada, IIPPedidoChamada ippedido) {
+		this.centralTelefonica = centralTelefonica;
+		this.ipchamada = ipchamada;
+		this.ippedido = ippedido;
+	}
 
 	public void confirmarAtendimento(Telefone telefone) {
 		System.out.println("Gerenciador de Chamadas: atendimento confirmado");
