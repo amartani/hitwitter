@@ -24,7 +24,7 @@ public class AiFoneSaida implements IAiFoneSaida {
 		try {
 			return "rmi://"
 					+ java.net.InetAddress.getLocalHost().getHostAddress()
-					+ "/aifone";
+					+ "/aifone2";
 		} catch (UnknownHostException e) {
 			System.err.println("Nao foi possivel obter endereco local");
 			e.printStackTrace();
