@@ -30,6 +30,7 @@ public class IURecebimentoDeChamada extends javax.swing.JPanel {
 		initComponents();
 		this.rnAppTelefone = rnAppTelefone;
 		this.appTelefone = appTelefone;
+		labelNumero.setText(appTelefone.getTelefone().getNumero());
 	}
 
 	/**
