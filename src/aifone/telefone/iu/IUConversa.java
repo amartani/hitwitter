@@ -68,11 +68,6 @@ public class IUConversa extends javax.swing.JPanel {
                 campoMensagemActionPerformed(evt);
             }
         });
-        campoMensagem.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                campoMensagemKeyTyped(evt);
-            }
-        });
 
         botaoEnviar.setText("Enviar!");
         botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,10 +122,6 @@ public class IUConversa extends javax.swing.JPanel {
             appTelefone.abrirTelaInicial();
             rnAppTelefone.encerrarChamada();
         }//GEN-LAST:event_botaoSairActionPerformed
-
-        private void campoMensagemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoMensagemKeyTyped
-            // TODO add your handling code here:
-        }//GEN-LAST:event_campoMensagemKeyTyped
 
         private void campoMensagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMensagemActionPerformed
             enviarMensagem();
