@@ -15,12 +15,13 @@ import entidades.Telefone;
 
 public class AppTelefone implements IAppTelefone {
 
-	private IAiFoneSaida aifonesaida;
+	private IAppTelefoneSaida aifonesaida;
 	private IAiFoneIU aifoneiu;
 	private RNAppTelefone rnAppTelefone;
 	private Telefone telefone;
 
-	public AppTelefone(IAiFoneSaida aifone, IAiFoneIU aifoneiu, Telefone telefone) {
+	public AppTelefone(IAppTelefoneSaida aifone, IAiFoneIU aifoneiu,
+			Telefone telefone) {
 		this.aifonesaida = aifone;
 		this.aifoneiu = aifoneiu;
 		this.telefone = telefone;
@@ -124,8 +125,8 @@ public class AppTelefone implements IAppTelefone {
 	@Override
 	public void abrirTelaInicial() {
 		try {
-			aifoneiu.abrirTelaInicial();		
-		} catch(Exception e){
+			aifoneiu.abrirTelaInicial();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -137,7 +138,7 @@ public class AppTelefone implements IAppTelefone {
 				new IURecebimentoDeChamada(this, rnAppTelefone));
 
 	}
-	
+
 	@Override
 	public Telefone getTelefone() {
 		return telefone;
@@ -145,9 +146,10 @@ public class AppTelefone implements IAppTelefone {
 
 	@Override
 	public void exibirMensagem(String autor, Mensagem mensagem) {
-		if(IUContainer.getInstance().getPanel() instanceof IUConversa){
-			((IUConversa)IUContainer.getInstance().getPanel()).exibirMensagem(autor, mensagem);
+		if (IUContainer.getInstance().getPanel() instanceof IUConversa) {
+			((IUConversa) IUContainer.getInstance().getPanel()).exibirMensagem(
+					autor, mensagem);
 		}
-		
+
 	}
 }
