@@ -42,7 +42,7 @@ public interface ICentralTelefonicaEntrada {
 	 * @param telefone
 	 *            Telefone do cliente que encerrou a chamada
 	 */
-	public void informarChamadaEncerrada(Telefone telefone);
+	public void encerrarChamada(Telefone telefone);
 
 	/**
 	 * O cliente deve chamar este método quando a chamada que está sendo
@@ -51,5 +51,5 @@ public interface ICentralTelefonicaEntrada {
 	 * @param telefone
 	 *            Telefone do cliente
 	 */
-	public void informarChamadaRejeitada(Telefone telefone);
+	public void rejeitarChamada(Telefone telefone);
 }

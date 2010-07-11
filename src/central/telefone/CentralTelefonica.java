@@ -27,13 +27,13 @@ public class CentralTelefonica implements ICentralTelefonica {
 	}
 
 	@Override
-	public void informarChamadaEncerrada(Telefone telefone) {
+	public void encerrarChamada(Telefone telefone) {
 		gerenciadorChamadas.informarChamadaEncerrada(telefone);
 		
 	}
 
 	@Override
-	public void informarChamadaRejeitada(Telefone telefone) {
+	public void rejeitarChamada(Telefone telefone) {
 		gerenciadorChamadas.informarChamadaRejeitada(telefone);
 		
 	}
@@ -51,28 +51,28 @@ public class CentralTelefonica implements ICentralTelefonica {
 	}
 
 	@Override
-	public void confirmarChamada(Telefone telefone) throws RemoteException {
-		central.confirmarChamada(telefone);
+	public void informarChamadaConfirmada(Telefone telefone) throws RemoteException {
+		central.informarChamadaConfirmada(telefone);
 		
 	}
 
 	@Override
-	public void encerrarChamada(Telefone telefone) throws RemoteException {
-		central.encerrarChamada(telefone);
+	public void informarChamadaEncerrada(Telefone telefone) throws RemoteException {
+		central.informarChamadaEncerrada(telefone);
 		
 	}
 
 	@Override
-	public void enviarMensagemParaCliente(Telefone telefone, Mensagem mensagem)
+	public void receberMensagem(Telefone telefone, Mensagem mensagem)
 			throws RemoteException {
-		central.enviarMensagemParaCliente(telefone, mensagem);
+		central.receberMensagem(telefone, mensagem);
 		
 	}
 
 	@Override
-	public void enviarPedidoChamada(Telefone origem, Telefone destino)
+	public void receberChamada(Telefone origem, Telefone destino)
 			throws RemoteException {
-		central.enviarPedidoChamada(origem, destino);
+		central.receberChamada(origem, destino);
 		
 	}
 
@@ -82,8 +82,8 @@ public class CentralTelefonica implements ICentralTelefonica {
 	}
 
 	@Override
-	public void rejeitarChamada(Telefone telefone) throws RemoteException {
-		central.rejeitarChamada(telefone);
+	public void informarChamadaRejeitada(Telefone telefone) throws RemoteException {
+		central.informarChamadaRejeitada(telefone);
 	}
 
 }

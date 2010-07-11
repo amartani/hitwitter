@@ -37,7 +37,7 @@ public class GerenciadorChamadas {
 			ippedido.apagar(telefone);
 			ippedido.apagar(origem);
 			try {
-				centralTelefonica.confirmarChamada(telefone);
+				centralTelefonica.informarChamadaConfirmada(telefone);
 			} catch (Exception e) {
 				System.out
 						.println("Nao foi possivel confirmar chamada. Excecao: ");
@@ -46,7 +46,7 @@ public class GerenciadorChamadas {
 				ipchamada.apagar(origem);
 			}
 			try {
-				centralTelefonica.confirmarChamada(origem);
+				centralTelefonica.informarChamadaConfirmada(origem);
 			} catch (Exception e) {
 				System.out
 						.println("Nao foi possivel confirmar chamada. Excecao: ");
@@ -75,7 +75,7 @@ public class GerenciadorChamadas {
 			ippedido.inserir(destino, origem);
 
 			try {
-				centralTelefonica.enviarPedidoChamada(origem, destino);
+				centralTelefonica.receberChamada(origem, destino);
 			} catch (Exception e) {
 				ippedido.apagar(origem);
 				ippedido.apagar(destino);
@@ -85,7 +85,7 @@ public class GerenciadorChamadas {
 			}
 		} else {
 			try {
-				centralTelefonica.encerrarChamada(origem);
+				centralTelefonica.informarChamadaEncerrada(origem);
 			} catch (Exception e) {
 				System.out
 						.println("Nao foi possivel encerrar o pedido de chamada. Excecao: ");
@@ -99,7 +99,7 @@ public class GerenciadorChamadas {
 		Telefone destino = ipchamada.procurar(origem);
 		if (destino != null) {
 			try {
-				centralTelefonica.enviarMensagemParaCliente(destino, mensagem);
+				centralTelefonica.receberMensagem(destino, mensagem);
 			} catch (Exception e) {
 				System.out
 						.println("Nao foi possivel enviar mensagem. Excecao: ");
@@ -113,7 +113,7 @@ public class GerenciadorChamadas {
 		Telefone destino = ipchamada.procurar(telefone);
 		if (destino != null) {
 			try {
-				centralTelefonica.encerrarChamada(destino);
+				centralTelefonica.informarChamadaEncerrada(destino);
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -128,7 +128,7 @@ public class GerenciadorChamadas {
 		Telefone origem = ippedido.procurar(telefone);
 		if (origem != null) {
 			try {
-				centralTelefonica.rejeitarChamada(origem);
+				centralTelefonica.informarChamadaRejeitada(origem);
 			} catch (RemoteException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
