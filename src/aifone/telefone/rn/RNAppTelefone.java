@@ -51,7 +51,6 @@ public class RNAppTelefone {
 
 	public void informarAtendimentoConfirmado(Telefone telefone) {
 		System.out.println("RNApp: informarAtendimentoConfirmado recebido");
-		appTelefone.abrirTelaInicial();
 		appTelefone.abrirTelaConversa();
 	}
 
