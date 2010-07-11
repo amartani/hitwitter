@@ -6,7 +6,7 @@ import central.gerenciamento.ip.IPConexaoMemoria;
 import central.gerenciamento.ip.IPTelefoneSerializado;
 import entidades.Telefone;
 
-public class GerenciadorUsuarios {
+public class GerenciadorUsuarios implements IGerenciadorUsuarios {
 
 	private IIPConexao ipconexao;
 	private IIPTelefone iptelefone;
@@ -21,14 +21,10 @@ public class GerenciadorUsuarios {
 		this.ipconexao = ipconexao;
 	}
 
-	/**
-	 * Conecta o telefone no sistema, registrando seu endereço RMI.
-	 * 
-	 * @param telefone
-	 *            Telefone a ser conectado
-	 * @param enderecoRMI
-	 *            Endereço RMI do cliente
+	/* (non-Javadoc)
+	 * @see central.gerenciamento.rn.IGerenciadorUsuarios#conectarTelefone(entidades.Telefone, java.lang.String)
 	 */
+	@Override
 	public void conectarTelefone(Telefone telefone, String enderecoRMI) {
 		if (verificarPermissao(telefone)) {
 			ipconexao.inserir(telefone, enderecoRMI);
@@ -39,46 +35,34 @@ public class GerenciadorUsuarios {
 		}
 	}
 
-	/**
-	 * Desconecta o telefone do sistema
-	 * 
-	 * @param telefone
-	 *            Telefone a ser desconectado
+	/* (non-Javadoc)
+	 * @see central.gerenciamento.rn.IGerenciadorUsuarios#desconectarTelefone(entidades.Telefone)
 	 */
+	@Override
 	public void desconectarTelefone(Telefone telefone) {
 		ipconexao.apagar(telefone);
 	}
 
-	/**
-	 * Verifica se o telefone está ativo.
-	 * 
-	 * @param telefone
-	 *            Telefone a ser verificado
-	 * @return True se o telefone está ativo
+	/* (non-Javadoc)
+	 * @see central.gerenciamento.rn.IGerenciadorUsuarios#verificarPermissao(entidades.Telefone)
 	 */
+	@Override
 	public boolean verificarPermissao(Telefone telefone) {
 		return iptelefone.procurar(telefone);
 	}
 
-	/**
-	 * Obtem o endereço RMI do cliente
-	 * 
-	 * @precondition verificarConectado(telefone)
-	 * @param telefone
-	 *            Telefone do cliente
-	 * @return Endereco RMI correspondente ao cliente
+	/* (non-Javadoc)
+	 * @see central.gerenciamento.rn.IGerenciadorUsuarios#enderecoRMIDoCliente(entidades.Telefone)
 	 */
+	@Override
 	public String enderecoRMIDoCliente(Telefone telefone) {
 		return ipconexao.procurar(telefone);
 	}
 
-	/**
-	 * Verifica se o telefone está conectado no sistema
-	 * 
-	 * @param telefone
-	 *            Telefone do cliente
-	 * @return True se estiver conectado
+	/* (non-Javadoc)
+	 * @see central.gerenciamento.rn.IGerenciadorUsuarios#verificarConectado(entidades.Telefone)
 	 */
+	@Override
 	public boolean verificarConectado(Telefone telefone) {
 		if (ipconexao.procurar(telefone) != null) {
 			return true;
@@ -86,22 +70,18 @@ public class GerenciadorUsuarios {
 		return false;
 	}
 
-	/**
-	 * Adiciona telefone no sistema
-	 * 
-	 * @param telefone
-	 *            Telefone a ser adicionado
+	/* (non-Javadoc)
+	 * @see central.gerenciamento.rn.IGerenciadorUsuarios#adicionarTelefone(entidades.Telefone)
 	 */
+	@Override
 	public void adicionarTelefone(Telefone telefone) {
 		iptelefone.inserir(telefone);
 	}
 
-	/**
-	 * Remove telefone do sistema
-	 * 
-	 * @param telefone
-	 *            Telefone a ser removido
+	/* (non-Javadoc)
+	 * @see central.gerenciamento.rn.IGerenciadorUsuarios#removerTelefone(entidades.Telefone)
 	 */
+	@Override
 	public void removerTelefone(Telefone telefone) {
 		iptelefone.apagar(telefone);
 	}
