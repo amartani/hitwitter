@@ -135,7 +135,6 @@ public class IURecebimentoDeChamada extends javax.swing.JPanel {
 
 	private void botaoAceitarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAceitarActionPerformed
 		rnAppTelefone.confirmarAtendimento();
-		appTelefone.abrirTelaInicial();
 		appTelefone.abrirTelaConversa();
 	}// GEN-LAST:event_botaoAceitarActionPerformed
 
