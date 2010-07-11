@@ -10,7 +10,7 @@
  */
 
 package aifone.telefone.iu;
-
+import javax.swing.text.JTextComponent; //essa importação é utilizada sim!
 /**
  *
  * @author William
