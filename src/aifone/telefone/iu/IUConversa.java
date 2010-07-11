@@ -140,11 +140,12 @@ public class IUConversa extends javax.swing.JPanel {
 
         private void enviarMensagem(){
             String frase = campoMensagem.getText();
+            if(frase.length()>0){
             Mensagem mensagem = new Mensagem(frase);
             rnAppTelefone.enviarMensagem(mensagem);
             campoMensagem.setText("");
             exibirMensagem(appTelefone.getTelefone().getNumero(), mensagem);
-            
+            }            
         }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
