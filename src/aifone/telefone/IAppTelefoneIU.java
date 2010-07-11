@@ -3,6 +3,7 @@ package aifone.telefone;
 import javax.swing.JPanel;
 
 import aifone.iu.IUContainer;
+import aifone.iu.IUTelaInicial;
 import aifone.telefone.iu.IUDiscar;
 
 public interface IAppTelefoneIU {
