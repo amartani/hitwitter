@@ -1,14 +1,19 @@
 package central.gerenciamento;
 
 import central.gerenciamento.rn.GerenciadorUsuarios;
+import central.gerenciamento.rn.IGerenciadorUsuarios;
 import entidades.Telefone;
 
 public class Gerenciamento implements IGerenciamento {
 
-	private GerenciadorUsuarios gerenciadorUsuarios;
+	private IGerenciadorUsuarios gerenciadorUsuarios;
 
 	public Gerenciamento() {
 		gerenciadorUsuarios = new GerenciadorUsuarios();
+	}
+	
+	public Gerenciamento(IGerenciadorUsuarios gerenciadorUsuarios) {
+		this.gerenciadorUsuarios = gerenciadorUsuarios;
 	}
 
 	/*
