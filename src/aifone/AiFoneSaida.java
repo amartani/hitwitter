@@ -63,7 +63,6 @@ public class AiFoneSaida implements IAiFoneSaida {
 			System.out
 					.println("Nao foi possivel conectar ao servidor. Excecao: ");
 			e.printStackTrace();
-			System.exit(1);
 		}
 	}
 	
