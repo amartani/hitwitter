@@ -12,8 +12,10 @@
 package aifone.telefone.iu;
 
 import aifone.telefone.AppTelefone;
-import aifone.telefone.IAppTelefoneIU;
+import aifone.telefone.IAppTelefone;
 import aifone.telefone.rn.RNAppTelefone;
+import entidades.Mensagem;
+import entidades.Telefone;
 
 /**
  * 
@@ -22,7 +24,7 @@ import aifone.telefone.rn.RNAppTelefone;
 public class IUConversa extends javax.swing.JPanel {
 
 	private RNAppTelefone rnAppTelefone;
-	private IAppTelefoneIU appTelefone;
+	private IAppTelefone appTelefone;
 
 	/** Creates new form IUConversa */
 	public IUConversa(AppTelefone appTelefone, RNAppTelefone rnAppTelefone) {
@@ -131,11 +133,24 @@ public class IUConversa extends javax.swing.JPanel {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoEnviarActionPerformed
-		String frase = campoMensagem.getText();
+            enviarMensagem();
+	}
+
+        private void exibirMensagem(Telefone telefone, Mensagem mensagem){
+            	String frase = mensagem.getConteudo();
+                String numero = telefone.getNumero();
 		String conversa = areaConversa.getText();
-		areaConversa.setText(conversa.concat(frase + "\n"));
-		campoMensagem.setText("");
-	}// GEN-LAST:event_botaoEnviarActionPerformed
+		areaConversa.setText(conversa.concat("<"+numero+"> "+frase + "\n"));
+        }
+
+        private void enviarMensagem(){
+            String frase = campoMensagem.getText();
+            Mensagem mensagem = new Mensagem(frase);
+            rnAppTelefone.enviarMensagem(mensagem);
+            campoMensagem.setText("");
+            exibirMensagem(appTelefone.getTelefone(), mensagem);
+            
+        }
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JTextArea areaConversa;

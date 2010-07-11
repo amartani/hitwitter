@@ -12,4 +12,5 @@ public interface IAppTelefoneIU {
 	public void abrirTelaRecebimentoDeChamada();
 	public void abrirTelaConversa();
 	public void abrirTelaInicial();
+
 }

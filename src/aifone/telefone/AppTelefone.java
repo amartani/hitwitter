@@ -24,9 +24,9 @@ public class AppTelefone implements IAppTelefone {
                 this.telefone = telefone;
 	}
 
-    public Telefone getTelefone() {
-        return telefone;
-    }
+        public Telefone getTelefone() {
+            return telefone;
+        }
 	
 
 
