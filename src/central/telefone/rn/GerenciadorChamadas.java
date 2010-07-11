@@ -32,13 +32,15 @@ public class GerenciadorChamadas {
 	public void confirmarAtendimento(Telefone telefone) {
 		System.out.println("Gerenciador de Chamadas: atendimento confirmado");
 		Telefone origem = ippedido.procurar(telefone);
+		System.out.println(telefone.getNumero() + " aceitou chamada de "
+				+ origem.getNumero());
 		if (origem != null) {
 			ipchamada.inserir(origem, telefone);
 			ipchamada.inserir(telefone, origem);
 			ippedido.apagar(telefone);
 			ippedido.apagar(origem);
 			try {
-				centralTelefonica.informarChamadaConfirmada(telefone);
+				centralTelefonica.informarChamadaConfirmada(origem);
 			} catch (RemoteException e) {
 				System.out
 						.println("Nao foi possivel confirmar chamada. Excecao: ");
@@ -76,6 +78,8 @@ public class GerenciadorChamadas {
 			ippedido.inserir(destino, origem);
 
 			try {
+				System.out
+						.println("Gerenciador de Chamadas: ok, chamando destino...");
 				centralTelefonica.receberChamada(origem, destino);
 			} catch (RemoteException e) {
 				ippedido.apagar(origem);
@@ -125,6 +129,8 @@ public class GerenciadorChamadas {
 	}
 
 	public void informarChamadaEncerrada(Telefone telefone) {
+		System.out
+				.println("Gerenciador de Chamadas: informar chamada encerrada");
 		Telefone destino = ipchamada.procurar(telefone);
 		if (destino != null) {
 			try {
@@ -140,6 +146,8 @@ public class GerenciadorChamadas {
 	}
 
 	public void informarChamadaRejeitada(Telefone telefone) {
+		System.out
+				.println("Gerenciador de Chamadas: informar chamada rejeitada");
 		Telefone origem = ippedido.procurar(telefone);
 		if (origem != null) {
 			try {

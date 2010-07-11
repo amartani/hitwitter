@@ -26,16 +26,6 @@ public class RNAppTelefone {
 	 * Entrada
 	 */
 
-	public void confirmarChamada(Telefone telefone) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void encerrarChamada() {
-		// TODO Auto-generated method stub
-
-	}
-
 	public void receberChamada(Telefone origem) {
 		System.out.println("RNApp: chamada recebida");
 		interlocutor = origem.getNumero();
@@ -47,9 +37,38 @@ public class RNAppTelefone {
 
 	}
 
+	public void informarChamadaRejeitada() {
+		System.out.println("RNApp: informarChamadaRejeitada recebido");
+		setInterlocutor(null);
+		appTelefone.abrirTelaInicial();
+	}
+
+	public void informarChamadaEncerrada() {
+		System.out.println("RNApp: informarChamadaEncerrada recebido");
+		setInterlocutor(null);
+		appTelefone.abrirTelaInicial();
+	}
+
+	public void informarAtendimentoConfirmado(Telefone telefone) {
+		System.out.println("RNApp: informarAtendimentoConfirmado recebido");
+		appTelefone.abrirTelaConversa();
+	}
+
 	/*
 	 * Saida
 	 */
+
+	public void rejeitarChamada() {
+		if (interlocutor != null) {
+			try {
+				appTelefone.rejeitarChamada();
+			} catch (Exception e) {
+				System.out
+						.println("Nao foi possivel rejeitar chamada. Excecao: ");
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public void efetuarChamada() {
 		if (interlocutor != null) {
@@ -63,23 +82,14 @@ public class RNAppTelefone {
 		}
 	}
 
-	public void informarChamadaRejeitada() {
-		setInterlocutor(null);
-		try {
-			appTelefone.rejeitarChamada();
-		} catch (Exception e) {
-			System.out.println("Nao foi possivel rejeitar chamada. Excecao: ");
-			e.printStackTrace();
-		}
-	}
-
-	public void informarChamadaEncerrada() {
+	public void encerrarChamada() {
 		try {
 			appTelefone.encerrarChamada();
 		} catch (Exception e) {
 			System.out.println("Nao foi possivel encerrar chamada. Excecao: ");
 			e.printStackTrace();
 		}
+
 	}
 
 	public void enviarMensagem(Mensagem mensagem) {
