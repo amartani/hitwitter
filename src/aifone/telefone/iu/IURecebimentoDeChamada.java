@@ -11,9 +11,8 @@
 
 package aifone.telefone.iu;
 
-import javax.swing.JPanel;
-
-import aifone.iu.IUContainer;
+import aifone.telefone.AppTelefone;
+import aifone.telefone.IAppTelefoneIU;
 import aifone.telefone.rn.RNAppTelefone;
 
 /**
@@ -23,14 +22,14 @@ import aifone.telefone.rn.RNAppTelefone;
 public class IURecebimentoDeChamada extends javax.swing.JPanel {
 
 	private RNAppTelefone rnAppTelefone;
-	private JPanel telaRetorno;
+	private IAppTelefoneIU appTelefone;
 
 	/** Creates new form IURecebimentoDeChamada */
-	public IURecebimentoDeChamada(RNAppTelefone rnAppTelefone,
-			JPanel telaRetorno) {
+	public IURecebimentoDeChamada(AppTelefone appTelefone,
+			RNAppTelefone rnAppTelefone) {
 		initComponents();
 		this.rnAppTelefone = rnAppTelefone;
-		this.telaRetorno = telaRetorno;
+		this.appTelefone = appTelefone;
 	}
 
 	/**
@@ -135,12 +134,13 @@ public class IURecebimentoDeChamada extends javax.swing.JPanel {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void botaoAceitarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAceitarActionPerformed
-		IUContainer.getInstance().setPanel(new IUConversa());
+		rnAppTelefone.confirmarAtendimento();
+		appTelefone.abrirTelaConversa();
 	}// GEN-LAST:event_botaoAceitarActionPerformed
 
 	private void botaoRejeitarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoRejeitarActionPerformed
 		rnAppTelefone.informarChamadaRejeitada();
-		IUContainer.getInstance().setPanel(telaRetorno);
+		appTelefone.abrirTelaInicial();
 	}// GEN-LAST:event_botaoRejeitarActionPerformed
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

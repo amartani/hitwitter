@@ -11,9 +11,8 @@
 
 package aifone.telefone.iu;
 
-import javax.swing.JPanel;
-
-import aifone.iu.IUContainer;
+import aifone.telefone.AppTelefone;
+import aifone.telefone.IAppTelefoneIU;
 import aifone.telefone.rn.RNAppTelefone;
 
 /**
@@ -23,13 +22,14 @@ import aifone.telefone.rn.RNAppTelefone;
 public class IUEfetuandoChamada extends javax.swing.JPanel {
 
 	private RNAppTelefone rnAppTelefone;
-	private JPanel telaRetorno;
+	private IAppTelefoneIU appTelefone;
 
 	/** Creates new form IUEfetuandoChamada */
-	public IUEfetuandoChamada(RNAppTelefone rnAppTelefone, JPanel telaRetorno) {
+	public IUEfetuandoChamada(AppTelefone appTelefone,
+			RNAppTelefone rnAppTelefone) {
 		initComponents();
 		this.rnAppTelefone = rnAppTelefone;
-		this.telaRetorno = telaRetorno;
+		this.appTelefone = appTelefone;
 
 		labelNumero.setText(rnAppTelefone.getInterlocutor());
 	}
@@ -94,7 +94,7 @@ public class IUEfetuandoChamada extends javax.swing.JPanel {
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoCancelarActionPerformed
 		rnAppTelefone.setInterlocutor(null);
-		IUContainer.getInstance().setPanel(telaRetorno);
+		appTelefone.abrirTelaInicial();
 	}// GEN-LAST:event_botaoCancelarActionPerformed
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
