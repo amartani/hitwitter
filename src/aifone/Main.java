@@ -19,7 +19,7 @@ public class Main {
 		}
 		try {
 			IAiFoneEntrada servidor = aifone;
-			Naming.rebind("aifone", servidor);
+			Naming.rebind("aifone2", servidor);
 			System.out.println("Servidor ativo");
 			//((AiFone) servidor).testeConectarTelefone();
 		} catch (Exception e2) {
@@ -35,6 +35,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		Main main = new Main();
 		IPropriedades propriedades = new PropriedadesArquivo();
+		System.out.println("Conectando a " + propriedades.getEnderecoServidor());
 		AiFone aifone = new AiFone(propriedades);
 		main.iniciarServidorRMI(aifone.getEntrada(), 1101);
 		aifone.getIU().abrirTelaInicial();

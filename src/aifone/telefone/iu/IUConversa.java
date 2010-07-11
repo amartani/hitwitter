@@ -116,9 +116,8 @@ public class IUConversa extends javax.swing.JPanel {
             enviarMensagem();
 	}
 
-        private void exibirMensagem(Telefone telefone, Mensagem mensagem){
+        public void exibirMensagem(String numero, Mensagem mensagem){
             	String frase = mensagem.getConteudo();
-                String numero = telefone.getNumero();
 		String conversa = areaConversa.getText();
 		areaConversa.setText(conversa.concat("<"+numero+"> "+frase + "\n"));
         }
@@ -128,7 +127,7 @@ public class IUConversa extends javax.swing.JPanel {
             Mensagem mensagem = new Mensagem(frase);
             rnAppTelefone.enviarMensagem(mensagem);
             campoMensagem.setText("");
-            exibirMensagem(appTelefone.getTelefone(), mensagem);
+            exibirMensagem(appTelefone.getTelefone().getNumero(), mensagem);
             
         }
 

@@ -33,7 +33,7 @@ public class RNAppTelefone {
 	}
 
 	public void receberMensagem(Mensagem mensagem) {
-		// TODO Auto-generated method stub
+		appTelefone.exibirMensagem(getInterlocutor(), mensagem);
 
 	}
 
