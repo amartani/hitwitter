@@ -373,9 +373,11 @@ public class IUDiscar extends javax.swing.JPanel {
 
 	private void botaoDiscarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoDiscarActionPerformed
 		if (campoDoNumero.getText().length() > 0) {
-			rnAppTelefone.setInterlocutor(campoDoNumero.getText());
-			appTelefone.abrirTelaEfetuandoChamada();
-			rnAppTelefone.efetuarChamada();
+                   appTelefone.abrirTelaEfetuandoChamada();
+                    rnAppTelefone.setInterlocutor(campoDoNumero.getText());
+                    rnAppTelefone.efetuarChamada();
+			
+
 		}
 	}// GEN-LAST:event_botaoDiscarActionPerformed
 
