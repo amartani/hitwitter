@@ -20,6 +20,7 @@ public class FrameTeste extends javax.swing.JFrame {
     /** Creates new form FrameTeste */
     public FrameTeste() {
         initComponents();
+        setSize(320, 480);
     }
 
     /** This method is called from within the constructor to

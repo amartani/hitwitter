@@ -40,7 +40,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="iUTeclado1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="componenteTeclado" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
@@ -67,7 +67,7 @@
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="iUTeclado1" min="-2" max="-2" attributes="0"/>
+              <Component id="componenteTeclado" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -111,7 +111,7 @@
         <Property name="text" type="java.lang.String" value="jButton2"/>
       </Properties>
     </Component>
-    <Component class="aifone.iu.IUTeclado" name="iUTeclado1">
+    <Component class="aifone.iu.IUTeclado" name="componenteTeclado">
     </Component>
   </SubComponents>
 </Form>

@@ -20,7 +20,7 @@ public class IULogin extends javax.swing.JPanel {
     /** Creates new form IULogin */
     public IULogin() {
         initComponents();
-        iUTeclado1.setCampoAlvo(campoNome);
+        componenteTeclado.setCampoAlvo(campoNome);
     }
 
     /** This method is called from within the constructor to
@@ -39,7 +39,7 @@ public class IULogin extends javax.swing.JPanel {
         campoSenha = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        iUTeclado1 = new aifone.iu.IUTeclado();
+        componenteTeclado = new aifone.iu.IUTeclado();
 
         jLabel1.setText("HiTwitter!");
 
@@ -96,7 +96,7 @@ public class IULogin extends javax.swing.JPanel {
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2))
-                    .addComponent(iUTeclado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(componenteTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -117,32 +117,32 @@ public class IULogin extends javax.swing.JPanel {
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(iUTeclado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(componenteTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
-        iUTeclado1.setCampoAlvo(campoNome);
+        componenteTeclado.setCampoAlvo(campoNome);
     }//GEN-LAST:event_campoNomeActionPerformed
 
     private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
-        iUTeclado1.setCampoAlvo(campoSenha);
+        componenteTeclado.setCampoAlvo(campoSenha);
     }//GEN-LAST:event_campoSenhaActionPerformed
 
     private void campoSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoSenhaMouseClicked
-        iUTeclado1.setCampoAlvo(campoSenha);
+        componenteTeclado.setCampoAlvo(campoSenha);
     }//GEN-LAST:event_campoSenhaMouseClicked
 
     private void campoNomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoNomeMouseClicked
-        iUTeclado1.setCampoAlvo(campoNome);
+        componenteTeclado.setCampoAlvo(campoNome);
     }//GEN-LAST:event_campoNomeMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoNome;
     private javax.swing.JPasswordField campoSenha;
-    private aifone.iu.IUTeclado iUTeclado1;
+    private aifone.iu.IUTeclado componenteTeclado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
