@@ -63,7 +63,7 @@ public class AiFone {
 		return propriedades;
 	}
 	
-	protected Telefone getTelefone() {
+	public Telefone getTelefone() {
 		return new Telefone(getPropriedades().getNumeroTelefone());
 	}
 
