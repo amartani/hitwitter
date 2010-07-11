@@ -9,7 +9,7 @@ public class Main {
 	IAiFoneSaida saida;
 	IAiFoneIU iu;
 
-	private void iniciarServidorRMI(IAiFoneEntrada aifone, int porta) {
+	private void iniciarServidorRMI(IAiFoneEntrada aifone, int porta, String nomeListener) {
 		System.setSecurityManager(null);
 		System.out.println("Ativando aifone");
 		try {
@@ -19,7 +19,7 @@ public class Main {
 		}
 		try {
 			IAiFoneEntrada servidor = aifone;
-			Naming.rebind("aifone2", servidor);
+			Naming.rebind("aifone" + nomeListener, servidor);
 			System.out.println("Servidor ativo");
 			//((AiFone) servidor).testeConectarTelefone();
 		} catch (Exception e2) {
@@ -37,7 +37,7 @@ public class Main {
 		IPropriedades propriedades = new PropriedadesArquivo();
 		System.out.println("Conectando a " + propriedades.getEnderecoServidor());
 		AiFone aifone = new AiFone(propriedades);
-		main.iniciarServidorRMI(aifone.getEntrada(), 1101);
+		main.iniciarServidorRMI(aifone.getEntrada(), 1100, aifone.getNomeListener());
 		aifone.getIU().abrirTelaInicial();
 		aifone.getSaida().conectarTelefone();
 	}
