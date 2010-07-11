@@ -21,8 +21,9 @@ public class GerenciadorChamadas {
 		this.ipchamada = new IPChamadaMemoria();
 		this.ippedido = new IPPedidoMemoria();
 	}
-	
-	public GerenciadorChamadas(ICentralTelefonicaSaida centralTelefonica, IIPChamada ipchamada, IIPPedidoChamada ippedido) {
+
+	public GerenciadorChamadas(ICentralTelefonicaSaida centralTelefonica,
+			IIPChamada ipchamada, IIPPedidoChamada ippedido) {
 		this.centralTelefonica = centralTelefonica;
 		this.ipchamada = ipchamada;
 		this.ippedido = ippedido;
@@ -38,7 +39,7 @@ public class GerenciadorChamadas {
 			ippedido.apagar(origem);
 			try {
 				centralTelefonica.informarChamadaConfirmada(telefone);
-			} catch (Exception e) {
+			} catch (RemoteException e) {
 				System.out
 						.println("Nao foi possivel confirmar chamada. Excecao: ");
 				e.printStackTrace();
@@ -47,7 +48,7 @@ public class GerenciadorChamadas {
 			}
 			try {
 				centralTelefonica.informarChamadaConfirmada(origem);
-			} catch (Exception e) {
+			} catch (RemoteException e) {
 				System.out
 						.println("Nao foi possivel confirmar chamada. Excecao: ");
 				e.printStackTrace();
@@ -76,17 +77,24 @@ public class GerenciadorChamadas {
 
 			try {
 				centralTelefonica.receberChamada(origem, destino);
-			} catch (Exception e) {
+			} catch (RemoteException e) {
 				ippedido.apagar(origem);
 				ippedido.apagar(destino);
+				try {
+					centralTelefonica.informarChamadaRejeitada(origem);
+				} catch (RemoteException e1) {
+					System.out
+							.println("Problema de conexao, nao foi possivel informar chamada rejeitada");
+					e1.printStackTrace();
+				}
 				System.out
 						.println("Nao foi possivel efetuar chamada. Excecao: ");
 				e.printStackTrace();
 			}
 		} else {
 			try {
-				centralTelefonica.informarChamadaEncerrada(origem);
-			} catch (Exception e) {
+				centralTelefonica.informarChamadaRejeitada(origem);
+			} catch (RemoteException e) {
 				System.out
 						.println("Nao foi possivel encerrar o pedido de chamada. Excecao: ");
 				e.printStackTrace();
@@ -100,7 +108,7 @@ public class GerenciadorChamadas {
 		if (destino != null) {
 			try {
 				centralTelefonica.receberMensagem(destino, mensagem);
-			} catch (Exception e) {
+			} catch (RemoteException e) {
 				System.out
 						.println("Nao foi possivel enviar mensagem. Excecao: ");
 				e.printStackTrace();
