@@ -43,12 +43,6 @@ public class Central extends UnicastRemoteObject implements ICentral {
 	@Override
 	public void conectarTelefone(Telefone telefone, String enderecoRMI) {
 		System.out.println("conectaTelefone: " + telefone.getNumero());
-		try {
-			System.out.println("Client host: " + getClientHost());
-		} catch (ServerNotActiveException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		gerenciamento.conectarTelefone(telefone, enderecoRMI);
 	}
 
