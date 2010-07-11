@@ -1,7 +1,5 @@
 package aifone;
 
-import java.rmi.RemoteException;
-
 import aifone.iu.IUContainer;
 import aifone.iu.IUTelaInicial;
 import aifone.telefone.IAppTelefoneIU;
@@ -25,7 +23,7 @@ public class AiFoneIU implements IAiFoneIU {
 	public void abrirTelaTelefone() {
 		getAppTelefoneIU().abrirTelaDiscar();
 	}
-	
+
 	private IAppTelefoneIU getAppTelefoneIU() {
 		return aifone.getAppTelefoneIU();
 	}
