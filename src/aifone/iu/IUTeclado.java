@@ -11,7 +11,7 @@
 
 package aifone.iu;
 
-import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 
 /**
  *
@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class IUTeclado extends javax.swing.JPanel {
 
     /** Creates new form IUTeclado */
-    private javax.swing.JTextField campoAlvo;
+    private JTextComponent campoAlvo;
 
     public IUTeclado() {
         initComponents();
@@ -616,11 +616,11 @@ private void botaoApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
 
 
-    public JTextField getCampoAlvo() {
+    public JTextComponent getCampoAlvo() {
         return campoAlvo;
     }
 
-    public void setCampoAlvo(JTextField campoAlvo) {
+    public void setCampoAlvo(JTextComponent campoAlvo) {
         this.campoAlvo = campoAlvo;
     }
 
