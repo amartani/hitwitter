@@ -1,21 +1,10 @@
 package aifone;
 
-import java.net.UnknownHostException;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import aifone.hitwitter.HiTwitter;
-import aifone.hitwitter.IHiTwitter;
-import aifone.iu.IUContainer;
-import aifone.iu.IUTelaInicial;
-import aifone.telefone.AppTelefone;
-import aifone.telefone.IAppTelefone;
 import aifone.telefone.IAppTelefoneEntrada;
-import central.ICentralRemote;
 import entidades.Mensagem;
-import entidades.Requisicao;
-import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
 @SuppressWarnings("serial")
