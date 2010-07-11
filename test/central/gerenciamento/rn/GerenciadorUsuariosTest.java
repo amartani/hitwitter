@@ -16,12 +16,14 @@ import entidades.Telefone;
 public class GerenciadorUsuariosTest {
 
 	private GerenciadorUsuarios gerenciadorUsuario;
+	private Telefone telefone;
 
 	@Before
 	public void setUp() throws Exception {
 		IIPTelefone iptelefone = new IPTelefoneMemoria();
 		IIPConexao ipconexao = new IPConexaoMemoria();
 		gerenciadorUsuario = new GerenciadorUsuarios(iptelefone, ipconexao);
+		telefone = new Telefone("12345678");
 	}
 
 	@After
@@ -30,14 +32,12 @@ public class GerenciadorUsuariosTest {
 
 	@Test(expected = Exception.class)
 	public void conectarSemCadastro() {
-		Telefone telefone = new Telefone("1234-5678");
 		String enderecoRMI = "rmi://test/instance";
 		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
 	}
 
 	@Test
 	public void conectarAposCadastro() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		String enderecoRMI = "rmi://test/instance";
 		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
@@ -45,7 +45,6 @@ public class GerenciadorUsuariosTest {
 	
 	@Test
 	public void desconectarAposConectar() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		String enderecoRMI = "rmi://test/instance";
 		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
@@ -54,34 +53,29 @@ public class GerenciadorUsuariosTest {
 	
 	@Test
 	public void desconectarSemConectar() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		gerenciadorUsuario.desconectarTelefone(telefone);
 	}
 
 	@Test
 	public void verificarPermissaoSemCadastro() {
-		Telefone telefone = new Telefone("1234-5678");
 		assertFalse(gerenciadorUsuario.verificarPermissao(telefone));
 	}
 	
 	@Test
 	public void verificarPermissaoAposCadastro() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		assertTrue(gerenciadorUsuario.verificarPermissao(telefone));
 	}
 	
 	@Test
 	public void removerTelefone() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		gerenciadorUsuario.removerTelefone(telefone);
 	}
 	
 	@Test
 	public void verificarPermissaoAposRemoverCadastro() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		gerenciadorUsuario.removerTelefone(telefone);
 		assertFalse(gerenciadorUsuario.verificarPermissao(telefone));
@@ -89,13 +83,11 @@ public class GerenciadorUsuariosTest {
 	
 	@Test
 	public void verificarConectadoSemConectar() {
-		Telefone telefone = new Telefone("1234-5678");
 		assertFalse(gerenciadorUsuario.verificarConectado(telefone));
 	}
 	
 	@Test
 	public void verificarConectadoAposConectar() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		String enderecoRMI = "rmi://test/instance";
 		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
@@ -104,7 +96,6 @@ public class GerenciadorUsuariosTest {
 	
 	@Test
 	public void verificarConectadoAposDesconectar() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		String enderecoRMI = "rmi://test/instance";
 		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
@@ -114,7 +105,6 @@ public class GerenciadorUsuariosTest {
 	
 	@Test
 	public void enderecoRMIDoCliente() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		String enderecoRMI = "rmi://test/instance";
 		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
@@ -123,7 +113,6 @@ public class GerenciadorUsuariosTest {
 	
 	@Test
 	public void enderecoRMIDoClienteAposDesconectarEReconectar() {
-		Telefone telefone = new Telefone("1234-5678");
 		gerenciadorUsuario.adicionarTelefone(telefone);
 		String enderecoRMI = "rmi://test/instance";
 		gerenciadorUsuario.conectarTelefone(telefone, enderecoRMI);
