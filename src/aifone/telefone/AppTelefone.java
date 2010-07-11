@@ -25,11 +25,16 @@ public class AppTelefone implements IAppTelefone {
 		this.aifoneiu = aifoneiu;
 		this.telefone = telefone;
 		this.rnAppTelefone = new RNAppTelefone(this);
+
 	}
-	
-	protected RNAppTelefone getRnAppTelefone(){
+
+	protected RNAppTelefone getRnAppTelefone() {
 		return rnAppTelefone;
 	}
+
+	/*
+	 * Entrada
+	 */
 
 	@Override
 	public void receberChamada(Telefone origem) {
@@ -42,6 +47,28 @@ public class AppTelefone implements IAppTelefone {
 		rnAppTelefone.receberMensagem(mensagem);
 
 	}
+
+	@Override
+	public void informarAtendimentoConfirmado(Telefone telefone) {
+		rnAppTelefone.informarAtendimentoConfirmado(telefone);
+
+	}
+
+	@Override
+	public void informarChamadaEncerrada() {
+		rnAppTelefone.informarChamadaEncerrada();
+
+	}
+
+	@Override
+	public void informarChamadaRejeitada() {
+		rnAppTelefone.informarChamadaRejeitada();
+
+	}
+
+	/*
+	 * Saida
+	 */
 
 	@Override
 	public void confirmarAtendimento() throws RemoteException {
@@ -63,29 +90,35 @@ public class AppTelefone implements IAppTelefone {
 
 	@Override
 	public void rejeitarChamada() throws RemoteException {
-		// TODO Auto-generated method stub
+		aifonesaida.rejeitarChamada();
 	}
 
-	
+	@Override
+	public void encerrarChamada() throws RemoteException {
+		aifonesaida.encerrarChamada();
+
+	}
+
 	/*
 	 * Telas
 	 */
 	@Override
 	public void abrirTelaConversa() {
 		IUContainer.getInstance().setPanel(new IUConversa(this, rnAppTelefone));
-		
+
 	}
 
 	@Override
 	public void abrirTelaDiscar() {
 		IUContainer.getInstance().setPanel(new IUDiscar(this, rnAppTelefone));
-		
+
 	}
 
 	@Override
 	public void abrirTelaEfetuandoChamada() {
-		IUContainer.getInstance().setPanel(new IUEfetuandoChamada(this, rnAppTelefone));
-		
+		IUContainer.getInstance().setPanel(
+				new IUEfetuandoChamada(this, rnAppTelefone));
+
 	}
 
 	@Override
@@ -99,34 +132,12 @@ public class AppTelefone implements IAppTelefone {
 
 	@Override
 	public void abrirTelaRecebimentoDeChamada() {
-		IUContainer.getInstance().setPanel(new IURecebimentoDeChamada(this, rnAppTelefone));
-		
-	}
+		System.out.println("Abrir tela recebimento");
+		IUContainer.getInstance().setPanel(
+				new IURecebimentoDeChamada(this, rnAppTelefone));
 
-	@Override
-	public void informarAtendimentoConfirmado(Telefone telefone) {
-		// TODO Auto-generated method stub
-		
 	}
-
-	@Override
-	public void informarChamadaEncerrada() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void informarChamadaRejeitada() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void encerrarChamada() throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public Telefone getTelefone() {
 		return telefone;
