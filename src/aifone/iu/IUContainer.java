@@ -16,6 +16,7 @@ public class IUContainer extends JFrame {
 		setSize(320, 480);
 		setTitle("AiFone");
 		setResizable(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
 	/**
