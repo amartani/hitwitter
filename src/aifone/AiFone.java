@@ -26,7 +26,7 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 	private IAppTelefone apptelefone;
 	private IHiTwitter hitwitter;
 	private ICentralRemote servidor;
-	private IPropriedades propriedades;	
+	private IPropriedades propriedades;
 
 	protected AiFone() throws RemoteException {
 		super();
@@ -93,13 +93,13 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		apptelefone.receberChamada(origem);
 
 		// Teste: aceitação automática da chamada
-		System.out.println("AiFone: pedido de chamada recebido");
-		try {
-			((ICentralRemote) getInstanciaServidor())
-					.confirmarAtendimento(getTelefone());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// System.out.println("AiFone: pedido de chamada recebido");
+		// try {
+		// ((ICentralRemote) getInstanciaServidor())
+		// .confirmarAtendimento(getTelefone());
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// }
 	}
 
 	@Override
@@ -165,11 +165,11 @@ public class AiFone extends UnicastRemoteObject implements IAiFoneRemote,
 		return getInstanciaServidor().enviarRequisicaoViaTunel(origem,
 				requisicao);
 	}
-	
+
 	@Override
 	public void rejeitarChamada() throws RemoteException {
 		apptelefone.rejeitarChamada();
-	}	
+	}
 
 	@Override
 	public IUDiscar getIUDiscarInstance(JPanel telaRetorno) {

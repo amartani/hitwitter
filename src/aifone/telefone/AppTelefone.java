@@ -23,25 +23,25 @@ public class AppTelefone implements IAppTelefone {
 
 	@Override
 	public void confirmarChamada(Telefone telefone) {
-		// TODO Auto-generated method stub
+		rnAppTelefone.confirmarChamada(telefone);
 
 	}
 
 	@Override
 	public void encerrarChamada() {
-		// TODO Auto-generated method stub
+		rnAppTelefone.encerrarChamada();
 
 	}
 
 	@Override
 	public void receberChamada(Telefone origem) {
-		// TODO Auto-generated method stub
+		rnAppTelefone.receberChamada(origem);
 
 	}
 
 	@Override
 	public void receberMensagem(Mensagem mensagem) {
-		// TODO Auto-generated method stub
+		rnAppTelefone.receberMensagem(mensagem);
 
 	}
 
