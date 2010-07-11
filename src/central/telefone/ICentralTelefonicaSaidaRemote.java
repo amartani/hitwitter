@@ -15,7 +15,7 @@ public interface ICentralTelefonicaSaidaRemote {
 	 * @param destino
 	 *            Telefone de destino da chamada
 	 */
-	public void enviarPedidoChamada(Telefone origem, Telefone destino)
+	public void receberChamada(Telefone origem, Telefone destino)
 			throws RemoteException;
 
 	/**
@@ -24,7 +24,7 @@ public interface ICentralTelefonicaSaidaRemote {
 	 * @param telefone
 	 *            Telefone do cliente que deve ser avisado
 	 */
-	public void encerrarChamada(Telefone telefone) throws RemoteException;
+	public void informarChamadaEncerrada(Telefone telefone) throws RemoteException;
 
 	/**
 	 * Informa o cliente que a chamada foi rejeitada
@@ -33,7 +33,7 @@ public interface ICentralTelefonicaSaidaRemote {
 	 *            Telefone do cliente que deve ser avisado
 	 * @throws RemoteException
 	 */
-	public void rejeitarChamada(Telefone telefone) throws RemoteException;
+	public void informarChamadaRejeitada(Telefone telefone) throws RemoteException;
 
 	/**
 	 * Envia uma mensagem do servidor para o telefone de destino
@@ -44,7 +44,7 @@ public interface ICentralTelefonicaSaidaRemote {
 	 * @param mensagem
 	 *            Mensagem enviada
 	 */
-	public void enviarMensagemParaCliente(Telefone telefone, Mensagem mensagem)
+	public void receberMensagem(Telefone telefone, Mensagem mensagem)
 			throws RemoteException;
 
 	/**
@@ -53,6 +53,6 @@ public interface ICentralTelefonicaSaidaRemote {
 	 * @param telefone
 	 *            Telefone interlocutor
 	 */
-	public void confirmarChamada(Telefone telefone) throws RemoteException;
+	public void informarChamadaConfirmada(Telefone telefone) throws RemoteException;
 
 }

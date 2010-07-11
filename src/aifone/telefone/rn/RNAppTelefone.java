@@ -73,7 +73,7 @@ public class RNAppTelefone {
 	public void informarChamadaRejeitada() {
 		setInterlocutor(null);
 		try {
-			appTelefone.informarChamadaRejeitada();
+			appTelefone.rejeitarChamada();
 		} catch (Exception e) {
 			System.out.println("Nao foi possivel rejeitar chamada. Excecao: ");
 			e.printStackTrace();
@@ -82,7 +82,7 @@ public class RNAppTelefone {
 
 	public void informarChamadaEncerrada() {
 		try {
-			appTelefone.informarChamadaEncerrada();
+			appTelefone.encerrarChamada();
 		} catch (Exception e) {
 			System.out.println("Nao foi possivel encerrar chamada. Excecao: ");
 			e.printStackTrace();

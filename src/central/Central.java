@@ -65,13 +65,13 @@ public class Central extends UnicastRemoteObject implements ICentral {
 	}
 
 	@Override
-	public void informarChamadaEncerrada(Telefone telefone) {
-		centraltelefonica.informarChamadaEncerrada(telefone);
+	public void encerrarChamada(Telefone telefone) {
+		centraltelefonica.encerrarChamada(telefone);
 	}
 
 	@Override
-	public void informarChamadaRejeitada(Telefone telefone) {
-		centraltelefonica.informarChamadaRejeitada(telefone);
+	public void rejeitarChamada(Telefone telefone) {
+		centraltelefonica.rejeitarChamada(telefone);
 	}
 
 	@Override
@@ -112,33 +112,33 @@ public class Central extends UnicastRemoteObject implements ICentral {
 	 */
 
 	@Override
-	public void encerrarChamada(Telefone telefone) throws RemoteException {
-		getInstanciaCliente(telefone).encerrarChamada();
+	public void informarChamadaEncerrada(Telefone telefone) throws RemoteException {
+		getInstanciaCliente(telefone).informarChamadaEncerrada();
 
 	}
 
 	@Override
-	public void enviarPedidoChamada(Telefone origem, Telefone destino)
+	public void receberChamada(Telefone origem, Telefone destino)
 			throws RemoteException {
 		getInstanciaCliente(destino).receberChamada(origem);
 
 	}
 
 	@Override
-	public void enviarMensagemParaCliente(Telefone telefone, Mensagem mensagem)
+	public void receberMensagem(Telefone telefone, Mensagem mensagem)
 			throws RemoteException {
 		getInstanciaCliente(telefone).receberMensagem(mensagem);
 
 	}
 
 	@Override
-	public void confirmarChamada(Telefone telefone) throws RemoteException {
-		getInstanciaCliente(telefone).confirmarChamada(telefone);
+	public void informarChamadaConfirmada(Telefone telefone) throws RemoteException {
+		getInstanciaCliente(telefone).informarChamadaConfirmada(telefone);
 	}
 
 	@Override
-	public void rejeitarChamada(Telefone telefone) throws RemoteException {
-		getInstanciaCliente(telefone).rejeitarChamada();
+	public void informarChamadaRejeitada(Telefone telefone) throws RemoteException {
+		getInstanciaCliente(telefone).informarChamadaRejeitada();
 	}
 
 }
