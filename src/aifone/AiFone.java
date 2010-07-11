@@ -27,10 +27,10 @@ public class AiFone extends UnicastRemoteObject implements IAiFone {
 
 	protected AiFone() throws RemoteException {
 		super();
-		apptelefone = new AppTelefone(this, this.getTelefone());
+		
 		hitwitter = new HiTwitter(this);
 		propriedades = new PropriedadesArquivo();
-
+                apptelefone = new AppTelefone(this, getTelefone());
 		conectarTelefone();
 		abrirTelaInicial();
 	}
