@@ -29,10 +29,9 @@ public class AiFoneIU implements IAiFoneIU {
 		return aifone.getAppTelefoneIU();
 	}
 
-    @Override
-    public Telefone getTelefone() {
-        return aifone.getTelefone();
-    }
-
+	@Override
+	public Telefone getTelefone() {
+		return aifone.getTelefone();
+	}
 
 }
