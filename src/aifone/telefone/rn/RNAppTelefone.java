@@ -49,7 +49,7 @@ public class RNAppTelefone {
 		appTelefone.abrirTelaInicial();
 	}
 
-	public void informarAtendimentoConfirmado(Telefone telefone) {
+	public void informarAtendimentoConfirmado() {
 		System.out.println("RNApp: informarAtendimentoConfirmado recebido");
 		appTelefone.abrirTelaConversa();
 	}

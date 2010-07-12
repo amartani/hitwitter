@@ -34,10 +34,7 @@ public interface IAiFoneEntrada extends Remote {
 	
 	/**
 	 * Confirma início da chamada
-	 * 
-	 * @param telefone
-	 *            Telefone interlocutor
 	 */
-	public void informarChamadaConfirmada(Telefone telefone) throws RemoteException;		
+	public void informarChamadaConfirmada() throws RemoteException;		
 	
 }

@@ -32,9 +32,6 @@ public interface IAppTelefoneEntrada {
 
 	/**
 	 * Confirma início da chamada
-	 * 
-	 * @param telefone
-	 *            Telefone interlocutor
 	 */
-	public void informarAtendimentoConfirmado(Telefone telefone);
+	public void informarAtendimentoConfirmado();
 }

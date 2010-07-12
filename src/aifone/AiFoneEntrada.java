@@ -43,10 +43,10 @@ public class AiFoneEntrada extends UnicastRemoteObject implements
 	}
 
 	@Override
-	public void informarChamadaConfirmada(Telefone telefone) {
+	public void informarChamadaConfirmada() {
 		System.out.println("AiFoneEntrada " + aifone.getTelefone().getNumero()
 				+ ": minha chamada foi confirmada");
-		getApptelefone().informarAtendimentoConfirmado(telefone);
+		getApptelefone().informarAtendimentoConfirmado();
 
 	}
 

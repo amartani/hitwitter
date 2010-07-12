@@ -49,8 +49,8 @@ public class AppTelefone implements IAppTelefone {
 	}
 
 	@Override
-	public void informarAtendimentoConfirmado(Telefone telefone) {
-		rnAppTelefone.informarAtendimentoConfirmado(telefone);
+	public void informarAtendimentoConfirmado() {
+		rnAppTelefone.informarAtendimentoConfirmado();
 
 	}
 

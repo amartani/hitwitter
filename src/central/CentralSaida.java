@@ -62,7 +62,7 @@ public class CentralSaida implements ICentralSaida {
 	@Override
 	public void informarChamadaConfirmada(Telefone telefone)
 			throws RemoteException {
-		getInstanciaCliente(telefone).informarChamadaConfirmada(telefone);
+		getInstanciaCliente(telefone).informarChamadaConfirmada();
 	}
 
 	@Override
