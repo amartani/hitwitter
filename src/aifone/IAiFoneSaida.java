@@ -37,6 +37,5 @@ public interface IAiFoneSaida extends IAppTelefoneSaida {
 	 *            Requisicao a ser efetuada
 	 * @throws RemoteException
 	 */
-	public RespostaDeRequisicao enviarRequisicaoViaTunel(Telefone origem,
-			Requisicao requisicao) throws RemoteException;
+	public RespostaDeRequisicao enviarRequisicaoViaTunel(Requisicao requisicao) throws RemoteException;
 }
