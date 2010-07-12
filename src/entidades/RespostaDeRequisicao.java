@@ -4,26 +4,42 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class RespostaDeRequisicao implements Serializable {
-	String errorMessage = "";
-	String statusCode = "";
-	String message = "";
+	String mensagemDeErro = "";
+	int codigoDeStatus = 300;
+	String conteudo = "";
 
-	public RespostaDeRequisicao(String errorMessage, String statusCode, String message) {
+	public RespostaDeRequisicao() {
 		super();
-		this.errorMessage = errorMessage;
-		this.statusCode = statusCode;
-		this.message = message;
+	}
+	
+	public RespostaDeRequisicao(String mensagemDeErro, int codigoDeStatus, String conteudo) {
+		super();
+		this.mensagemDeErro = mensagemDeErro;
+		this.codigoDeStatus = codigoDeStatus;
+		this.conteudo = conteudo;
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public String getMensagemDeErro() {
+		return mensagemDeErro;
 	}
 
-	public String getStatusCode() {
-		return statusCode;
+	public void setMensagemDeErro(String mensagemDeErro) {
+		this.mensagemDeErro = mensagemDeErro;
 	}
 
-	public String getMessage() {
-		return message;
+	public int getCodigoDeStatus() {
+		return codigoDeStatus;
+	}
+
+	public void setCodigoDeStatus(int codigoDeStatus) {
+		this.codigoDeStatus = codigoDeStatus;
+	}
+
+	public String getConteudo() {
+		return conteudo;
+	}
+
+	public void setConteudo(String mensagem) {
+		this.conteudo = conteudo;
 	}
 }
