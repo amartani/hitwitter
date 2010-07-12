@@ -1,6 +1,5 @@
 package aifone.iu;
 
-
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
@@ -8,7 +7,7 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class IUContainer extends JFrame {
-	
+
 	private static IUContainer instance;
 
 	private IUContainer() {
@@ -18,7 +17,7 @@ public class IUContainer extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-	
+
 	/**
 	 * Get singleton instance
 	 * 
@@ -28,14 +27,14 @@ public class IUContainer extends JFrame {
 		if (instance == null) {
 			instance = new IUContainer();
 		}
-		
+
 		return instance;
 	}
-	
-	public JPanel getPanel(){
+
+	public JPanel getPanel() {
 		return mainPanel;
 	}
-	
+
 	public void setPanel(JPanel panel) {
 		if (mainPanel != null) {
 			remove(mainPanel);
@@ -45,7 +44,7 @@ public class IUContainer extends JFrame {
 		validate();
 		repaint();
 	}
-	
+
 	private JPanel mainPanel;
-	
+
 }
