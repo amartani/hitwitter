@@ -1,28 +1,36 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @SuppressWarnings("serial")
 public class Requisicao implements Serializable {
 	String login;
-	String password;
+	String senha;
 	String method;
 	String url;
+	Map<String, String> params = new HashMap<String, String>();
 
-	public Requisicao(	String login, String password, String method, String url) {
+	public Requisicao(String login, String senha, String method, String url, Map<String, String> params) {
 		super();
 		this.login = login;
-		this.password = password;
+		this.senha = senha;
 		this.method = method;
 		this.url = url;
+		this.params = params;
 	}
 
+	public Map<String, String> getParams() {
+		return params;
+	}
+	
 	public String getLogin() {
 		return login;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
 
 	public String getMethod() {
