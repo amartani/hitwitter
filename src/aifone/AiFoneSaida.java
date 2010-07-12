@@ -104,10 +104,8 @@ public class AiFoneSaida implements IAiFoneSaida {
 	}
 
 	@Override
-	public RespostaDeRequisicao enviarRequisicaoViaTunel(Telefone origem,
-			Requisicao requisicao) throws RemoteException {
-		return getInstanciaServidor().enviarRequisicaoViaTunel(origem,
-				requisicao);
+	public RespostaDeRequisicao enviarRequisicaoViaTunel(Requisicao requisicao) throws RemoteException {
+		return getInstanciaServidor().enviarRequisicaoViaTunel(getTelefone(), requisicao);
 	}
 	
 	private IPropriedades getPropriedades() {
