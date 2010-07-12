@@ -19,6 +19,7 @@ import entidades.Requisicao;
 import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
+
 public class Tunel implements ITunel {
 
 	@Override
@@ -32,19 +33,21 @@ public class Tunel implements ITunel {
 	private void executarMetodoHTTP(HttpMethodBase method, Requisicao requisicao) throws NullPointerException, HttpException, IOException {
 		HttpClient client = new HttpClient(); 
 		Credentials credentials = new UsernamePasswordCredentials(requisicao.getLogin(), requisicao.getSenha());
-		client.getState().setCredentials(new AuthScope(requisicao.getUrl(), 80, AuthScope.ANY_REALM), credentials);
+		client.getState().setCredentials(new AuthScope("twitter.com", 80, AuthScope.ANY_REALM), credentials);
 		HostConfiguration host = client.getHostConfiguration();
-		host.setHost(new URI("http://"+requisicao.getUrl(), true));
+		host.setHost(new URI("http://twitter.com"+requisicao.getUrl(), true));
 		client.executeMethod(host, method);
-		System.out.println(method.getResponseBody());
+		System.out.println(method.getResponseBodyAsString());
 	}
 
 	private NameValuePair[] construirParametros(Requisicao requisicao){
 		NameValuePair params[] = new NameValuePair[requisicao.getParams().size()];
 		Iterator<String> iterator = requisicao.getParams().keySet().iterator();
 		int params_count = 0;
+		String iteration_element;
 		while(iterator.hasNext()){
-			params[0] = new NameValuePair(iterator.next(), requisicao.getParams().get(iterator.next()));
+			iteration_element = iterator.next();
+			params[params_count] = new NameValuePair(iteration_element, requisicao.getParams().get(iteration_element));
 			params_count++;
 		}
 		return params;
@@ -68,11 +71,13 @@ public class Tunel implements ITunel {
 		} finally {
 			post.releaseConnection();
 		}
+		System.out.println(resposta.getMensagemDeErro());
 		return resposta;
 	}
 	
 	private RespostaDeRequisicao executarMetodoGet(Requisicao requisicao){
 		RespostaDeRequisicao resposta = new RespostaDeRequisicao();
+		System.out.println(requisicao.getUrl());
 		GetMethod get = new GetMethod(requisicao.getUrl());
 		try {
 			executarMetodoHTTP(get, requisicao);
