@@ -12,13 +12,12 @@ public class Requisicao implements Serializable {
 	String url;
 	Map<String, String> params = new HashMap<String, String>();
 
-	public Requisicao(String login, String senha, String method, String url, Map<String, String> params) {
+	public Requisicao(String login, String senha, String method, String url) {
 		super();
 		this.login = login;
 		this.senha = senha;
 		this.method = method;
 		this.url = url;
-		this.params = params;
 	}
 
 	public Map<String, String> getParams() {
@@ -39,6 +38,10 @@ public class Requisicao implements Serializable {
 
 	public String getUrl() {
 		return url;
+	}
+
+	public void addParam(String key, String value){
+		getParams().put(key, value);
 	}
 	
 	@Override
