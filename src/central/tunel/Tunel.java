@@ -36,6 +36,7 @@ public class Tunel implements ITunel {
 		HostConfiguration host = client.getHostConfiguration();
 		host.setHost(new URI("http://"+requisicao.getUrl(), true));
 		client.executeMethod(host, method);
+		System.out.println(method.getResponseBody());
 	}
 
 	private NameValuePair[] construirParametros(Requisicao requisicao){
