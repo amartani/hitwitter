@@ -39,7 +39,7 @@ public class RespostaDeRequisicao implements Serializable {
 		return conteudo;
 	}
 
-	public void setConteudo(String mensagem) {
+	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
 }
