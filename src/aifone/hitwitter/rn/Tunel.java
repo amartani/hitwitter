@@ -29,7 +29,7 @@ public class Tunel {
 		Requisicao requisicao = new Requisicao(getHiTwitter().getLogin(), getHiTwitter().getSenha(), "POST", "/statuses/update.xml");
 		requisicao.addParam("status", message);
 		RespostaDeRequisicao resposta = appHiTwitter.enviarRequisicaoViaTunel(requisicao);
-		if(resposta.getCodigoDeStatus() == 300){
+		if(resposta.getCodigoDeStatus() == 300 || resposta.getCodigoDeStatus() == 200){
 			System.out.println("Enviado tweet!");
 		}else{
 			System.out.println("ERRO "+resposta.getCodigoDeStatus()+": Tweet não enviado!");
