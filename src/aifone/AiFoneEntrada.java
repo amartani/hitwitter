@@ -34,6 +34,11 @@ public class AiFoneEntrada extends UnicastRemoteObject implements
 	}
 
 	@Override
+	public void informarChamadaCancelada() {
+		getApptelefone().informarChamadaCancelada();
+	}
+
+	@Override
 	public void receberMensagem(Mensagem mensagem) {
 		getApptelefone().receberMensagem(mensagem);
 

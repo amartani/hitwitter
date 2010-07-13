@@ -20,12 +20,13 @@ public class AiFone {
 
 	protected AiFone(IPropriedades propriedades) throws RemoteException {
 		this.propriedades = propriedades;
-		nomeListener = new String(((Long)System.currentTimeMillis()).toString().substring(7));
+		nomeListener = new String(((Long) System.currentTimeMillis())
+				.toString().substring(7));
 		entrada = new AiFoneEntrada(this);
 		saida = new AiFoneSaida(this, nomeListener);
 		iu = new AiFoneIU(this);
 	}
-	
+
 	protected IAiFoneEntrada getEntrada() {
 		return entrada;
 	}
@@ -67,8 +68,8 @@ public class AiFone {
 	protected IPropriedades getPropriedades() {
 		return propriedades;
 	}
-	
-	public String getNomeListener(){
+
+	public String getNomeListener() {
 		return nomeListener;
 	}
 

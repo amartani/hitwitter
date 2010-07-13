@@ -87,6 +87,11 @@ public class AiFoneSaida implements IAiFoneSaida {
 	public void encerrarChamada() throws RemoteException {
 		getInstanciaServidor().encerrarChamada(getTelefone());
 	}
+	
+	@Override
+	public void cancelarChamada() throws RemoteException {
+		getInstanciaServidor().cancelarChamada(getTelefone());
+	}
 
 	@Override
 	public void rejeitarChamada() throws RemoteException {
