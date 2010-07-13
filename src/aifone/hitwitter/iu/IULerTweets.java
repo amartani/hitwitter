@@ -11,7 +11,10 @@
 
 package aifone.hitwitter.iu;
 
+import java.rmi.RemoteException;
+
 import aifone.IAiFoneIU;
+import aifone.hitwitter.Tweet;
 
 /**
  *
@@ -25,9 +28,17 @@ public class IULerTweets extends javax.swing.JPanel {
     public IULerTweets(IAiFoneIU aiFone) {
     	this.aiFone = aiFone;
         initComponents();
+        String text = "";
+        try {
+			for( Tweet tweet:aiFone.getAifone().getHitwitter().getTweets() ){
+				text += tweet.getAutor() + "\n" + tweet.getConteudo() + "\n\n\n";
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+        jTextArea1.setText(text);
         jTextArea1.setLineWrap(true);
         jTextArea1.setWrapStyleWord(true);
-        
     }
 
     /** This method is called from within the constructor to
@@ -45,7 +56,7 @@ public class IULerTweets extends javax.swing.JPanel {
         botaoNovoTweet = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
 
-        jTextArea1.setColumns(25);
+        jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
