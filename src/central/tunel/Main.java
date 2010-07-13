@@ -15,7 +15,7 @@ public class Main {
 		tunel.enviarRequisicao(new Telefone("99997777"), requisicao);
 		// Twittar!
 		requisicao = new Requisicao("dalthon", "TWITTER3fqfgr", "POST", "/statuses/update.xml");
-		requisicao.addParam("status", "Ta começando a funcionar essa merda!");
+		requisicao.addParam("status", "Twitter pemba!");
 		tunel.enviarRequisicao(new Telefone("99998888"), requisicao);
 	}
 
