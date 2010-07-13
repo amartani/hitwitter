@@ -64,7 +64,7 @@ public class GerenciadorChamadas {
 
 	}
 	
-	public void efetuarChamada(Telefone origem, Telefone destino) {
+	public void receberChamada(Telefone origem, Telefone destino) {
 		System.out.println("Gerenciador de Chamadas: "
 				+ origem.getNumero().toString() + " chamando "
 				+ destino.getNumero().toString());
