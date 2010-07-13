@@ -40,11 +40,12 @@ public class Main {
 		main.iniciarServidorRMI(aifone.getEntrada(), 1100, aifone.getNomeListener());
 		aifone.getIU().abrirTelaInicial();
 		aifone.getSaida().conectarTelefone();
-		aifone.getHitwitter().setLogin("dalthon");
-		aifone.getHitwitter().setSenha("TWITTER3fqfgr");
-		for(Tweet tweet:aifone.getHitwitter().getTweets()){
-			System.out.println(tweet.getAutor() + " " + tweet.getConteudo());
-		}
+//		aifone.getHitwitter().setLogin("dalthon");
+//		aifone.getHitwitter().setSenha("TWITTER3fqfgr");
+//		for(Tweet tweet:aifone.getHitwitter().getTweets()){
+//			System.out.println(tweet.getAutor() + " " + tweet.getConteudo());
+//		}
+//		aifone.getHitwitter().sendTweet("Pq sera q naum fazem parsers xml decentes pra Java?");
 	}
 
 }

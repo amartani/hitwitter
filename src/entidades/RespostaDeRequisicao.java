@@ -37,12 +37,9 @@ public class RespostaDeRequisicao implements Serializable {
 	@SuppressWarnings("deprecation")
 	public List<Tweet> toTweets(){
 		List<Tweet> tweets = new ArrayList<Tweet>();
-		//DOMParser parser =
 
 		try {
 			System.out.println(conteudo);
-			//parser.
-			//parser.parse(conteudo);
 			Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new StringBufferInputStream(conteudo));
 			NodeList nodes = doc.getElementsByTagName("status");
 			
