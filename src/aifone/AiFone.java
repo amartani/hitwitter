@@ -2,7 +2,8 @@ package aifone;
 
 import java.rmi.RemoteException;
 
-import aifone.hitwitter.HiTwitter;
+import aifone.hitwitter.AppHiTwitter;
+import aifone.hitwitter.rn.HiTwitter;
 import aifone.telefone.AppTelefone;
 import aifone.telefone.IAppTelefone;
 import aifone.telefone.IAppTelefoneEntrada;
@@ -14,7 +15,7 @@ public class AiFone {
 	private AiFoneSaida saida;
 	private AiFoneIU iu;
 	private AppTelefone apptelefone;
-	private HiTwitter hitwitter;
+	private AppHiTwitter hitwitter;
 	private IPropriedades propriedades;
 	private String nomeListener;
 
@@ -58,9 +59,9 @@ public class AiFone {
 		return getAppTelefone();
 	}
 
-	public HiTwitter getHitwitter() {
+	public AppHiTwitter getHitwitter() {
 		if (hitwitter == null) {
-			hitwitter = new HiTwitter(getSaida());
+			hitwitter = new AppHiTwitter(getSaida(), getIU());
 		}
 		return hitwitter;
 	}
