@@ -135,15 +135,11 @@ public class IURecebimentoDeChamada extends javax.swing.JPanel {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void botaoAceitarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoAceitarActionPerformed
-
-                appTelefone.abrirTelaConversa();
-                rnAppTelefone.confirmarAtendimento();
-
+		aceitarChamada();
 	}// GEN-LAST:event_botaoAceitarActionPerformed
 
 	private void botaoRejeitarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoRejeitarActionPerformed
-               appTelefone.abrirTelaInicial();
-               rnAppTelefone.rejeitarChamada();
+		rejeitarChamada();
 
 	}// GEN-LAST:event_botaoRejeitarActionPerformed
 
@@ -154,4 +150,16 @@ public class IURecebimentoDeChamada extends javax.swing.JPanel {
 	private javax.swing.JLabel labelNumero;
 	// End of variables declaration//GEN-END:variables
 
+	
+	
+	private void aceitarChamada(){
+        appTelefone.abrirTelaConversa();
+        rnAppTelefone.confirmarAtendimento();		
+	}
+	
+	private void rejeitarChamada(){
+        appTelefone.abrirTelaInicial();
+        rnAppTelefone.rejeitarChamada();
+	}
+	
 }
