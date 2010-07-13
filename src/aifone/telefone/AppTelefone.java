@@ -144,12 +144,5 @@ public class AppTelefone implements IAppTelefone {
 		return telefone;
 	}
 
-	@Override
-	public void exibirMensagem(String autor, Mensagem mensagem) {
-		if (IUContainer.getInstance().getPanel() instanceof IUConversa) {
-			((IUConversa) IUContainer.getInstance().getPanel()).exibirMensagem(
-					autor, mensagem);
-		}
 
-	}
 }

@@ -8,10 +8,15 @@ public class RNAppTelefone {
 
 	private IAppTelefone appTelefone;
 	private String interlocutor;
+	private IObservaRecebimentoDeMensagem observer;
 
 	public RNAppTelefone(IAppTelefone appTelefone) {
 		super();
 		this.appTelefone = appTelefone;
+	}
+
+	public void setObserver(IObservaRecebimentoDeMensagem observer) {
+		this.observer = observer;
 	}
 
 	public String getInterlocutor() {
@@ -33,7 +38,7 @@ public class RNAppTelefone {
 	}
 
 	public void receberMensagem(Mensagem mensagem) {
-		appTelefone.exibirMensagem(getInterlocutor(), mensagem);
+		observer.mensagemRecebida(new Telefone(getInterlocutor()), mensagem);
 
 	}
 

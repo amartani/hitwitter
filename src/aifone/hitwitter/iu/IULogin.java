@@ -11,16 +11,19 @@
 
 package aifone.hitwitter.iu;
 import javax.swing.text.JTextComponent; //essa importação é utilizada sim!
+
+import aifone.iu.AdapterJTextComponentObservaTeclado;
+import aifone.iu.IObservaTeclado;
 /**
  *
  * @author William
  */
-public class IULogin extends javax.swing.JPanel {
+public class IULogin extends javax.swing.JPanel  {
 
     /** Creates new form IULogin */
     public IULogin() {
         initComponents();
-        componenteTeclado.setCampoAlvo(campoNome);
+        componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(campoNome));
     }
 
     /** This method is called from within the constructor to
@@ -123,19 +126,19 @@ public class IULogin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
-        componenteTeclado.setCampoAlvo(campoNome);
+        componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(campoNome));
     }//GEN-LAST:event_campoNomeActionPerformed
 
     private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
-        componenteTeclado.setCampoAlvo(campoSenha);
+        componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(campoSenha));
     }//GEN-LAST:event_campoSenhaActionPerformed
 
     private void campoSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoSenhaMouseClicked
-        componenteTeclado.setCampoAlvo(campoSenha);
+        componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(campoSenha));
     }//GEN-LAST:event_campoSenhaMouseClicked
 
     private void campoNomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoNomeMouseClicked
-        componenteTeclado.setCampoAlvo(campoNome);
+        componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(campoNome));
     }//GEN-LAST:event_campoNomeMouseClicked
 
 

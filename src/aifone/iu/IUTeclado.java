@@ -20,7 +20,7 @@ import javax.swing.text.JTextComponent;
 public class IUTeclado extends javax.swing.JPanel {
 
 	/** Creates new form IUTeclado */
-	private JTextComponent campoAlvo;
+	private IObservaTeclado campoAlvo;
 
 	public IUTeclado() {
 		initComponents();
@@ -689,8 +689,9 @@ public class IUTeclado extends javax.swing.JPanel {
 
 	private void botaoApagarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoApagarActionPerformed
 		if (getCampoAlvo() != null) {
-			String texto = getCampoAlvo().getText();
-			getCampoAlvo().setText(texto.substring(0, texto.length() - 1));
+			//String texto = getCampoAlvo().getText();
+			//getCampoAlvo().setText(texto.substring(0, texto.length() - 1));
+			getCampoAlvo().apagar();
 		}
 
 	}// GEN-LAST:event_botaoApagarActionPerformed
@@ -740,14 +741,15 @@ public class IUTeclado extends javax.swing.JPanel {
 
 	public void adicionarCaractere(String caractere) {
 		if (getCampoAlvo() != null)
-			getCampoAlvo().setText(getCampoAlvo().getText().concat(caractere));
+			getCampoAlvo().inserirCaractere(caractere);
+			//getCampoAlvo().setText(getCampoAlvo().getText().concat(caractere));
 	}
 
-	public JTextComponent getCampoAlvo() {
+	public IObservaTeclado getCampoAlvo() {
 		return campoAlvo;
 	}
 
-	public void setCampoAlvo(JTextComponent campoAlvo) {
+	public void setCampoAlvo(IObservaTeclado campoAlvo) {
 		this.campoAlvo = campoAlvo;
 	}
 

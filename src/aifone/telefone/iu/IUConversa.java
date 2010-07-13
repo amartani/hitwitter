@@ -14,8 +14,10 @@ package aifone.telefone.iu;
 import javax.swing.JScrollBar;
 import javax.swing.JTextArea;
 
+import aifone.iu.AdapterJTextComponentObservaTeclado;
 import aifone.telefone.AppTelefone;
 import aifone.telefone.IAppTelefone;
+import aifone.telefone.rn.IObservaRecebimentoDeMensagem;
 import aifone.telefone.rn.RNAppTelefone;
 import entidades.Mensagem;
 import entidades.Telefone;
@@ -24,7 +26,7 @@ import entidades.Telefone;
  * 
  * @author William
  */
-public class IUConversa extends javax.swing.JPanel {
+public class IUConversa extends javax.swing.JPanel implements IObservaRecebimentoDeMensagem{
 
 	private RNAppTelefone rnAppTelefone;
 	private IAppTelefone appTelefone;
@@ -34,9 +36,10 @@ public class IUConversa extends javax.swing.JPanel {
 		initComponents();
 		this.rnAppTelefone = rnAppTelefone;
 		this.appTelefone = appTelefone;
-		componenteTeclado.setCampoAlvo(campoMensagem);
+		componenteTeclado.setCampoAlvo( new AdapterJTextComponentObservaTeclado(campoMensagem));
 		areaConversa.setWrapStyleWord(true);
 		areaConversa.setLineWrap(true);
+		rnAppTelefone.setObserver(this);
 	}
 
 	/**
@@ -133,7 +136,7 @@ public class IUConversa extends javax.swing.JPanel {
             enviarMensagem();
 	}
 
-        public void exibirMensagem(String numero, Mensagem mensagem){
+        private void exibirMensagem(String numero, Mensagem mensagem){
             String frase = mensagem.getConteudo();
             areaConversa.setText("<"+numero+"> "+frase + "\n");
             areaConversa.setCaretPosition(areaConversa.getDocument().getLength());
@@ -158,5 +161,11 @@ public class IUConversa extends javax.swing.JPanel {
     private aifone.iu.IUTeclado iUTeclado1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+	@Override
+	public void mensagemRecebida(Telefone telefone, Mensagem mensagem) {
+		exibirMensagem(telefone.getNumero(), mensagem);
+		
+	}
 
 }
