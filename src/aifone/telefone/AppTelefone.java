@@ -61,6 +61,12 @@ public class AppTelefone implements IAppTelefone {
 	}
 
 	@Override
+	public void informarChamadaCancelada() {
+		rnAppTelefone.informarChamadaCancelada();
+
+	}
+
+	@Override
 	public void informarChamadaRejeitada() {
 		rnAppTelefone.informarChamadaRejeitada();
 
@@ -99,6 +105,12 @@ public class AppTelefone implements IAppTelefone {
 
 	}
 
+	@Override
+	public void cancelarChamada() throws RemoteException {
+		aifonesaida.cancelarChamada();
+
+	}
+
 	/*
 	 * Telas
 	 */
@@ -124,11 +136,10 @@ public class AppTelefone implements IAppTelefone {
 	@Override
 	public void abrirTelaInicial() {
 		aifoneiu.abrirTelaInicial();
-		/*try {
-			aifoneiu.abrirTelaInicial();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
+		/*
+		 * try { aifoneiu.abrirTelaInicial(); } catch (Exception e) {
+		 * e.printStackTrace(); }
+		 */
 	}
 
 	@Override
@@ -143,6 +154,5 @@ public class AppTelefone implements IAppTelefone {
 	public Telefone getTelefone() {
 		return telefone;
 	}
-
 
 }

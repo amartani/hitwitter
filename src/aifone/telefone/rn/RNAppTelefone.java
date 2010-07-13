@@ -47,6 +47,12 @@ public class RNAppTelefone {
 		setInterlocutor(null);
 		appTelefone.abrirTelaInicial();
 	}
+	
+	public void informarChamadaCancelada() {
+		System.out.println("RNApp: informarChamadaCancelada recebido");
+		setInterlocutor(null);
+		appTelefone.abrirTelaInicial();
+	}
 
 	public void informarChamadaEncerrada() {
 		System.out.println("RNApp: informarChamadaEncerrada recebido");
@@ -92,6 +98,16 @@ public class RNAppTelefone {
 			appTelefone.encerrarChamada();
 		} catch (Exception e) {
 			System.out.println("Nao foi possivel encerrar chamada. Excecao: ");
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void cancelarChamada() {
+		try {
+			appTelefone.cancelarChamada();
+		} catch (Exception e) {
+			System.out.println("Nao foi possivel cancelar chamada. Excecao: ");
 			e.printStackTrace();
 		}
 

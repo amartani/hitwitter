@@ -64,12 +64,6 @@ public class GerenciadorChamadas {
 
 	}
 	
-	private void waitALittle(){
-		long now = System.currentTimeMillis();
-		now +=2000;
-		while(System.currentTimeMillis() < now);
-	}
-
 	public void efetuarChamada(Telefone origem, Telefone destino) {
 		System.out.println("Gerenciador de Chamadas: "
 				+ origem.getNumero().toString() + " chamando "
@@ -164,6 +158,23 @@ public class GerenciadorChamadas {
 			}
 			ippedido.apagar(telefone);
 			ippedido.apagar(origem);
+		}
+
+	}
+	
+	public void informarChamadaCancelada(Telefone telefone) {
+		System.out
+				.println("Gerenciador de Chamadas: informar chamada cancelada");
+		Telefone destino = ippedido.procurar(telefone);
+		if (destino != null) {
+			try {
+				centralTelefonica.informarChamadaCancelada(destino);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ippedido.apagar(telefone);
+			ippedido.apagar(destino);
 		}
 
 	}

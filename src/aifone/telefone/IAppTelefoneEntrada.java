@@ -16,6 +16,11 @@ public interface IAppTelefoneEntrada {
 	 * Encerra uma chamada em andamento
 	 */
 	public void informarChamadaEncerrada();
+	
+	/**
+	 * Cancela um pedido de chamada recebido
+	 */
+	public void informarChamadaCancelada();
 
 	/**
 	 * Rejeita uma chamada que está para ser feita

@@ -1,5 +1,7 @@
 package central.telefone;
 
+import java.rmi.RemoteException;
+
 import entidades.Mensagem;
 import entidades.Telefone;
 
@@ -43,6 +45,13 @@ public interface ICentralTelefonicaEntrada {
 	 *            Telefone do cliente que encerrou a chamada
 	 */
 	public void encerrarChamada(Telefone telefone);
+	
+	/**
+	 * O cliente deve chamar este método quando desiste de fazer a chamada
+	 * 
+	 * @throws RemoteException
+	 */
+	public void cancelarChamada(Telefone telefone) throws RemoteException;
 
 	/**
 	 * O cliente deve chamar este método quando a chamada que está sendo
