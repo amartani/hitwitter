@@ -11,4 +11,10 @@ public interface IAiFoneIU {
 	public Telefone getTelefone();
 
 	public void abrirHiTwitter();
+
+	public void abrirTelaEnviarTweet();
+
+	public AiFone getAifone();
+
+	public void abrirTelaLerTweets();
 }
