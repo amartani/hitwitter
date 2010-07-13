@@ -41,7 +41,7 @@ public class IUEnviarTweet extends javax.swing.JPanel {
         label140char = new javax.swing.JLabel();
         botaoTuitar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        botaoLerTweets = new javax.swing.JButton();
 
         areaTexto.setColumns(20);
         areaTexto.setLineWrap(true);
@@ -66,8 +66,18 @@ public class IUEnviarTweet extends javax.swing.JPanel {
         });
 
         botaoCancelar.setText("X");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        botaoLerTweets.setText("Ler Tweets!");
+        botaoLerTweets.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLerTweetsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,7 +96,7 @@ public class IUEnviarTweet extends javax.swing.JPanel {
                                 .addComponent(botaoTuitar))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(botaoLerTweets)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botaoCancelar))))
                     .addComponent(componenteTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -98,7 +108,7 @@ public class IUEnviarTweet extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoCancelar)
-                    .addComponent(jButton1))
+                    .addComponent(botaoLerTweets))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -120,13 +130,21 @@ public class IUEnviarTweet extends javax.swing.JPanel {
 
     }//GEN-LAST:event_botaoTuitarActionPerformed
 
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoCancelarActionPerformed
+
+    private void botaoLerTweetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLerTweetsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoLerTweetsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaTexto;
     private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoLerTweets;
     private javax.swing.JButton botaoTuitar;
     private aifone.iu.IUTeclado componenteTeclado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label140char;
     private javax.swing.JLabel labelNumeroCaracteres;
