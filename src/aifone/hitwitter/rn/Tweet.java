@@ -1,4 +1,4 @@
-package aifone.hitwitter;
+package aifone.hitwitter.rn;
 
 public class Tweet {
 	private String autor;

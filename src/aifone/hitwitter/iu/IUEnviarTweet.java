@@ -14,6 +14,8 @@ package aifone.hitwitter.iu;
 import java.rmi.RemoteException;
 
 import aifone.IAiFoneIU;
+import aifone.hitwitter.AppHiTwitter;
+import aifone.hitwitter.rn.HiTwitter;
 import aifone.iu.IObservaTeclado;
 import aifone.iu.AdapterJTextComponentObservaTeclado;
 /**
@@ -22,12 +24,13 @@ import aifone.iu.AdapterJTextComponentObservaTeclado;
  */
 public class IUEnviarTweet extends javax.swing.JPanel {
 
-	private IAiFoneIU aiFone;
+	private AppHiTwitter appHiTwitter;
+	private HiTwitter hiTwitter;
 	
-    /** Creates new form IUEnviarTweet */
-    public IUEnviarTweet(IAiFoneIU aiFone) {
+    public IUEnviarTweet(AppHiTwitter appHiTwitter, HiTwitter hiTwitter) {
+    	this.appHiTwitter = appHiTwitter;
+    	this.hiTwitter = hiTwitter;
         initComponents();
-        this.aiFone = aiFone;
         componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(areaTexto));
     }
 
@@ -134,8 +137,8 @@ public class IUEnviarTweet extends javax.swing.JPanel {
 
     private void botaoTuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTuitarActionPerformed
     	try {
-			aiFone.getAifone().getHitwitter().sendTweet(areaTexto.getText());
-			aiFone.abrirTelaLerTweets();
+			hiTwitter.sendTweet(areaTexto.getText());
+			appHiTwitter.abrirTelaLerTweets();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,11 +146,11 @@ public class IUEnviarTweet extends javax.swing.JPanel {
     }//GEN-LAST:event_botaoTuitarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-    	aiFone.abrirTelaInicial();
+    	appHiTwitter.voltarTelaInicial();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoLerTweetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLerTweetsActionPerformed
-    	aiFone.abrirTelaLerTweets();
+    	appHiTwitter.abrirTelaLerTweets();
     }//GEN-LAST:event_botaoLerTweetsActionPerformed
 
 

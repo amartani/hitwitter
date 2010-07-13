@@ -28,12 +28,7 @@ public class AiFoneIU implements IAiFoneIU {
 		getAppTelefoneIU().abrirTelaDiscar();
 	}
 
-	@Override
-	public void abrirHiTwitter(){
-		IUContainer container = IUContainer.getInstance();
-		container.setPanel(new IULogin(this));
-		container.setVisible(true);
-	}
+	
 	
 	private IAppTelefoneIU getAppTelefoneIU() {
 		return aifone.getAppTelefoneIU();
@@ -44,22 +39,23 @@ public class AiFoneIU implements IAiFoneIU {
 		return aifone.getTelefone();
 	}
 
-	@Override
-	public void abrirTelaEnviarTweet() {
-		IUContainer container = IUContainer.getInstance();
-		container.setPanel(new IUEnviarTweet(this));
-		container.setVisible(true);
-	}
-
-	public AiFone getAifone() {
+	private AiFone getAifone() {
 		return aifone;
 	}
 
 	@Override
 	public void abrirTelaLerTweets() {
-		IUContainer container = IUContainer.getInstance();
-		container.setPanel(new IULerTweets(this));
-		container.setVisible(true);
+		getAifone().getHitwitter().abrirTelaLerTweets();
+	}
+	
+	@Override
+	public void abrirHiTwitter(){
+		getAifone().getHitwitter().abrirHiTwitter();
+	}
+	
+	@Override
+	public void abrirTelaEnviarTweet() {
+		getAifone().getHitwitter().abrirTelaEnviarTweet();
 	}
 
 }
