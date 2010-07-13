@@ -35,7 +35,7 @@ public class Main {
 		IPropriedades propriedades = new PropriedadesArquivo();
 		System.out.println("Conectando a " + propriedades.getEnderecoServidor());
 		AiFone aifone = new AiFone(propriedades);
-		main.iniciarServidorRMI(aifone.getEntrada(), 1100, aifone.getNomeListener());
+		main.iniciarServidorRMI(aifone.getEntrada(), 1101, aifone.getNomeListener());
 		aifone.getIU().abrirTelaInicial();
 		aifone.getSaida().conectarTelefone();
 	}

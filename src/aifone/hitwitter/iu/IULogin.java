@@ -40,8 +40,8 @@ public class IULogin extends javax.swing.JPanel  {
         jLabel3 = new javax.swing.JLabel();
         campoNome = new javax.swing.JTextField();
         campoSenha = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botaoLogar = new javax.swing.JButton();
+        botaoSair = new javax.swing.JButton();
         componenteTeclado = new aifone.iu.IUTeclado();
 
         jLabel1.setText("HiTwitter!");
@@ -72,9 +72,19 @@ public class IULogin extends javax.swing.JPanel  {
             }
         });
 
-        jButton1.setText("jButton1");
+        botaoLogar.setText("Login!");
+        botaoLogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLogarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton2");
+        botaoSair.setText("X");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -95,10 +105,10 @@ public class IULogin extends javax.swing.JPanel  {
                             .addComponent(campoSenha)
                             .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addGap(56, 56, 56)
+                        .addComponent(botaoLogar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botaoSair))
                     .addComponent(componenteTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -117,11 +127,10 @@ public class IULogin extends javax.swing.JPanel  {
                     .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(componenteTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botaoSair)
+                    .addComponent(botaoLogar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(componenteTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,13 +150,21 @@ public class IULogin extends javax.swing.JPanel  {
         componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(campoNome));
     }//GEN-LAST:event_campoNomeMouseClicked
 
+    private void botaoLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoLogarActionPerformed
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoSairActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoLogar;
+    private javax.swing.JButton botaoSair;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPasswordField campoSenha;
     private aifone.iu.IUTeclado componenteTeclado;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
