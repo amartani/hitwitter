@@ -49,8 +49,14 @@ public interface ICentralRemote extends Remote {
 	 *            Telefone do cliente que encerrou a chamada
 	 * @throws RemoteException
 	 */
-	public void encerrarChamada(Telefone telefone)
-			throws RemoteException;
+	public void encerrarChamada(Telefone telefone) throws RemoteException;
+
+	/**
+	 * O cliente deve chamar este método quando desiste de fazer a chamada
+	 * 
+	 * @throws RemoteException
+	 */
+	public void cancelarChamada(Telefone telefone) throws RemoteException;
 
 	/**
 	 * O cliente deve chamar este método quando a chamada que está sendo
@@ -60,8 +66,7 @@ public interface ICentralRemote extends Remote {
 	 *            Telefone do cliente
 	 * @throws RemoteException
 	 */
-	public void rejeitarChamada(Telefone telefone)
-			throws RemoteException;
+	public void rejeitarChamada(Telefone telefone) throws RemoteException;
 
 	/**
 	 * O cliente deve chamar este método atender a chamada
@@ -95,6 +100,6 @@ public interface ICentralRemote extends Remote {
 	 *            Requisicao a ser efetuada
 	 * @throws RemoteException
 	 */
-	public RespostaDeRequisicao enviarRequisicaoViaTunel(Telefone origem, Requisicao requisicao)
-			throws RemoteException;
+	public RespostaDeRequisicao enviarRequisicaoViaTunel(Telefone origem,
+			Requisicao requisicao) throws RemoteException;
 }

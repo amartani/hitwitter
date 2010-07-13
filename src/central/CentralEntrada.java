@@ -12,7 +12,8 @@ import entidades.RespostaDeRequisicao;
 import entidades.Telefone;
 
 @SuppressWarnings("serial")
-public class CentralEntrada extends UnicastRemoteObject implements ICentralRemote {
+public class CentralEntrada extends UnicastRemoteObject implements
+		ICentralRemote {
 
 	private IGerenciamentoEntrada gerenciamento;
 	private ITunelEntrada tunel;
@@ -51,6 +52,11 @@ public class CentralEntrada extends UnicastRemoteObject implements ICentralRemot
 	}
 
 	@Override
+	public void cancelarChamada(Telefone telefone) throws RemoteException {
+		centraltelefonica.cancelarChamada(telefone);
+	}
+
+	@Override
 	public void rejeitarChamada(Telefone telefone) {
 		centraltelefonica.rejeitarChamada(telefone);
 	}
@@ -70,6 +76,5 @@ public class CentralEntrada extends UnicastRemoteObject implements ICentralRemot
 			Requisicao requisicao) {
 		return tunel.enviarRequisicao(origem, requisicao);
 	}
-
 
 }
