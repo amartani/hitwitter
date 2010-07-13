@@ -15,8 +15,7 @@ public class Tunel {
 	}
 
 	public List<Tweet> getTweetsFromRemote() throws RemoteException{
-		//Requisicao requisicao = new Requisicao(getHiTwitter().getLogin(), getHiTwitter().getSenha(), "GET", "/statuses/friends_timeline.xml");
-		Requisicao requisicao = new Requisicao("dalthon", "TWITTER3fqfgr", "GET", "/statuses/friends_timeline.xml");
+		Requisicao requisicao = new Requisicao(getHiTwitter().getLogin(), getHiTwitter().getSenha(), "GET", "/statuses/friends_timeline.xml");
 		System.out.println(requisicao.getMethod());
 		RespostaDeRequisicao resposta =  getHiTwitter().getAifone().enviarRequisicaoViaTunel(requisicao);
 		return resposta.toTweets();
@@ -27,11 +26,10 @@ public class Tunel {
 		requisicao.addParam("status", message);
 		RespostaDeRequisicao resposta = getHiTwitter().getAifone().enviarRequisicaoViaTunel(requisicao);
 		if(resposta.getCodigoDeStatus() == 300){
-			System.out.println("Worked!");
+			System.out.println("Enviado tweet!");
 		}else{
-			System.out.println("Fodeu!");
+			System.out.println("ERRO "+resposta.getCodigoDeStatus()+": Tweet não enviado!");
 		}
-			
 	}
 
 	public HiTwitter getHiTwitter() {
