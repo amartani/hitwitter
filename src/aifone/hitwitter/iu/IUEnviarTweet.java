@@ -143,11 +143,11 @@ public class IUEnviarTweet extends javax.swing.JPanel {
     }//GEN-LAST:event_botaoTuitarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        // TODO add your handling code here:
+    	aiFone.abrirTelaInicial();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoLerTweetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLerTweetsActionPerformed
-        // TODO add your handling code here:
+    	aiFone.abrirTelaLerTweets();
     }//GEN-LAST:event_botaoLerTweetsActionPerformed
 
 
