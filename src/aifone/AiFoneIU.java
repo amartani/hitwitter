@@ -1,5 +1,6 @@
 package aifone;
 
+import aifone.hitwitter.iu.IULogin;
 import aifone.iu.IUContainer;
 import aifone.iu.IUTelaInicial;
 import aifone.telefone.IAppTelefoneIU;
@@ -25,6 +26,13 @@ public class AiFoneIU implements IAiFoneIU {
 		getAppTelefoneIU().abrirTelaDiscar();
 	}
 
+	@Override
+	public void abrirHiTwitter(){
+		IUContainer container = IUContainer.getInstance();
+		container.setPanel(new IULogin(this));
+		container.setVisible(true);
+	}
+	
 	private IAppTelefoneIU getAppTelefoneIU() {
 		return aifone.getAppTelefoneIU();
 	}
