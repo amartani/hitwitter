@@ -155,7 +155,9 @@ public class IULogin extends javax.swing.JPanel  {
     }//GEN-LAST:event_campoNomeMouseClicked
 
     private void botaoLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogarActionPerformed
-        // TODO add your handling code here:
+    	aiFone.getAifone().getHitwitter().setLogin(campoNome.getText());
+    	aiFone.getAifone().getHitwitter().setSenha(campoSenha.getPassword().toString());
+    	aiFone.abrirTelaEnviarTweet();
     }//GEN-LAST:event_botaoLogarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
