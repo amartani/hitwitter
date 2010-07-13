@@ -107,7 +107,7 @@ public class IUTelaInicial extends javax.swing.JPanel {
         }//GEN-LAST:event_botaoIniciarTelefoneActionPerformed
 
         private void botaoIniciarHiTwitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIniciarHiTwitterActionPerformed
-            // TODO add your handling code here:
+        	aiFone.abrirHiTwitter();
         }//GEN-LAST:event_botaoIniciarHiTwitterActionPerformed
 
 	private void botaoIniciarTelefoneMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botaoIniciarTelefoneMouseClicked

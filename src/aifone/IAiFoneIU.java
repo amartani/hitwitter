@@ -9,4 +9,6 @@ public interface IAiFoneIU {
 	public void abrirTelaTelefone();
 
 	public Telefone getTelefone();
+
+	public void abrirHiTwitter();
 }
