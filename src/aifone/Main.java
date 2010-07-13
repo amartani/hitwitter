@@ -3,8 +3,6 @@ package aifone;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
-import aifone.hitwitter.Tweet;
-
 public class Main {
 	
 	IAiFoneEntrada entrada;
@@ -37,15 +35,9 @@ public class Main {
 		IPropriedades propriedades = new PropriedadesArquivo();
 		System.out.println("Conectando a " + propriedades.getEnderecoServidor());
 		AiFone aifone = new AiFone(propriedades);
-		main.iniciarServidorRMI(aifone.getEntrada(), 1100, aifone.getNomeListener());
+		main.iniciarServidorRMI(aifone.getEntrada(), 1101, aifone.getNomeListener());
 		aifone.getIU().abrirTelaInicial();
 		aifone.getSaida().conectarTelefone();
-//		aifone.getHitwitter().setLogin("dalthon");
-//		aifone.getHitwitter().setSenha("TWITTER3fqfgr");
-//		for(Tweet tweet:aifone.getHitwitter().getTweets()){
-//			System.out.println(tweet.getAutor() + " " + tweet.getConteudo());
-//		}
-//		aifone.getHitwitter().sendTweet("Pq sera q naum fazem parsers xml decentes pra Java?");
 	}
 
 }
