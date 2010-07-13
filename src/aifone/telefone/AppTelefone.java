@@ -123,11 +123,12 @@ public class AppTelefone implements IAppTelefone {
 
 	@Override
 	public void abrirTelaInicial() {
-		try {
+		aifoneiu.abrirTelaInicial();
+		/*try {
 			aifoneiu.abrirTelaInicial();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	@Override
