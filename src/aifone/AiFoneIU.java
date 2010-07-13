@@ -1,5 +1,7 @@
 package aifone;
 
+import aifone.hitwitter.iu.IUEnviarTweet;
+import aifone.hitwitter.iu.IULerTweets;
 import aifone.hitwitter.iu.IULogin;
 import aifone.iu.IUContainer;
 import aifone.iu.IUTelaInicial;
@@ -40,6 +42,24 @@ public class AiFoneIU implements IAiFoneIU {
 	@Override
 	public Telefone getTelefone() {
 		return aifone.getTelefone();
+	}
+
+	@Override
+	public void abrirTelaEnviarTweet() {
+		IUContainer container = IUContainer.getInstance();
+		container.setPanel(new IUEnviarTweet(this));
+		container.setVisible(true);
+	}
+
+	public AiFone getAifone() {
+		return aifone;
+	}
+
+	@Override
+	public void abrirTelaLerTweets() {
+		IUContainer container = IUContainer.getInstance();
+		container.setPanel(new IULerTweets(this));
+		container.setVisible(true);
 	}
 
 }

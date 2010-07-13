@@ -58,7 +58,7 @@ public class AiFone {
 		return getAppTelefone();
 	}
 
-	protected HiTwitter getHitwitter() {
+	public HiTwitter getHitwitter() {
 		if (hitwitter == null) {
 			hitwitter = new HiTwitter(getSaida());
 		}
