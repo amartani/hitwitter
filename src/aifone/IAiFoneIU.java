@@ -14,7 +14,5 @@ public interface IAiFoneIU {
 
 	public void abrirTelaEnviarTweet();
 
-	public AiFone getAifone();
-
 	public void abrirTelaLerTweets();
 }

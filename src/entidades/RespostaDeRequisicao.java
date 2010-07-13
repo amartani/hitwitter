@@ -15,7 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import aifone.hitwitter.Tweet;
+import aifone.hitwitter.rn.Tweet;
 
 @SuppressWarnings("serial")
 public class RespostaDeRequisicao implements Serializable {
