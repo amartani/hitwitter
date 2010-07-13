@@ -2,6 +2,7 @@ package aifone.hitwitter;
 
 import java.rmi.RemoteException;
 import java.util.List;
+
 import entidades.Requisicao;
 import entidades.RespostaDeRequisicao;
 
