@@ -22,7 +22,7 @@ public class CentralTelefonica implements ICentralTelefonica {
 
 	@Override
 	public void efetuarChamada(Telefone origem, Telefone destino) {
-		gerenciadorChamadas.efetuarChamada(origem, destino);
+		gerenciadorChamadas.receberChamada(origem, destino);
 
 	}
 
