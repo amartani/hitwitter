@@ -25,6 +25,9 @@ public class IULerTweets extends javax.swing.JPanel {
     public IULerTweets(IAiFoneIU aiFone) {
     	this.aiFone = aiFone;
         initComponents();
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setWrapStyleWord(true);
+        
     }
 
     /** This method is called from within the constructor to
@@ -42,7 +45,7 @@ public class IULerTweets extends javax.swing.JPanel {
         botaoNovoTweet = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
 
-        jTextArea1.setColumns(20);
+        jTextArea1.setColumns(25);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
