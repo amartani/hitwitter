@@ -1,6 +1,10 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import aifone.hitwitter.Tweet;
 
 @SuppressWarnings("serial")
 public class RespostaDeRequisicao implements Serializable {
@@ -19,6 +23,10 @@ public class RespostaDeRequisicao implements Serializable {
 		this.conteudo = conteudo;
 	}
 
+	public List<Tweet> toTweets(){
+		return new ArrayList<Tweet>();
+	}
+	
 	public String getMensagemDeErro() {
 		return mensagemDeErro;
 	}
