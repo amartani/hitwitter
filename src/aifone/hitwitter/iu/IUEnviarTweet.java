@@ -11,6 +11,9 @@
 
 package aifone.hitwitter.iu;
 
+import java.rmi.RemoteException;
+
+import aifone.IAiFoneIU;
 import aifone.iu.IObservaTeclado;
 import aifone.iu.AdapterJTextComponentObservaTeclado;
 /**
@@ -19,9 +22,12 @@ import aifone.iu.AdapterJTextComponentObservaTeclado;
  */
 public class IUEnviarTweet extends javax.swing.JPanel {
 
+	private IAiFoneIU aiFone;
+	
     /** Creates new form IUEnviarTweet */
-    public IUEnviarTweet() {
+    public IUEnviarTweet(IAiFoneIU aiFone) {
         initComponents();
+        this.aiFone = aiFone;
         componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(areaTexto));
     }
 
@@ -117,7 +123,13 @@ public class IUEnviarTweet extends javax.swing.JPanel {
     }//GEN-LAST:event_areaTextoCaretUpdate
 
     private void botaoTuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTuitarActionPerformed
-
+    	try {
+			aiFone.getAifone().getHitwitter().sendTweet(areaTexto.getText());
+			aiFone.abrirTelaLerTweets();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }//GEN-LAST:event_botaoTuitarActionPerformed
 
 

@@ -11,14 +11,19 @@
 
 package aifone.hitwitter.iu;
 
+import aifone.IAiFoneIU;
+
 /**
  *
  * @author William
  */
 public class IULerTweets extends javax.swing.JPanel {
 
+	private IAiFoneIU aiFone;
+	
     /** Creates new form IULerTweets */
-    public IULerTweets() {
+    public IULerTweets(IAiFoneIU aiFone) {
+    	this.aiFone = aiFone;
         initComponents();
     }
 
@@ -92,11 +97,11 @@ public class IULerTweets extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoNovoTweetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoTweetActionPerformed
-        // TODO add your handling code here:
+    	aiFone.abrirTelaEnviarTweet();
     }//GEN-LAST:event_botaoNovoTweetActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        // TODO add your handling code here:
+        aiFone.abrirTelaInicial();
     }//GEN-LAST:event_botaoSairActionPerformed
 
 
