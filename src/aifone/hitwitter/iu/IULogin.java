@@ -13,6 +13,8 @@ package aifone.hitwitter.iu;
 import javax.swing.text.JTextComponent; //essa importação é utilizada sim!
 
 import aifone.IAiFoneIU;
+import aifone.hitwitter.AppHiTwitter;
+import aifone.hitwitter.rn.HiTwitter;
 import aifone.iu.AdapterJTextComponentObservaTeclado;
 import aifone.iu.IObservaTeclado;
 /**
@@ -21,12 +23,13 @@ import aifone.iu.IObservaTeclado;
  */
 public class IULogin extends javax.swing.JPanel  {
 
-	private IAiFoneIU aiFone;
+	private AppHiTwitter appHiTwitter;
+	private HiTwitter hiTwitter;
 	
-    /** Creates new form IULogin */
-    public IULogin(IAiFoneIU aiFone) {
+    public IULogin(AppHiTwitter appHiTwitter, HiTwitter hiTwitter) {
+    	this.appHiTwitter = appHiTwitter;
+    	this.hiTwitter = hiTwitter;
         initComponents();
-        this.aiFone = aiFone;
         componenteTeclado.setCampoAlvo(new AdapterJTextComponentObservaTeclado(campoNome));
     }
 
@@ -155,13 +158,13 @@ public class IULogin extends javax.swing.JPanel  {
     }//GEN-LAST:event_campoNomeMouseClicked
 
     private void botaoLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogarActionPerformed
-    	aiFone.getAifone().getHitwitter().setLogin(campoNome.getText());
-    	aiFone.getAifone().getHitwitter().setSenha(campoSenha.getText());
-    	aiFone.abrirTelaEnviarTweet();
+    	hiTwitter.setLogin(campoNome.getText());
+    	hiTwitter.setSenha(campoSenha.getText());
+    	appHiTwitter.abrirTelaEnviarTweet();
     }//GEN-LAST:event_botaoLogarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-    	aiFone.abrirTelaInicial();
+    	appHiTwitter.voltarTelaInicial();
     }//GEN-LAST:event_botaoSairActionPerformed
 
 
