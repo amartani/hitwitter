@@ -1,7 +1,11 @@
 package aifone.hitwitter;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.List;
+
+import org.xml.sax.SAXException;
+
 import entidades.Requisicao;
 import entidades.RespostaDeRequisicao;
 
