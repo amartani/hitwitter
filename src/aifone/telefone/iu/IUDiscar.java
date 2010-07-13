@@ -306,7 +306,6 @@ public class IUDiscar extends javax.swing.JPanel {
 
 	private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoSairActionPerformed
 		appTelefone.abrirTelaInicial();
-		rnAppTelefone.encerrarChamada();
 	}// GEN-LAST:event_botaoSairActionPerformed
 
 	private void adicionarNumero(String numero) {
