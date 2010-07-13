@@ -39,7 +39,7 @@ public class GerenciadorChamadasTest {
 		central.receberChamada(origem, destino);
 
 		replay(central);
-		gerenciadorchamadas.efetuarChamada(origem, destino);
+		gerenciadorchamadas.receberChamada(origem, destino);
 		verify(central);
 	}
 
@@ -118,7 +118,7 @@ public class GerenciadorChamadasTest {
 		central.informarChamadaRejeitada(origem);
 
 		replay(central);
-		gerenciadorchamadas.efetuarChamada(origem, destino);
+		gerenciadorchamadas.receberChamada(origem, destino);
 		verify(central);
 	}
 
@@ -131,7 +131,7 @@ public class GerenciadorChamadasTest {
 		central.informarChamadaRejeitada(origem);
 
 		replay(central);
-		gerenciadorchamadas.efetuarChamada(origem, destino);
+		gerenciadorchamadas.receberChamada(origem, destino);
 		verify(central);
 	}
 
@@ -173,7 +173,7 @@ public class GerenciadorChamadasTest {
 		central.informarChamadaRejeitada(terceiro);
 
 		replay(central);
-		gerenciadorchamadas.efetuarChamada(terceiro, origem);
+		gerenciadorchamadas.receberChamada(terceiro, origem);
 		verify(central);
 	}
 
