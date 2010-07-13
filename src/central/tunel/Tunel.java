@@ -24,7 +24,7 @@ public class Tunel implements ITunel {
 
 	@Override
 	public RespostaDeRequisicao enviarRequisicao(Telefone origem, Requisicao requisicao) {
-		if(requisicao.getMethod() == "GET")
+		if(requisicao.getMethod().equals("GET"))
 			return executarMetodoGet(requisicao);
 		else
 			return executarMetodoPost(requisicao);
@@ -76,6 +76,7 @@ public class Tunel implements ITunel {
 	}
 	
 	private RespostaDeRequisicao executarMetodoGet(Requisicao requisicao){
+		System.out.println("Eh get msmo");
 		RespostaDeRequisicao resposta = new RespostaDeRequisicao();
 		GetMethod get = new GetMethod(requisicao.getUrl());
 		try {
